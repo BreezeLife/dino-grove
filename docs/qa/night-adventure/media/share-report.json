@@ -1,0 +1,21 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "mode": "Real browser UI with stubbed native share capability; not a physical photo-library write",
+  "checks": [
+    {
+      "name": "Unsupported native file sharing retains download and long-press help",
+      "passed": true
+    },
+    {
+      "name": "PNG file passed to native share adapter; rejection fallback and cancellation",
+      "file": {
+        "count": 1,
+        "type": "image/png",
+        "name": "dino-grove-2026-10-03T01-18-32-816Z.png",
+        "size": 246689
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

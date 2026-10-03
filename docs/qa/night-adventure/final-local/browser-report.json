@@ -1,0 +1,322 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "date": "2026-10-03T01:11:11.939Z",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "checks": [
+    {
+      "viewport": "1440x900",
+      "mobile": false,
+      "initial": {
+        "document": [
+          1440,
+          900
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 23,
+          "y": 89,
+          "width": 1040,
+          "height": 788
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "3D brand icon, relative manifest and home-screen PNG icons",
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Mouse click ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 1,
+        "canvas": [
+          1040,
+          788
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.7622638731713918,
+        "ambient": 2.046698187992323
+      },
+      "performance": {
+        "seconds": 5.0082000000119224,
+        "fps": 60.10143364867287,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "390x844",
+      "mobile": true,
+      "initial": {
+        "document": [
+          390,
+          844
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 11,
+          "y": 75,
+          "width": 368,
+          "height": 378
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          552,
+          567
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.8160795575075002,
+        "ambient": 2.03220934990183
+      },
+      "performance": {
+        "seconds": 5.001100000000005,
+        "fps": 59.586890884005456,
+        "maxFrameMs": 33.30000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "320x568",
+      "mobile": true,
+      "initial": {
+        "document": [
+          320,
+          568
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 9,
+          "y": 70,
+          "width": 302,
+          "height": 242.5
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          453,
+          364
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.8180514186551509,
+        "ambient": 2.031678464208232
+      },
+      "performance": {
+        "seconds": 5.010199999994038,
+        "fps": 60.0774420183542,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "844x390",
+      "mobile": true,
+      "initial": {
+        "document": [
+          844,
+          390
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 13,
+          "y": 67,
+          "width": 524,
+          "height": 312
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          786,
+          468
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.8198758524404797,
+        "ambient": 2.0311872704967975
+      },
+      "performance": {
+        "seconds": 5.005400000000002,
+        "fps": 60.13505414152713,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "name": "WebGL unavailable fallback",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

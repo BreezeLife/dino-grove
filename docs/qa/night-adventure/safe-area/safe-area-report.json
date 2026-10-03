@@ -1,0 +1,417 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "date": "2026-10-03T01:30:30.979Z",
+  "browser": "154.0.8037.97",
+  "mode": "Real Chrome with mobile touch emulation and CSS env() values substituted for safe-area geometry; not a physical iPhone or native standalone test",
+  "checks": [
+    {
+      "viewport": "1440x900",
+      "inset": {
+        "top": 59,
+        "right": 0,
+        "bottom": 34,
+        "left": 0
+      },
+      "zeroInsetHeaderHeight": 88,
+      "geometry": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "document": [
+          1440,
+          900
+        ],
+        "header": {
+          "left": 0,
+          "top": 0,
+          "right": 1440,
+          "bottom": 133,
+          "width": 1440,
+          "height": 133
+        },
+        "scene": {
+          "left": 22,
+          "top": 133,
+          "right": 1064,
+          "bottom": 866,
+          "width": 1042,
+          "height": 733
+        },
+        "panel": {
+          "left": 1082,
+          "top": 133,
+          "right": 1418,
+          "bottom": 866,
+          "width": 336,
+          "height": 733
+        },
+        "headerContents": [
+          {
+            "name": "brand",
+            "left": 30,
+            "top": 62,
+            "right": 231.8125,
+            "bottom": 116,
+            "width": 201.8125,
+            "height": 54
+          },
+          {
+            "name": "切换到英文",
+            "left": 1244.640625,
+            "top": 66,
+            "right": 1295,
+            "bottom": 112,
+            "width": 50.359375,
+            "height": 46
+          },
+          {
+            "name": "拍摄场景照片",
+            "left": 1307,
+            "top": 65,
+            "right": 1410,
+            "bottom": 113,
+            "width": 103,
+            "height": 48
+          }
+        ],
+        "headerOutsideSafeArea": [],
+        "headerOverlapsScene": [],
+        "sceneOutsideSafeArea": false,
+        "panelOutsideSafeArea": false,
+        "panelHorizontalOverflow": false
+      },
+      "actions": [
+        "暂停漫游",
+        "继续漫游",
+        "俯瞰",
+        "全景",
+        "霸王龙",
+        "靠近看",
+        "喂点心",
+        "关闭恐龙介绍",
+        "夜晚",
+        "自动昼夜",
+        "自动旋转",
+        "自动旋转",
+        "背景音乐",
+        "背景音乐",
+        "拍摄场景照片",
+        "关闭照片预览",
+        "切换到英文",
+        "Velociraptor",
+        "Feed",
+        "Close dinosaur details"
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "viewport": "390x844",
+      "inset": {
+        "top": 59,
+        "right": 0,
+        "bottom": 34,
+        "left": 0
+      },
+      "zeroInsetHeaderHeight": 74,
+      "geometry": {
+        "viewport": [
+          390,
+          844
+        ],
+        "document": [
+          390,
+          844
+        ],
+        "header": {
+          "left": 0,
+          "top": 0,
+          "right": 390,
+          "bottom": 123,
+          "width": 390,
+          "height": 123
+        },
+        "scene": {
+          "left": 10,
+          "top": 123,
+          "right": 380,
+          "bottom": 466.5,
+          "width": 370,
+          "height": 343.5
+        },
+        "panel": {
+          "left": 10,
+          "top": 478.5,
+          "right": 380,
+          "bottom": 810,
+          "width": 370,
+          "height": 331.5
+        },
+        "headerContents": [
+          {
+            "name": "brand",
+            "left": 14,
+            "top": 63,
+            "right": 169.40625,
+            "bottom": 109,
+            "width": 155.40625,
+            "height": 46
+          },
+          {
+            "name": "切换到英文",
+            "left": 281,
+            "top": 64,
+            "right": 325,
+            "bottom": 108,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "name": "拍摄场景照片",
+            "left": 332,
+            "top": 64,
+            "right": 376,
+            "bottom": 108,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "headerOutsideSafeArea": [],
+        "headerOverlapsScene": [],
+        "sceneOutsideSafeArea": false,
+        "panelOutsideSafeArea": false,
+        "panelHorizontalOverflow": false
+      },
+      "actions": [
+        "暂停漫游",
+        "继续漫游",
+        "俯瞰",
+        "全景",
+        "霸王龙",
+        "靠近看",
+        "喂点心",
+        "关闭恐龙介绍",
+        "夜晚",
+        "自动昼夜",
+        "自动旋转",
+        "自动旋转",
+        "背景音乐",
+        "背景音乐",
+        "拍摄场景照片",
+        "关闭照片预览",
+        "切换到英文",
+        "Velociraptor",
+        "Feed",
+        "Close dinosaur details"
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "viewport": "320x568",
+      "inset": {
+        "top": 47,
+        "right": 0,
+        "bottom": 34,
+        "left": 0
+      },
+      "zeroInsetHeaderHeight": 69,
+      "geometry": {
+        "viewport": [
+          320,
+          568
+        ],
+        "document": [
+          320,
+          568
+        ],
+        "header": {
+          "left": 0,
+          "top": 0,
+          "right": 320,
+          "bottom": 106,
+          "width": 320,
+          "height": 106
+        },
+        "scene": {
+          "left": 8,
+          "top": 106,
+          "right": 312,
+          "bottom": 341,
+          "width": 304,
+          "height": 235
+        },
+        "panel": {
+          "left": 8,
+          "top": 350,
+          "right": 312,
+          "bottom": 534,
+          "width": 304,
+          "height": 184
+        },
+        "headerContents": [
+          {
+            "name": "brand",
+            "left": 11,
+            "top": 49.703125,
+            "right": 145.6875,
+            "bottom": 93.296875,
+            "width": 134.6875,
+            "height": 43.59375
+          },
+          {
+            "name": "切换到英文",
+            "left": 214,
+            "top": 49.5,
+            "right": 258,
+            "bottom": 93.5,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "name": "拍摄场景照片",
+            "left": 265,
+            "top": 49.5,
+            "right": 309,
+            "bottom": 93.5,
+            "width": 44,
+            "height": 44
+          }
+        ],
+        "headerOutsideSafeArea": [],
+        "headerOverlapsScene": [],
+        "sceneOutsideSafeArea": false,
+        "panelOutsideSafeArea": false,
+        "panelHorizontalOverflow": false
+      },
+      "actions": [
+        "暂停漫游",
+        "继续漫游",
+        "俯瞰",
+        "全景",
+        "霸王龙",
+        "靠近看",
+        "喂点心",
+        "关闭恐龙介绍",
+        "夜晚",
+        "自动昼夜",
+        "自动旋转",
+        "自动旋转",
+        "背景音乐",
+        "背景音乐",
+        "拍摄场景照片",
+        "关闭照片预览",
+        "切换到英文",
+        "Velociraptor",
+        "Feed",
+        "Close dinosaur details"
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "viewport": "844x390",
+      "inset": {
+        "top": 0,
+        "right": 59,
+        "bottom": 21,
+        "left": 59
+      },
+      "zeroInsetHeaderHeight": 66,
+      "geometry": {
+        "viewport": [
+          844,
+          390
+        ],
+        "document": [
+          844,
+          390
+        ],
+        "header": {
+          "left": 0,
+          "top": 0,
+          "right": 844,
+          "bottom": 66,
+          "width": 844,
+          "height": 66
+        },
+        "scene": {
+          "left": 59,
+          "top": 66,
+          "right": 491,
+          "bottom": 369,
+          "width": 432,
+          "height": 303
+        },
+        "panel": {
+          "left": 501,
+          "top": 66,
+          "right": 785,
+          "bottom": 369,
+          "width": 284,
+          "height": 303
+        },
+        "headerContents": [
+          {
+            "name": "brand",
+            "left": 59,
+            "top": 9.90625,
+            "right": 227.375,
+            "bottom": 56.09375,
+            "width": 168.375,
+            "height": 46.1875
+          },
+          {
+            "name": "切换到英文",
+            "left": 623.640625,
+            "top": 11,
+            "right": 674,
+            "bottom": 55,
+            "width": 50.359375,
+            "height": 44
+          },
+          {
+            "name": "拍摄场景照片",
+            "left": 682,
+            "top": 11,
+            "right": 785,
+            "bottom": 55,
+            "width": 103,
+            "height": 44
+          }
+        ],
+        "headerOutsideSafeArea": [],
+        "headerOverlapsScene": [],
+        "sceneOutsideSafeArea": false,
+        "panelOutsideSafeArea": false,
+        "panelHorizontalOverflow": false
+      },
+      "actions": [
+        "暂停漫游",
+        "继续漫游",
+        "俯瞰",
+        "全景",
+        "霸王龙",
+        "靠近看",
+        "喂点心",
+        "关闭恐龙介绍",
+        "夜晚",
+        "自动昼夜",
+        "自动旋转",
+        "自动旋转",
+        "背景音乐",
+        "背景音乐",
+        "拍摄场景照片",
+        "关闭照片预览",
+        "切换到英文",
+        "Velociraptor",
+        "Feed",
+        "Close dinosaur details"
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -5,7 +5,7 @@ import * as THREE from "three";
 import {seededRandom,createWanderers,updateWanderers,safePoint,OBSTACLES,POND} from "../src/navigation.mjs";
 const results=[];
 const residents=createWanderers();
-assert.equal(residents.length,3,"The grove must retain its three original residents");
+assert.equal(residents.length,5,"The grove must include the original three residents plus T. rex and Velociraptor");
 residents.forEach((a,i)=>assert(safePoint(a.x,a.z,a.r,residents,i),"Resident starts must not overlap: "+i));
 const initialState=JSON.stringify(residents);
 updateWanderers(residents,-.01,seededRandom(814));
@@ -75,9 +75,9 @@ const transformed=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTa
 const path=new URL("../.sites-runtime/scene-runtime-check.mjs",import.meta.url);fs.mkdirSync(new URL("../.sites-runtime/",import.meta.url),{recursive:true});fs.writeFileSync(path,transformed);
 const {createGrove}=await import(path.href);
 for(const [w,h] of [[1440,900],[390,844],[320,568],[844,390]]){
- let selected=-1;
+ let selected=-1;const events=[];
  const host={clientWidth:w,clientHeight:h,appendChild(){}};
- const api=createGrove(host,id=>selected=id);
+ const api=createGrove(host,id=>selected=id,event=>events.push(event));
  let objects=0,vertices=0,invalid=0;
  renderer.scene.traverse(o=>{if(!o.isMesh)return;objects++;vertices+=o.geometry.attributes.position.count;for(const v of o.geometry.attributes.position.array)if(!Number.isFinite(v))invalid++;});
  assert.equal(invalid,0);assert(objects<430,"scene mesh budget");
@@ -111,12 +111,19 @@ for(const [w,h] of [[1440,900],[390,844],[320,568],[844,390]]){
  const pausedPositions=dinosaurRoots.map(o=>o.position.clone());
  api.pause(false);api.clear();
  advance(1);
- dinosaurRoots.forEach((o,i)=>assert(o.position.distanceTo(pausedPositions[i])<=.33/60+1e-8,"Resuming must not jump ahead in time"));
+ dinosaurRoots.forEach((o,i)=>assert(o.position.distanceTo(pausedPositions[i])<=.72/60+1e-8,"Resuming must not jump ahead in time"));
  const cameraBefore=renderer.camera.position.clone();api.focus(residents.length-1);advance(65);
  assert(renderer.camera.position.toArray().every(Number.isFinite)&&renderer.camera.position.distanceTo(cameraBefore)>1,"Focus must move the camera to a finite close view");
  const sunlight=renderer.scene.children.find(o=>o.isDirectionalLight),dayColor=sunlight.color.clone();
  api.setMood("sunset");advance(90);assert(!sunlight.color.equals(dayColor),"Sunset must change the lighting");
- api.setMood("day");advance(90);assert.equal(typeof api.capture,"function","Screenshot export must be available");
+ api.setMood("night");advance(180);assert(sunlight.intensity>=1,"Night keeps a readable key light");
+ assert(renderer.scene.children.find(o=>o.isHemisphereLight).intensity>=2,"Night ambient stays usable");
+ api.pause(true);api.setMood("day");advance(180);assert(sunlight.intensity>2.5,"An explicit light change works even while paused");api.pause(false);
+ if(w===1440){events.length=0;api.setDayCycle(true);advance(7600);assert(events.some(e=>e.type==="phase"&&e.phase==="sunset")&&events.some(e=>e.type==="phase"&&e.phase==="night"),"Automatic cycle reports distinct phases");}
+ api.setAutoRotate(true);advance(1);assert.equal(controls.autoRotate,true);
+ renderer.events.pointerdown({button:0,pointerId:1,clientX:20,clientY:20});
+ assert(events.some(e=>e.type==="rotate"&&!e.enabled),"Manual pointer interaction interrupts auto-rotation");renderer.events.pointercancel({pointerId:1});
+ api.setDayCycle(false);api.setMood("day");advance(90);assert.equal(typeof api.capture,"function","Screenshot export must be available");
  const backgroundBefore=renderer.scene.background;captureFailure=true;
  assert.throws(()=>api.capture(),/simulated capture failure/,"Screenshot failures must propagate to the caller");
  assert.equal(renderer.scene.background,backgroundBefore,"A failed screenshot must restore the scene background");captureFailure=false;

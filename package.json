@@ -7,8 +7,9 @@
     "dev": "vite --host",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host",
-    "test": "node tests/scene-check.mjs",
-    "test:browser": "node tests/browser-check.mjs"
+    "test": "node tests/navigation-check.mjs && node tests/scene-check.mjs",
+    "test:browser": "node tests/browser-check.mjs",
+    "test:media": "node tests/media-check.mjs"
   },
   "dependencies": {
     "lucide-react": "1.31.0",
