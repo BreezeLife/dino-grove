@@ -1,0 +1,217 @@
+{
+  "url": "http://127.0.0.1:5173/",
+  "date": "2026-10-02T23:56:24.853Z",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "checks": [
+    {
+      "viewport": "1440x900",
+      "mobile": false,
+      "initial": {
+        "viewport": [
+          1440,
+          900
+        ],
+        "document": [
+          1440,
+          900
+        ],
+        "out": [],
+        "small": [],
+        "scene": {
+          "x": 220,
+          "y": 108,
+          "width": 1165,
+          "height": 679
+        }
+      },
+      "actions": [
+        "pause freezes rendered canvas",
+        "actual model picking",
+        "三角龙: select, focus, greet, feed, close",
+        "剑龙: select, focus, greet, feed, close",
+        "长颈龙: select, focus, greet, feed, close",
+        "three camera presets",
+        "day/sunset and PNG download",
+        "mouse drag and wheel zoom",
+        "reset and Escape",
+        "Chinese/English translation and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 1,
+        "canvas": [
+          1165,
+          679
+        ]
+      },
+      "performance": {
+        "seconds": 5.016599999982121,
+        "fps": 60.200135550188634,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "390x844",
+      "mobile": true,
+      "initial": {
+        "viewport": [
+          390,
+          844
+        ],
+        "document": [
+          390,
+          844
+        ],
+        "out": [],
+        "small": [],
+        "scene": {
+          "x": 0,
+          "y": 150,
+          "width": 390,
+          "height": 485
+        }
+      },
+      "actions": [
+        "pause freezes rendered canvas",
+        "actual model picking",
+        "三角龙: select, focus, greet, feed, close",
+        "剑龙: select, focus, greet, feed, close",
+        "长颈龙: select, focus, greet, feed, close",
+        "three camera presets",
+        "day/sunset and PNG download",
+        "CDP single-touch rotate and two-touch pinch",
+        "reset and Escape",
+        "Chinese/English translation and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          585,
+          727
+        ]
+      },
+      "performance": {
+        "seconds": 5.001000000011918,
+        "fps": 60.18796240737506,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "320x568",
+      "mobile": true,
+      "initial": {
+        "viewport": [
+          320,
+          568
+        ],
+        "document": [
+          320,
+          568
+        ],
+        "out": [],
+        "small": [],
+        "scene": {
+          "x": 0,
+          "y": 106,
+          "width": 320,
+          "height": 293
+        }
+      },
+      "actions": [
+        "pause freezes rendered canvas",
+        "actual model picking",
+        "三角龙: select, focus, greet, feed, close",
+        "剑龙: select, focus, greet, feed, close",
+        "长颈龙: select, focus, greet, feed, close",
+        "three camera presets",
+        "day/sunset and PNG download",
+        "CDP single-touch rotate and two-touch pinch",
+        "reset and Escape",
+        "Chinese/English translation and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          480,
+          439
+        ]
+      },
+      "performance": {
+        "seconds": 5.011400000005961,
+        "fps": 60.063056231720076,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "viewport": "844x390",
+      "mobile": true,
+      "initial": {
+        "viewport": [
+          844,
+          390
+        ],
+        "document": [
+          844,
+          390
+        ],
+        "out": [],
+        "small": [],
+        "scene": {
+          "x": 150,
+          "y": 65,
+          "width": 624,
+          "height": 258
+        }
+      },
+      "actions": [
+        "pause freezes rendered canvas",
+        "actual model picking",
+        "三角龙: select, focus, greet, feed, close",
+        "剑龙: select, focus, greet, feed, close",
+        "长颈龙: select, focus, greet, feed, close",
+        "three camera presets",
+        "day/sunset and PNG download",
+        "CDP single-touch rotate and two-touch pinch",
+        "reset and Escape",
+        "Chinese/English translation and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          1123,
+          464
+        ]
+      },
+      "performance": {
+        "seconds": 5.003000000005959,
+        "fps": 60.163901658932936,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "name": "WebGL unavailable fallback",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

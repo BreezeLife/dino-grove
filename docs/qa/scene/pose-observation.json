@@ -1,0 +1,36 @@
+{
+  "durationSeconds": 90,
+  "mode": "Real-time unmodified scene animation in a browser harness, followed by controlled drinking poses",
+  "samples": [
+    {
+      "elapsed": 0,
+      "animals": [
+        {
+          "id": 0,
+          "x": -3,
+          "z": 3,
+          "yaw": 0.8,
+          "behavior": "greet",
+          "distance": 0
+        },
+        {
+          "id": 1,
+          "x": 2,
+          "z": 4,
+          "yaw": -1.4,
+          "behavior": "greet",
+          "distance": 0
+        },
+        {
+          "id": 2,
+          "x": -2.6,
+          "z": -2,
+          "yaw": 1.1,
+          "behavior": "greet",
+          "distance": 0
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

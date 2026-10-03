@@ -1,0 +1,20 @@
+
+> dino-grove@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.0.16 building client environment for production...
+[2K
+transforming...✓ 1803 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.60 kB │ gzip:   0.45 kB
+dist/assets/index-CgNwlX2h.css   22.39 kB │ gzip:   5.21 kB
+dist/assets/index-BqB6wcy7.js   216.97 kB │ gzip:  69.93 kB
+dist/assets/grove-vpjFEAr4.js   614.70 kB │ gzip: 157.25 kB
+
+✓ built in 639ms
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

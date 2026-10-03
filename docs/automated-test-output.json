@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "seed": 814,
+      "seconds": 600,
+      "minimumClearance": 0.060000096985378004,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 150,
+          "behaviors": [
+            "look",
+            "graze",
+            "walk",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 119,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 133,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "seconds": 600,
+      "minimumClearance": 0.06000014064929038,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 137,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 99,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 135,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 123456,
+      "seconds": 600,
+      "minimumClearance": 0.060000041123899006,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 126,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 128,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 143,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "viewport": "1440x900",
+      "meshes": 338,
+      "vertices": 164503,
+      "bounds": {
+        "left": -0.5338391668845665,
+        "right": 0.5925125550260003,
+        "top": 0.6512703613364664,
+        "bottom": -0.7083847148309488
+      }
+    },
+    {
+      "viewport": "390x844",
+      "meshes": 338,
+      "vertices": 164503,
+      "bounds": {
+        "left": -0.7869345809309202,
+        "right": 0.8265834414759465,
+        "top": 0.30252859888642974,
+        "bottom": -0.2717148561202776
+      }
+    },
+    {
+      "viewport": "320x568",
+      "meshes": 338,
+      "vertices": 164503,
+      "bounds": {
+        "left": -0.7882880816323639,
+        "right": 0.8373711117232961,
+        "top": 0.3647754483823047,
+        "bottom": -0.33798809377068306
+      }
+    },
+    {
+      "viewport": "844x390",
+      "meshes": 338,
+      "vertices": 164503,
+      "bounds": {
+        "left": -0.3946867774122861,
+        "right": 0.4380661544268059,
+        "top": 0.6512703613364664,
+        "bottom": -0.7083847148309488
+      }
+    }
+  ]
+}
