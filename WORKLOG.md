@@ -45,3 +45,10 @@
 - 保留预先存在的STATUS.md外部修改；源码、文档和测试按明确文件列表提交，APK通过GitHub Release发布，密钥/SDK/构建缓存不入库。
 
 - 稳定本机快照上的最终Chrome平板800×1280、1280×800完整回归通过：严格暂停像素/场景状态一致、点触到达5.863/5.894秒、正常流程0浏览器/资源错误。早期一次30秒到达等待超时未复现，不声称修复导航bug或确定负载根因；增加wall/scene/路径诊断保留调查能力。
+
+## 2026-10-03 · Android 与 Pages 发布
+- 源码f25d9037150fa55c5b729f02133d6e61c22dafe5正常推送main；Actions37090883978测试、构建和Pages部署成功。
+- 创建GitHub预发行版v2.0.0-android-test，上传最终APK和SHA256SUMS.txt；从公开URL下载后SHA-256为064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951，与原生手机/平板测试包一致。
+- https://breezelife.github.io/dino-grove/ 页面、入口脚本、场景脚本、CSS与1024图标均HTTP200，线上字节SHA-256与APK内资源完全一致。
+- 验收完成后停止隔离模拟器并清理本任务临时AVD/下载文件约1.1GB；保留已有SDK，未操作其他已连接设备。
+- 最新线上390×844真实Chrome完整交互回归通过：暂停PNG完全一致，正常流程0浏览器、请求和HTTP错误；所有五居民、时段、音频、照片、双语和镜头交互正常。报告与截图写入docs/qa/night-adventure/production-final。

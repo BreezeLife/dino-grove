@@ -22,7 +22,7 @@
 
 ## 发布记录
 - 公开仓库：https://github.com/BreezeLife/dino-grove
-- Pages实际地址：https://breezelife.github.io/dino-grove/（Pages API确认且HTTP200）。网页版源码d546672bb5e4cdf04e3443caeeb36e6362239576已发布，工作流37086811718成功，线上390×844完整回归通过、0浏览器/网络错误。Android扩展正在进行。
+- Pages实际地址：https://breezelife.github.io/dino-grove/（Pages API确认且HTTP200）。网页版源码d546672bb5e4cdf04e3443caeeb36e6362239576首轮已发布，工作流37086811718成功，线上390×844完整回归通过、0浏览器/网络错误。后续Android与平板升级发布记录见下。
 - 网页版成功Actions：https://github.com/BreezeLife/dino-grove/actions/runs/37086811718；证据 `qa/night-adventure/production`。线上1024图标SHA-256与本地一致。
 - 远端main接续点：7e84334f050c155f1ec650d313bee929b5fc98f4；已读取远端，未强推或覆盖其他工作。
 - 复用BreezeLife本机gh及SSH授权，无需重新登录；OAuth缺workflow范围，Git推送使用 `git@github.com:BreezeLife/dino-grove.git`，gh负责读取工作流和Pages状态。
@@ -36,3 +36,10 @@
 - 最终APK在Android15/API35 ARM64模拟器手机和平板均完整通过，真实Android输入和WebView、实际相册保存PNG字节一致；这不替代实体设备性能或Android10–14运行验收。
 - 构建与安装说明见 `android/README.md`；报告与截图见 `docs/qa/android`。仓库忽略APK、SDK、构建缓存和所有签名密钥。
 - 源目录为iCloud，遇到短读后使用逐字节校验的本机临时快照构建；脚本已固化该流程。工作区node_modules为本机临时依赖链接，其他机器正常npm ci即可。
+
+## 最终发布 · Android 与平板升级
+- 源码提交：[f25d9037150fa55c5b729f02133d6e61c22dafe5](https://github.com/BreezeLife/dino-grove/commit/f25d9037150fa55c5b729f02133d6e61c22dafe5)。正常接续main推送，无强推。
+- Pages成功工作流：[37090883978](https://github.com/BreezeLife/dino-grove/actions/runs/37090883978)。实际页面、JS、CSS、1024图标均HTTP200，并与最终APK内资源SHA-256一致。
+- Android发行版：[v2.0.0-android-test](https://github.com/BreezeLife/dino-grove/releases/tag/v2.0.0-android-test)；[直接下载APK](https://github.com/BreezeLife/dino-grove/releases/download/v2.0.0-android-test/dino-grove-android-v2.0.0.apk)。公开下载后复核SHA-256，与手机/平板验收的安装包完全一致。
+- 发布资源证据：`docs/qa/android/published-assets.json`。后续文档证据提交不改变运行时代码或APK。
+- 最终线上390×844真实Chrome完整回归通过：五居民、三视角、日夜、音频、触摸镜头、照片、双语与WebGL回退，正常流程0浏览器/资源错误，暂停PNG精确一致。证据 `docs/qa/night-adventure/production-final`；无开发注入，内部导航位置断言由本地快照及原生验收覆盖。

@@ -1,0 +1,44 @@
+{
+  "sourceCommit": "f25d9037150fa55c5b729f02133d6e61c22dafe5",
+  "pagesRun": "https://github.com/BreezeLife/dino-grove/actions/runs/37090883978",
+  "pagesUrl": "https://breezelife.github.io/dino-grove/",
+  "releaseUrl": "https://github.com/BreezeLife/dino-grove/releases/tag/v2.0.0-android-test",
+  "publicApkDownloadSha256": "064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951",
+  "assets": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 968,
+      "sha256": "2f8579033fe2adb9f628434625e9c11f03202d5805a8b884f3ec9a153b21595d",
+      "matchesApk": true
+    },
+    {
+      "path": "assets/index-HYi7d0wa.js",
+      "status": 200,
+      "bytes": 239371,
+      "sha256": "7247ec1bd347ea474997a2d1da98788bc7bc0635758f04d5df3dee8e07103193",
+      "matchesApk": true
+    },
+    {
+      "path": "assets/index-iCGVNJ-J.css",
+      "status": 200,
+      "bytes": 25433,
+      "sha256": "3c200ccd7656ccf4f00308aa4ae7a53a5f7b484081d4acf44c89333507181413",
+      "matchesApk": true
+    },
+    {
+      "path": "assets/grove-CYV3qb4e.js",
+      "status": 200,
+      "bytes": 629454,
+      "sha256": "4ced1acfddc1f78399600368bca07f9daa0d2ac24050c59064d73d30fb570d0f",
+      "matchesApk": true
+    },
+    {
+      "path": "app-icon-1024.png",
+      "status": 200,
+      "bytes": 129143,
+      "sha256": "f127a4f706620fade28f91eedac6d7c0eed8f0a49fe0591a7c1a3d32c797b4f3",
+      "matchesApk": true
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "url": "https://breezelife.github.io/dino-grove/",
+  "date": "2026-10-03T02:48:51.768Z",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "checks": [
+    {
+      "viewport": "390x844",
+      "mobile": true,
+      "initial": {
+        "document": [
+          390,
+          844
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 11,
+          "y": 75,
+          "width": 368,
+          "height": 378
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "developmentEvents": [
+        {
+          "type": "navigation",
+          "url": "https://breezelife.github.io/dino-grove/",
+          "at": "2026-10-03T02:48:53.912Z"
+        },
+        {
+          "type": "navigation",
+          "url": "https://breezelife.github.io/dino-grove/",
+          "at": "2026-10-03T02:49:47.547Z"
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          552,
+          567
+        ]
+      },
+      "pauseVerification": {
+        "exactPngMatch": true,
+        "exactSceneStateMatch": null,
+        "developmentEvents": [
+          {
+            "type": "navigation",
+            "url": "https://breezelife.github.io/dino-grove/",
+            "at": "2026-10-03T02:48:53.912Z"
+          }
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "performance": {
+        "seconds": 5.0052000000059635,
+        "fps": 60.13745704460189,
+        "maxFrameMs": 16.80000000000291
+      },
+      "passed": true
+    },
+    {
+      "name": "WebGL unavailable fallback",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

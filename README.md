@@ -1,6 +1,6 @@
 # 恐龙小丛林 · Dino Grove
 
-[在线探索 · Explore the grove](https://breezelife.github.io/dino-grove/) · [GitHub](https://github.com/BreezeLife/dino-grove)
+[在线探索 · Explore the grove](https://breezelife.github.io/dino-grove/) · [Android APK 下载](https://github.com/BreezeLife/dino-grove/releases/download/v2.0.0-android-test/dino-grove-android-v2.0.0.apk) · [GitHub](https://github.com/BreezeLife/dino-grove)
 
 用代码生成的一座 Three.js 恐龙箱庭。三角龙、剑龙、长颈龙、霸王龙和迅猛龙，在更大的岛屿上漫游、觅食和喝水。模型、植物、头像与音乐均由代码生成。
 
@@ -70,7 +70,7 @@ Android 10 及以上可安装，手机和平板共用一个 APK，支持横竖�
 
 当前版本为 **2.0.0-test 测试安装包**，使用本机 Android 调试证书签名，未发布应用商店。下载后在 Android「文件」中打开 APK，按系统提示允许该下载来源安装。要求设备支持 WebGL 2，并使用较新的 Android System WebView。相同证书的后续包可覆盖更新；其他机器生成的调试签名通常需要先卸载。
 
-安装包链接和 SHA-256 见 [发布交接](docs/HANDOFF.md)，本地构建步骤见 [Android README](android/README.md)。构建命令：
+下载：[Android APK（3.7 MB）](https://github.com/BreezeLife/dino-grove/releases/download/v2.0.0-android-test/dino-grove-android-v2.0.0.apk) · [发行说明及校验值](https://github.com/BreezeLife/dino-grove/releases/tag/v2.0.0-android-test)。发布记录见 [交接文档](docs/HANDOFF.md)，本地构建步骤见 [Android README](android/README.md)。构建命令：
 
 ```sh
 node scripts/build-android.mjs

@@ -61,3 +61,7 @@
 最终Android手机和平板报告均 `passed: true`，均对应SHA-256 `064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951`。手机WebView为393×778（横屏802×341），平板800×1174（横屏1206×740）。两种配置离线加载、原生点触到达、相册保存、双语、三时段、横竖屏和音乐生命周期全部通过。系统相册取回的PNG分别为1188×1306与1872×1524，均与预览逐字节一致。人工抽查平板夜景、手机相框照片，画面和文字完整。
 
 最终Chrome平板矩阵 [browser-report.json](qa/android-tablet-web/browser-report.json) 两视口800×1280、1280×800全部通过，正常流程0浏览器/资源错误，暂停PNG与场景状态完全一致，真实触摸行走分别5.863/5.894秒到达。早期一次30秒超时未复现，无法归因于产品或负载；保留逐秒场景/墙钟时间与导航状态诊断，未更改导航源码或放宽断言。
+
+源码f25d903的Pages工作流37090883978成功；线上HTML、JavaScript、CSS与图标均HTTP200且与APK内资源校验值一致。GitHub Release的APK公开下载后SHA-256与原生验收安装包一致。见 [published-assets.json](qa/android/published-assets.json)。
+
+最终线上390×844完整回归 [production-final/browser-report.json](qa/night-adventure/production-final/browser-report.json) 通过。真实Chrome完成全部五居民动作、三视角、日夜、音频、镜头触摸/捏合、横竖屏、带框PNG下载、双语记忆及WebGL回退；暂停PNG精确一致，正常流程0 console/page/HTTP/request错误。未注入场景内部API，所以不将这一轮写作导航位置到达验证，该项由本地稳定快照及Android原生报告覆盖。60.14FPS为本机M1 Pro采样，不代表Android硬件。
