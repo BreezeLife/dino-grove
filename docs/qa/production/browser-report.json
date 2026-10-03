@@ -1,0 +1,63 @@
+{
+  "url": "https://breezelife.github.io/dino-grove/",
+  "date": "2026-10-03T00:10:14.767Z",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "checks": [
+    {
+      "viewport": "390x844",
+      "mobile": true,
+      "initial": {
+        "viewport": [
+          390,
+          844
+        ],
+        "document": [
+          390,
+          844
+        ],
+        "out": [],
+        "small": [],
+        "scene": {
+          "x": 0,
+          "y": 150,
+          "width": 390,
+          "height": 485
+        }
+      },
+      "actions": [
+        "pause freezes rendered canvas",
+        "三角龙: select, focus, greet, feed, close",
+        "剑龙: select, focus, greet, feed, close",
+        "长颈龙: select, focus, greet, feed, close",
+        "three camera presets",
+        "day/sunset and PNG download",
+        "CDP single-touch rotate and two-touch pinch",
+        "reset and Escape",
+        "Chinese/English translation and persisted language"
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          585,
+          727
+        ]
+      },
+      "performance": {
+        "seconds": 5.0009000000000015,
+        "fps": 60.18916595012896,
+        "maxFrameMs": 16.80000000000291
+      },
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "passed": true
+    },
+    {
+      "name": "WebGL unavailable fallback",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -17,4 +17,11 @@
 - 设备限制：没有实体手机，模拟手势和M1 Pro上的手机视口帧率不能当作真机达标。Three.js场景块仍有500KB体积提示。
 
 ## 发布记录
-正在同步BreezeLife/dino-grove，待Actions及实际Pages验证完成后填写。本机已验证BreezeLife的gh现有授权，无需新登录。
+- 公开仓库：https://github.com/BreezeLife/dino-grove
+- 实际Pages地址：https://breezelife.github.io/dino-grove/（GitHub Pages API返回，HTTP 200）
+- 首发源码提交：0c1002e411ceb6efc6cd33bff647b825b284c158
+- 首次成功构建/部署：https://github.com/BreezeLife/dino-grove/actions/runs/37080688803
+- 线上390×844真实Chrome回归通过：中英切换与刷新记忆、三居民互动、镜头、模拟触摸、截图、资源加载和WebGL回退。0正常流程浏览器/网络错误。报告：qa/production/browser-report.json。
+- 后续提交补充首帧负时间差保护和本发布记录；当前源码版本由仓库main及其最新成功Actions运行定位。
+- 授权复用：gh负责创建仓库和Pages配置；OAuth缺workflow范围，推送改用本机已验证为BreezeLife的SSH授权，未重新登录。origin为git@github.com:BreezeLife/dino-grove.git。
+- 首次push工作流在Pages启用前configure-pages返回404；启用Pages后显式触发上述成功工作流，问题已解决。

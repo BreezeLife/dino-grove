@@ -249,7 +249,7 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void):Grov
  renderer.domElement.addEventListener("pointerdown",pointerDown);renderer.domElement.addEventListener("pointerup",pointerUp);renderer.domElement.addEventListener("pointercancel",pointerCancel);
  controls.addEventListener("start",()=>{cameraTransition=null;focused=-1;});
  function animate(now:number){
-  if(disposed)return;frame=requestAnimationFrame(animate);const dt=Math.min((now-last)/1000,.04);last=now;
+  if(disposed)return;frame=requestAnimationFrame(animate);const dt=Math.max(0,Math.min((now-last)/1000,.04));last=now;
   if(!document.hidden&&!paused){
    time+=dt;updateWanderers(animals,dt,random);
    dinos.forEach((d,i)=>{const a=animals[i];d.root.position.set(a.x,.16,a.z);d.root.rotation.y=a.yaw;

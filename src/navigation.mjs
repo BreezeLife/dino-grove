@@ -17,7 +17,7 @@ export function createWanderers(random=seededRandom()){
 }
 function angleDifference(a,b){return Math.atan2(Math.sin(a-b),Math.cos(a-b));}
 export function updateWanderers(animals,dt,random){
- dt=Math.min(dt,.05);
+ dt=Math.max(0,Math.min(dt,.05));
  for(let i=0;i<animals.length;i++){
   const a=animals[i],wasGreeting=a.greeting>0;a.speed=0;a.greeting=Math.max(0,a.greeting-dt);
   if(a.greeting>0){if(a.behavior!=="feed")a.behavior="greet";continue;}

@@ -1,5 +1,7 @@
 # 恐龙小丛林 · Dino Grove
 
+[在线探索 · Explore the grove](https://breezelife.github.io/dino-grove/) · [GitHub](https://github.com/BreezeLife/dino-grove)
+
 用代码生成的一座 Three.js 恐龙箱庭。三角龙、剑龙、长颈龙在林间漫游、觅食和喝水；没有外部图片、贴图或 3D 模型。
 
 ## 探索小丛林

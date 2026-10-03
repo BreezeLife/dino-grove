@@ -8,3 +8,4 @@
 - 真实手机硬件未连接；移动视口和触摸模拟不能记为真机性能验收。
 - Node.js 要求 22.13+；本机使用 26.8.2，CI 使用 Node 22。
 - 支持中文 / English，默认中文，localStorage键 dino-grove-locale；切换不重新创建场景。
+- 已创建并公开发布 https://github.com/BreezeLife/dino-grove，Pages真实地址 https://breezelife.github.io/dino-grove/。本地origin使用已授权SSH，因为gh OAuth缺workflow范围。
