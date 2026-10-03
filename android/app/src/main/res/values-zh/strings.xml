@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">恐龙小丛林</string>
+    <string name="load_error">小丛林未能启动，请关闭后重新打开。如果问题持续，请更新 Android 系统 WebView。</string>
+</resources>

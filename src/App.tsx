@@ -5,6 +5,7 @@ import type { GroveAPI, Mood } from "./grove";
 import DinoPortrait from "./DinoPortrait";
 import { createGroveMusic } from "./music";
 import { createFramedPhoto, type FramedPhoto } from "./photo";
+import { hasAndroidPhotoSave, saveAndroidPhoto } from "./android";
 import { LOCALE_STORAGE_KEY, readLocale, residentArt, translations, type Locale, type ToastKey } from "./i18n";
 
 const views = [
@@ -46,6 +47,8 @@ export default function App() {
   const [photo, setPhoto] = useState<FramedPhoto | null>(null);
   const [capturing, setCapturing] = useState(false);
   const [sharing, setSharing] = useState(false);
+  const [savingNative, setSavingNative] = useState(false);
+  const nativeAndroid = hasAndroidPhotoSave();
   const [toast, setToast] = useState<{ key: ToastKey; dinosaur?: number; id: number } | null>(null);
   const active = selected === null ? null : species[selected];
   const PhaseIcon = phases.find(phase => phase.id === mood)?.icon ?? Sun;
@@ -135,7 +138,7 @@ export default function App() {
     const panel = controlsPanel.current;
     if (!panel) return;
     const frame = requestAnimationFrame(() => {
-      if (window.matchMedia("(max-width: 720px)").matches) {
+      if (window.matchMedia("(max-width: 720px), (max-width: 1100px) and (orientation: portrait)").matches) {
         const card = panel.querySelector<HTMLElement>(".dino-card");
         panel.scrollTop = card ? Math.max(0, card.offsetTop - 12) : 0;
       }
@@ -267,8 +270,17 @@ export default function App() {
     finally { if (mounted.current) setCapturing(false); }
   }
 
-  function downloadPhoto() {
-    if (!photo) return;
+  async function downloadPhoto() {
+    if (!photo || savingNative) return;
+    if (nativeAndroid) {
+      setSavingNative(true);
+      try {
+        await saveAndroidPhoto(photo.blob, photo.filename);
+        if (mounted.current) notify("androidSaved");
+      } catch { if (mounted.current) notify("androidSaveFailed"); }
+      finally { if (mounted.current) setSavingNative(false); }
+      return;
+    }
     const link = document.createElement("a");
     link.href = photo.url;
     link.download = photo.filename;
@@ -326,7 +338,7 @@ export default function App() {
   }, [ready, choose, changeView, t, species]);
 
   return (
-    <main className={`grove-app${active ? " has-selection" : ""}${focused ? " is-focused" : ""}`} data-mood={mood} data-locale={locale}>
+    <main className={`grove-app${active ? " has-selection" : ""}${focused ? " is-focused" : ""}`} data-mood={mood} data-locale={locale} data-platform={nativeAndroid ? "android" : "web"}>
       <header className="topbar">
         <div className="brand"><div className="brand-mark"><img src={`${import.meta.env.BASE_URL}app-icon.svg`} alt="" width="50" height="50" /></div><div><h1>{t.brand}<span className="brand-period">.</span></h1><span className="brand-english">{t.brandSubtitle}</span></div></div>
         <div className="top-actions">
@@ -348,7 +360,7 @@ export default function App() {
           </div>
           {paused && <div className="paused-label"><Pause size={14} />{t.paused}</div>}
           {!ready && !error && <div className="loading" role="status"><div className="loading-sprout"><Sprout size={32} /></div><span>{t.loading}…</span><small>{t.loadingDetail}</small></div>}
-          {error && <div className="error-message" role="alert"><Leaf size={29} /><h2>{t.errorHeading}</h2><p>{t[error]}</p><button onClick={() => location.reload()}><RotateCcw size={18} />{t.reload}</button></div>}
+          {error && <div className="error-message" role="alert"><Leaf size={29} /><h2>{t.errorHeading}</h2><p>{nativeAndroid && error === "webgl" ? t.androidWebGL : t[error]}</p><button onClick={() => location.reload()}><RotateCcw size={18} />{t.reload}</button></div>}
           <div className="scene-bottom">
             <div className={`walk-hint${active ? " selected" : ""}`} role="status" aria-live="polite">{active ? <MapPin size={19} /> : <MousePointer2 size={19} />}<span>{active ? moveStatus?.id === selected ? t.moveStatuses[moveStatus.status] : t.moveHint(active.name) : t.selectHint}</span></div>
             <div className="scene-bottom-row"><nav className="view-switch" aria-label={t.viewLabel}>{views.map(preset => <button key={preset.id} disabled={!ready} aria-pressed={!focused && view === preset.id} onClick={() => changeView(preset.id)} className={!focused && view === preset.id ? "active" : ""}><preset.icon size={19} /><span>{t.views[preset.id]}</span></button>)}</nav><div className="gesture-hint"><span className="desktop-hint">{t.drag} · {t.wheel}</span><span className="mobile-hint">{t.touchDrag} · {t.pinch}</span></div></div>
@@ -385,9 +397,9 @@ export default function App() {
       {photo && <dialog ref={photoDialog} className="photo-dialog" aria-labelledby="photo-title" aria-describedby="photo-description" onCancel={event => { event.preventDefault(); setPhoto(null); }}>
         <header className="photo-heading"><div><h2 id="photo-title">{t.photoTitle}</h2><p id="photo-description">{t.photoDescription}</p></div><button className="icon-button" aria-label={t.closePhoto} onClick={() => setPhoto(null)} autoFocus><X size={22} /></button></header>
         <img className="photo-preview" src={photo.url} alt={t.photoAlt} />
-        <div className="photo-actions"><button className="photo-download" onClick={downloadPhoto}><Download size={20} />{t.downloadPhoto}</button>{canSharePhoto && <button className="photo-share" onClick={sharePhoto} disabled={sharing}><Share2 size={20} />{sharing ? t.savingPhoto : t.sharePhoto}</button>}</div>
-        <p className="photo-help"><span className="mobile-photo-help">{t.photoHelp}</span><span className="desktop-photo-help">{t.photoDesktopHelp}</span></p>
-        <div className="photo-feedback" role="status" aria-live="polite">{toast && ["captureSaved", "shared", "shareFailed"].includes(toast.key) ? toastText : ""}</div>
+        <div className="photo-actions"><button className="photo-download" onClick={downloadPhoto} disabled={savingNative}><Download size={20} />{nativeAndroid ? (savingNative ? t.androidSaving : t.androidSave) : t.downloadPhoto}</button>{canSharePhoto && !nativeAndroid && <button className="photo-share" onClick={sharePhoto} disabled={sharing}><Share2 size={20} />{sharing ? t.savingPhoto : t.sharePhoto}</button>}</div>
+        <p className="photo-help">{nativeAndroid ? t.androidPhotoHelp : <><span className="mobile-photo-help">{t.photoHelp}</span><span className="desktop-photo-help">{t.photoDesktopHelp}</span></>}</p>
+        <div className="photo-feedback" role="status" aria-live="polite">{toast && ["captureSaved", "shared", "shareFailed", "androidSaved", "androidSaveFailed"].includes(toast.key) ? toastText : ""}</div>
       </dialog>}
     </main>
   );

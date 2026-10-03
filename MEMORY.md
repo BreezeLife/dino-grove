@@ -22,3 +22,12 @@
 - 新增原创3D APP图标，以程序化三角龙头+浮岛渲染，源码scripts/app-icon.ts；提供1024/512/192/180/64/32 PNG与SVG、favicon、manifest、Apple Touch Icon。
 - 连续指挥不同居民采用一个活动手动目标：仅在新命令成功后释放旧目标，失败保留旧指令。该决策解决多目的地预约导致的永久互锁。
 - 主屏幕图标配合viewport-fit=cover时，页头行高、横屏间距和照片弹窗必须同时适配非零safe-area-inset；`tests/safe-area-check.mjs`覆盖注入安全区及中英文，实体设备仍需另测。
+
+## 2026-10-03 · Android 手机与平板
+- 用户追加 Android 手机和平板可用版本；提供同一个离线通用 APK，Android 10+（minSdk 29）、目标 API 36、包名 com.breezelife.dinogrove，版本 2.0.0-test。
+- 原生 Java Activity + WebViewAssetLoader 加载 APK 内静态资源，继续复用同一 React/Three.js 源码。原生只开放受限 PNG 保存桥；MediaStore 写入 Pictures/Dino Grove，不请求网络、相机、麦克风、读取相册或广泛存储权限。
+- 使用已有本机 Android Debug 证书签署测试版；没有读取、复制或提交私钥，未向应用商店发布。未来稳定分发需确定长期签名与备份，同签名才能覆盖升级。
+- 竖屏平板 <=1100px 与手机使用上下布局，避免窄长场景；横屏仍保留侧栏，原生按钮至少48px。
+- 后台原生可见性事件暂停 Web Audio，回前台恢复；Android 返回键先关照片、再关居民卡。
+- 当前项目位于 iCloud，曾发生 stat 非零但文件读取为空，以及延迟 HMR。Android 构建脚本使用经字节校验的本机临时快照；验收从稳定快照服务器运行。临时依赖在 /private/tmp，以 node_modules 忽略符号链接引用。其他机器应正常 npm ci。
+- Android 验证使用隔离的 Android 15 ARM64 模拟器，手机/平板显示配置顺序测试；不触碰已连接的其他实体设备。模拟器原生相册写入不能作为实体设备性能或所有厂商相册兼容性结论。

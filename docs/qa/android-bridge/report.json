@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-03T01:59:04.312Z",
+  "mode": "Real Chrome touch UI with stubbed Android save bridge; no actual MediaStore write",
+  "checks": [
+    {
+      "viewport": "390x844",
+      "geometry": {
+        "size": [
+          390,
+          844
+        ],
+        "small": []
+      },
+      "photo": {
+        "filename": "dino-grove-2026-10-03T01-59-06-439Z.png",
+        "id": "21732140-9ab9-4cb8-9498-65307da1a33f",
+        "signature": "iVBORw0KGgo",
+        "bytes": 246285
+      },
+      "checks": [
+        "48px targets",
+        "Actual framed PNG sent to bridge",
+        "Only matching save response accepted",
+        "Duplicate taps suppressed",
+        "Save failure reported",
+        "English save flow"
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "viewport": "800x1280",
+      "geometry": {
+        "size": [
+          800,
+          1280
+        ],
+        "small": []
+      },
+      "photo": {
+        "filename": "dino-grove-2026-10-03T01-59-10-905Z.png",
+        "id": "30aa4157-6ff1-45a7-b1aa-94b4d9e89531",
+        "signature": "iVBORw0KGgo",
+        "bytes": 475697
+      },
+      "checks": [
+        "48px targets",
+        "Actual framed PNG sent to bridge",
+        "Only matching save response accepted",
+        "Duplicate taps suppressed",
+        "Save failure reported",
+        "English save flow"
+      ],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "viewport": "1280x800",
+      "geometry": {
+        "size": [
+          1280,
+          800
+        ],
+        "small": []
+      },
+      "photo": {
+        "filename": "dino-grove-2026-10-03T01-59-15-551Z.png",
+        "id": "28649fc7-2f50-448d-b76a-defc39fd934a",
+        "signature": "iVBORw0KGgo",
+        "bytes": 569117
+      },
+      "checks": [
+        "48px targets",
+        "Actual framed PNG sent to bridge",
+        "Only matching save response accepted",
+        "Duplicate taps suppressed",
+        "Save failure reported",
+        "English save flow"
+      ],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

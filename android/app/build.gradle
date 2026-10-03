@@ -1,0 +1,42 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.breezelife.dinogrove'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.breezelife.dinogrove'
+        minSdk 29
+        targetSdk 36
+        versionCode 20000
+        versionName '2.0.0'
+    }
+    buildFeatures { buildConfig true }
+    buildTypes {
+        debug { versionNameSuffix '-test' }
+        release { minifyEnabled false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/webAssets'))
+}
+
+// Each build packages exactly the current web production output. Generated assets
+// live under build/ so they never become another editable copy of the website.
+def webDist = providers.gradleProperty('webDistDir').map { file(it) }.getOrElse(rootProject.file('../dist'))
+tasks.register('validateWebAssets') {
+    doLast {
+        if (!new File(webDist, 'index.html').isFile()) {
+            throw new GradleException('Missing dist/index.html. Run npm run build first.')
+        }
+    }
+}
+tasks.register('syncWebAssets', Sync) {
+    dependsOn 'validateWebAssets'
+    from webDist
+    into layout.buildDirectory.dir('generated/webAssets')
+}
+tasks.named('preBuild').configure { dependsOn 'syncWebAssets' }
+
+dependencies { implementation 'androidx.webkit:webkit:1.14.0' }

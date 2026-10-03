@@ -1,7 +1,18 @@
-node_modules/
+node_modules
 dist/
 .sites-runtime/
 *.tsbuildinfo
 .DS_Store
 
 .project-pulse/
+
+# Android generated files and local signing material
+android/.gradle/
+android/**/build/
+android/local.properties
+android/**/assets/public/
+*.jks
+*.keystore
+releases/
+
+.dino-dependency-backup/

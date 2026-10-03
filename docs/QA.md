@@ -49,3 +49,15 @@
 3. `QA_INSTRUMENT=1 QA_OUTPUT=docs/qa/night-adventure/final-local npm run test:browser`。默认本机Chrome，可指定QA_CHANNEL；开发注入只用于检查，不发布。
 4. `node tests/media-check.mjs`、`node tests/photo-share-check.mjs`、`node tests/scene-observe.mjs`、`node tests/safe-area-check.mjs`。
 5. 生产：`QA_URL=https://breezelife.github.io/dino-grove/ QA_VIEWPORT=390x844 QA_OUTPUT=docs/qa/night-adventure/production npm run test:browser`。不设置QA_INSTRUMENT；世界坐标到达断言和开发模型定位由本地真实浏览器结果覆盖。
+
+## Android 安装版与平板增量
+- 安装包元数据、签名、全部13个内置资源与最终 dist 的逐字节匹配记录在 [package-report.json](qa/android/package-report.json)。版本2.0.0-test，minSdk29，targetSdk36，通用ABI，3,858,331字节，无权限声明。
+- Android Gradle构建通过，lint为0错误、1条Gradle补丁升级提示；最终共享源码 `npm test` 和 TypeScript/Vite构建通过。原始输出见 `qa/android`。
+- [桥接浏览器报告](qa/android-bridge/report.json)覆盖390×844、800×1280、1280×800：48px操作目标、PNG有效载荷、请求ID匹配、保存中防重复、失败恢复、英文。桥接桩仅证明前端交互，真实写入另由Android报告证明。
+- Android 15/API35 ARM64模拟器运行最终APK；WebView124.0.6367.219，M1 Pro硬件图形后端，手机1080×2340/440dpi，平板1600×2560/320dpi。详见 [原生验收说明](qa/android/README.md)、[手机报告](qa/android/phone/report.json)、[平板报告](qa/android/tablet/report.json)，以各报告passed字段为准。
+- 桌面触摸测试、Android模拟器都不能证明实体手机/平板的帧率、长期温升、扬声器听感或所有厂商相册表现。Android10–14运行兼容性尚未实测，minSdk是构建兼容声明。
+- 本地iCloud源目录曾出现短读、Content-Length不匹配和延迟HMR，导致浏览器测试中断；最终使用逐字节校验的本机临时快照进行构建与浏览器复验，未为环境问题放松暂停像素或资源错误断言。
+
+最终Android手机和平板报告均 `passed: true`，均对应SHA-256 `064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951`。手机WebView为393×778（横屏802×341），平板800×1174（横屏1206×740）。两种配置离线加载、原生点触到达、相册保存、双语、三时段、横竖屏和音乐生命周期全部通过。系统相册取回的PNG分别为1188×1306与1872×1524，均与预览逐字节一致。人工抽查平板夜景、手机相框照片，画面和文字完整。
+
+最终Chrome平板矩阵 [browser-report.json](qa/android-tablet-web/browser-report.json) 两视口800×1280、1280×800全部通过，正常流程0浏览器/资源错误，暂停PNG与场景状态完全一致，真实触摸行走分别5.863/5.894秒到达。早期一次30秒超时未复现，无法归因于产品或负载；保留逐秒场景/墙钟时间与导航状态诊断，未更改导航源码或放宽断言。

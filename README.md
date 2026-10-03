@@ -63,3 +63,17 @@ bash ./deploy-github.sh
 - src/photo.ts / music.ts：带框照片与本地合成音乐。
 - tests：CPU 回归、浏览器验收和场景观察脚本。
 - PROJECT.md、MEMORY.md、TASKS.md、WORKLOG.md：跨设备项目连续记录。
+
+## Android 手机和平板安装版
+
+Android 10 及以上可安装，手机和平板共用一个 APK，支持横竖屏、中文/English 和完全离线探索。内置 3D 启动图标，点击拍照后可直接「存入相册」，文件位于 `Pictures/Dino Grove`。不申请网络、相机、麦克风或存储权限。
+
+当前版本为 **2.0.0-test 测试安装包**，使用本机 Android 调试证书签名，未发布应用商店。下载后在 Android「文件」中打开 APK，按系统提示允许该下载来源安装。要求设备支持 WebGL 2，并使用较新的 Android System WebView。相同证书的后续包可覆盖更新；其他机器生成的调试签名通常需要先卸载。
+
+安装包链接和 SHA-256 见 [发布交接](docs/HANDOFF.md)，本地构建步骤见 [Android README](android/README.md)。构建命令：
+
+```sh
+node scripts/build-android.mjs
+```
+
+脚本将源码逐字节校验后复制到本机临时目录构建，输出 `releases/dino-grove-android-v2.0.0.apk`，避免云同步目录中的短读影响产物。Android 原生验证与桌面触摸模拟分别记录在 [QA](docs/QA.md)。

@@ -1,0 +1,46 @@
+{
+  "applicationId": "com.breezelife.dinogrove",
+  "versionName": "2.0.0-test",
+  "versionCode": 20000,
+  "minSdk": 29,
+  "targetSdk": 36,
+  "compileSdk": 36,
+  "universalAbi": true,
+  "apk": "releases/dino-grove-android-v2.0.0.apk",
+  "apkBytes": 3858331,
+  "sha256": "064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951",
+  "signature": {
+    "verified": true,
+    "scheme": "v2",
+    "type": "Android debug certificate",
+    "certificateSha256": "ca5dd8a44f8f5e644ff61d44b522e79ecec4ab44d776ec6f94bc6e2e52ad9eee"
+  },
+  "permissions": [],
+  "packagedAssets": {
+    "count": 13,
+    "matchesVerifiedDist": true,
+    "zipCrcCheck": true,
+    "sha256": {
+      "app-icon-1024.png": "f127a4f706620fade28f91eedac6d7c0eed8f0a49fe0591a7c1a3d32c797b4f3",
+      "app-icon-180.png": "48f6d888e479a44b633b131e9dcb894ebc2cb2d2030f8650dd1c3ac191999917",
+      "app-icon-192.png": "d7763e81b937ce6f9acc4fbfd535f8cca5d327fd3d5907e4a83b87355ba38f7d",
+      "app-icon-32.png": "ff17c2ad6e651afeec5d0fffd4b5c0e94c2fa4875f79919c0cb5fd0ef567268f",
+      "app-icon-512.png": "989c8c1fa7da2ee82c8d2ac96f3c5a54f3a0bb21234c073498f2f86c665d2a72",
+      "app-icon-64.png": "50c49ed47473e8342409a6d2485ccc2bf9b62184c3cc6cd090d76066c6bec076",
+      "app-icon.svg": "b7169854756d1de3a695c235a258b47932f9d1d9067a48b9783f14334f6f813c",
+      "app.webmanifest": "78bb55ab218c76244e2d0a39c5f71296ee97d29e14a55df30e0c2dbd23be75ec",
+      "assets/grove-CYV3qb4e.js": "4ced1acfddc1f78399600368bca07f9daa0d2ac24050c59064d73d30fb570d0f",
+      "assets/index-HYi7d0wa.js": "7247ec1bd347ea474997a2d1da98788bc7bc0635758f04d5df3dee8e07103193",
+      "assets/index-iCGVNJ-J.css": "3c200ccd7656ccf4f00308aa4ae7a53a5f7b484081d4acf44c89333507181413",
+      "favicon.svg": "b0f242a5e028954f36642f60353de19af0cc95422399587386092c241c35bd2c",
+      "index.html": "2f8579033fe2adb9f628434625e9c11f03202d5805a8b884f3ec9a153b21595d"
+    }
+  },
+  "gradle": {
+    "build": "PASS",
+    "lint": "PASS",
+    "lintSummary": "0 errors, 1 warning"
+  },
+  "buildEnvironment": "Byte-verified local temporary snapshot; locked dependencies; Java 17; AGP 8.12.0; Gradle 8.14.3",
+  "runtimeVerification": "Runtime QA is recorded separately. Package inspection alone does not prove physical device behavior."
+}

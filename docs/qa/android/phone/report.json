@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-03T02:22:20.267Z",
+  "serial": "emulator-5560",
+  "profile": "phone",
+  "emulator": true,
+  "physicalDevice": false,
+  "checks": [
+    "APK starts offline from bundled HTTPS assets, real WebGL2 renders, Android 48px targets",
+    "All five residents selected/greeted/fed by Android input taps",
+    "Native touch ground starts chosen raptor movement and actual arrival callback is displayed",
+    "Day/sunset/night change whole page and keep scene visible",
+    "Automatic orbit starts and native touch drag interrupts it",
+    "Real Android WebAudio signal on/off, Home silences, foreground resumes",
+    "Native MediaStore write succeeds; pulled gallery PNG exactly matches full framed preview",
+    "Android Back closes photo dialog and resident card before exiting",
+    "Invalid native photo is rejected and external network fetch is blocked",
+    "English UI, phone/tablet landscape relayout and photo dialog remain usable",
+    "Language persists after WebView reload"
+  ],
+  "errors": [],
+  "android": {
+    "version": "15",
+    "api": "35",
+    "abi": "arm64-v8a",
+    "webview": "Current WebView Update Service state\n  Current WebView package (name, version): (com.google.android.webview, 124.0.6367.219)\n  Minimum targetSdkVersion: 33\n  Minimum WebView version code: 636771932\n  Number of relros started: 1\n  Number of relros finished: 1\n  WebView package dirty: false\n  Any WebView package installed: true\n  Preferred WebView package (name, version): (com.google.android.webview, 124.0.6367.219)\n  WebView packages:\n    Valid package com.google.android.webview (versionName: 124.0.6367.219, versionCode: 636771932, targetSdkVersion: 34) is  installed/enabled for all users\n    com.google.android.webview.beta is NOT installed.\n    com.google.android.webview.dev is NOT installed.\n    com.google.android.webview.canary is NOT installed.\n    com.google.android.webview.debug is NOT installed.\n    com.android.webview is NOT installed."
+  },
+  "apkSha256": "064e38ec1acef57d57e369d64367d09f91215a66f6bed3c42d085d54b9446951",
+  "initial": {
+    "viewport": [
+      393,
+      778
+    ],
+    "dpr": 2.75,
+    "document": [
+      393,
+      778
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        558,
+        519
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-HYi7d0wa.js",
+      "https://appassets.androidplatform.net/assets/assets/index-iCGVNJ-J.css"
+    ],
+    "online": true
+  },
+  "offline": {
+    "wifi": "Wifi is disabled\nWifi scanning is only available when wifi is enabled",
+    "airplaneMode": "1",
+    "requestedPermissions": "none"
+  },
+  "colors": {
+    "day": "rgb(40, 94, 87)",
+    "sunset": "rgb(117, 68, 43)",
+    "night": "rgb(17, 26, 50)"
+  },
+  "music": {
+    "playing": 0.02110277888387749,
+    "background": 0,
+    "resumed": 0.017276473198369897,
+    "stopped": 0
+  },
+  "nativeVisibility": [
+    {
+      "visible": false
+    },
+    {
+      "visible": true
+    }
+  ],
+  "mediaStore": "Row: 0 _id=1000000020, _display_name=dino-grove-2026-10-03T02-11-35-620Z.png, relative_path=Pictures/Dino Grove/, mime_type=image/png, _size=355247\nRow: 1 _id=1000000021, _display_name=dino-grove-2026-10-03T02-23-07-262Z.png, relative_path=Pictures/Dino Grove/, mime_type=image/png, _size=359848",
+  "photo": {
+    "filename": "dino-grove-2026-10-03T02-23-07-262Z.png",
+    "width": 1188,
+    "height": 1306,
+    "byteIdentical": true
+  },
+  "invalidPhoto": {
+    "id": "qa_invalid",
+    "success": false,
+    "error": "INVALID_IMAGE"
+  },
+  "externalFetch": {
+    "blocked": "TypeError"
+  },
+  "landscape": {
+    "viewport": [
+      802,
+      341
+    ],
+    "dpr": 2.75,
+    "document": [
+      802,
+      341
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        724,
+        396
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-HYi7d0wa.js",
+      "https://appassets.androidplatform.net/assets/assets/index-iCGVNJ-J.css"
+    ],
+    "online": true
+  },
+  "passed": true
+}

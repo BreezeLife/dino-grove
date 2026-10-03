@@ -13,3 +13,8 @@
 - 纯静态发布到 BreezeLife/dino-grove 的 GitHub Pages，Vite 资源路径保持相对。
 
 验收原则：CPU 模拟、真实浏览器画面、手机触控模拟与真机实测分别记录。详见 docs/QA.md。
+
+## Android 安装版
+- 用户追加Android手机和平板安装包；使用Android10+原生Activity/WebViewAssetLoader离线加载同一套dist，静态网页和Pages架构保持一致。
+- JavaScript仅开放PNG保存窄接口，Android MediaStore写入应用自己的Pictures/Dino Grove，不请求相册读取或广泛存储权限；非本地内容拒绝加载。
+- 原生生命周期事件控制背景音乐；界面根据平台提供48px触控目标。APK包含程序化3D图标，支持横竖屏及平板。

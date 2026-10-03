@@ -49,8 +49,10 @@ try {
  const playing=await meter();assert.equal(playing.state,'running');assert(playing.rms>.00001 && playing.peak<1,'Music produces non-clipped samples');
  await page.click('#stop');await page.waitForTimeout(1500);const stopped=await meter();assert(stopped.rms<.00001,'Stop silences actual samples');
  await page.click('#play');await page.evaluate(()=>window.__start);await page.waitForTimeout(500);const restarted=await meter();assert(restarted.rms>.00001);
+ await page.evaluate(()=>window.dispatchEvent(new CustomEvent('dino-grove-native-visibility',{detail:{visible:false}})));await page.waitForTimeout(1500);const nativeHidden=await meter();assert(nativeHidden.rms<.00001,'Android background event silences actual audio samples');
+ await page.evaluate(()=>window.dispatchEvent(new CustomEvent('dino-grove-native-visibility',{detail:{visible:true}})));await page.waitForTimeout(800);const nativeResumed=await meter();assert(nativeResumed.rms>.00001,'Android foreground event resumes the selected music');
  await page.evaluate(()=>window.__music.dispose());await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>window.__audioContext.state),'closed');
- report.checks.push({name:'Real Web Audio graph starts from click, emits samples, stops, restarts, disposes',playing,stopped,restarted,passed:true});
+ report.checks.push({name:'Real Web Audio graph starts from click, emits samples, stops, restarts, handles Android visibility and disposes',playing,stopped,restarted,nativeHidden,nativeResumed,passed:true});
  report.passed=true;
  console.log(JSON.stringify(report,null,2));
 } catch(error){report.passed=false;report.error=String(error.stack);throw error;}

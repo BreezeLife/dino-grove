@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Dino Grove</string>
+    <string name="load_error">Dino Grove could not start. Close and reopen the app. Update Android System WebView if the problem continues.</string>
+</resources>

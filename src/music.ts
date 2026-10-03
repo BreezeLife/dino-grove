@@ -6,6 +6,8 @@ export function createGroveMusic() {
   let timer: ReturnType<typeof setInterval> | undefined;
   let playing = false;
   let disposed = false;
+  let nativeVisible = true;
+  const hidden = () => document.hidden || !nativeVisible;
   let revision = 0;
   let step = 0;
   let nextNote = 0;
@@ -35,7 +37,7 @@ export function createGroveMusic() {
   }
 
   function schedule() {
-    if (!context || !playing || document.hidden || context.state !== "running") return;
+    if (!context || !playing || hidden() || context.state !== "running") return;
     // A suspended tab never schedules a backlog on return.
     if (nextNote < context.currentTime) nextNote = context.currentTime + .04;
     while (nextNote < context.currentTime + .18) {
@@ -61,12 +63,12 @@ export function createGroveMusic() {
 
   const visibility = () => {
     if (!context || !playing || disposed) return;
-    if (document.hidden) {
+    if (hidden()) {
       silence();
     } else {
       const attempt = revision;
       void context.resume().then(() => {
-        if (!playing || disposed || attempt !== revision || !context || !master) return;
+        if (!playing || disposed || hidden() || attempt !== revision || !context || !master) return;
         nextNote = context.currentTime + .06;
         master.gain.setTargetAtTime(.3, context.currentTime, .15);
         schedule();
@@ -74,6 +76,11 @@ export function createGroveMusic() {
     }
   };
   document.addEventListener("visibilitychange", visibility);
+  const nativeVisibility = (event: Event) => {
+    nativeVisible = (event as CustomEvent<{ visible: boolean }>).detail?.visible === true;
+    visibility();
+  };
+  window.addEventListener("dino-grove-native-visibility", nativeVisibility);
 
   return {
     async start() {
@@ -103,7 +110,7 @@ export function createGroveMusic() {
       playing = true;
       nextNote = context.currentTime + .06;
       master!.gain.cancelScheduledValues(context.currentTime);
-      master!.gain.setTargetAtTime(.3, context.currentTime, .15);
+      master!.gain.setTargetAtTime(hidden() ? 0 : .3, context.currentTime, .15);
       if (timer) clearInterval(timer);
       timer = setInterval(schedule, 60);
       schedule();
@@ -119,6 +126,7 @@ export function createGroveMusic() {
       this.stop();
       disposed = true;
       document.removeEventListener("visibilitychange", visibility);
+      window.removeEventListener("dino-grove-native-visibility", nativeVisibility);
       void context?.close().catch(() => {});
       context = null;
     },
