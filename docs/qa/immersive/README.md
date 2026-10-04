@@ -40,6 +40,8 @@ ANDROID_SERIAL=emulator-5560 QA_ANDROID_PROFILE=tablet node tests/android-immers
 
 原生脚本等待实际菜单/旋转状态并记录Back事件，不用重复按键掩盖失败。首次全屏时正常点击Android系统教学的“Got it”，再继续菜单与返回验证。脚本只接受模拟器序列号，手机/平板顺序改变同一隔离AVD显示配置，未向其他连接设备安装。
 
-计划发行标签为`v2.1.0-android-test`，源码提交、Actions成功状态、Pages及公开APK验证待发布步骤补录。没有实体设备帧率、温升、Android10–14运行兼容性或厂商相册全面达标声明。
+源码提交`d4ea4aa`，Pages工作流`37218056553`成功；新版已发布到`v2.1.0-android-test`。`production/report.json`记录线上390×844无内部API注入的交互验收通过。没有实体设备帧率、温升、Android10–14运行兼容性或厂商相册全面达标声明。
 
 实现参考：[Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide)、[Android沉浸模式](https://developer.android.com/develop/ui/views/layout/immersive)。
+
+`published-assets.json`记录13个Pages资源及公开APK的HTTP200与最终安装包SHA-256一致；源码和发布链接见`docs/HANDOFF.md`。

@@ -4,7 +4,7 @@
 
 ## 最新开发版本 · 2026-10-04：全屏与持续移动引导
 
-本轮源码、最终安装包、六视口GPU与原生手机/平板验收已通过，正在同步发布。下方2026-10-03的成功发布记录只适用于v2.0.0，不代表本轮已部署。
+本轮源码、最终安装包、六视口GPU与原生手机/平板验收已通过，Pages工作流成功，线上390手机视口验收通过。下方2026-10-03的v2.0.0记录保留作历史参考。
 
 - 增加全屏入口。支持时使用真实Fullscreen API；不支持或请求被拒绝时展开CSS沉浸视图，并明确提示浏览器栏仍保留。Android调用原生桥隐藏/恢复系统栏。
 - 进入后自动收起页头与菜单，保留退出、菜单、拍照按钮。展开菜单后选择居民或点地面会再次收起，保留选中状态；返回顺序为照片、菜单、全屏、普通居民卡。中英文、安全区、隐藏面板inert和焦点归还同步处理。
@@ -21,7 +21,10 @@
 ### 本轮验证与发布
 - 最终Android手机/平板模拟器报告均`passed: true`，`apkSha256`均为上述CDFD哈希；原生全屏、自动收菜单、相册保存、旋转和返回顺序通过。
 - 最终六视口真实Chrome验收全部通过，0页面/请求错误；涵盖系统全屏/回退、五居民光环、真实行走到达、照片、夜景及中英退出。输入逐次验证可信点击，详见[QA.md](QA.md)。
-- 计划发行标签：`v2.1.0-android-test`。本轮源码commit、成功Actions、Pages最新资源与公开APK下载核验均待补录，尚不宣称本轮发布完成。
+- 源码提交：[d4ea4aa13a8310defcd9e54289d40beafee5f01a](https://github.com/BreezeLife/dino-grove/commit/d4ea4aa13a8310defcd9e54289d40beafee5f01a)，正常推送main。
+- Pages成功工作流：[37218056553](https://github.com/BreezeLife/dino-grove/actions/runs/37218056553)。线上390×844实际全屏、菜单收起、五居民选择、夜景、照片与中英退出通过，0页面/请求错误；无场景内部API注入，运动到达由本地GPU证据覆盖。
+- Pages全部13个资源与最终APK内资源SHA-256一致；公开APK实际下载后SHA-256与CDFD验收包一致，HTTP200，见[发布校验](qa/immersive/published-assets.json)。
+- [Android 2.1.0测试发行版](https://github.com/BreezeLife/dino-grove/releases/tag/v2.1.0-android-test) / [直接下载APK](https://github.com/BreezeLife/dino-grove/releases/download/v2.1.0-android-test/dino-grove-android-v2.1.0.apk)。保留旧2.0发行版。
 - 既有网址为[恐龙小丛林](https://breezelife.github.io/dino-grove/)；用户已授权复用BreezeLife现有授权正常提交推送与发布，不强推。继续保留外部`STATUS.md`改动。
 - 没有实体手机/平板验收，不声称Android10–14实机兼容性、低端性能、温升或厂商相册全面达标。
 

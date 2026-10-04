@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-04T16:49:46.550Z",
+  "url": "https://breezelife.github.io/dino-grove/",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "inputMethod": "Hit-tested real mouse/touch coordinates",
+  "checks": [
+    {
+      "viewport": "390x844",
+      "mode": "native",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          0,
+          0,
+          390,
+          844
+        ],
+        "invalid": [],
+        "scroll": [
+          390,
+          844
+        ]
+      },
+      "nativeFullscreen": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
