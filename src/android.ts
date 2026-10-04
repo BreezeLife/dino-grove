@@ -1,7 +1,10 @@
 /** Narrow bridge exposed only by the offline Android container. */
 declare global {
   interface Window {
-    DinoGroveAndroid?: { savePhoto(base64Png: string, filename: string, requestId: string): void };
+    DinoGroveAndroid?: {
+      savePhoto(base64Png: string, filename: string, requestId: string): void;
+      setImmersive?(enabled: boolean): void;
+    };
   }
 }
 

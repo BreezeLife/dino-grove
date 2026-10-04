@@ -65,3 +65,17 @@
 源码f25d903的Pages工作流37090883978成功；线上HTML、JavaScript、CSS与图标均HTTP200且与APK内资源校验值一致。GitHub Release的APK公开下载后SHA-256与原生验收安装包一致。见 [published-assets.json](qa/android/published-assets.json)。
 
 最终线上390×844完整回归 [production-final/browser-report.json](qa/night-adventure/production-final/browser-report.json) 通过。真实Chrome完成全部五居民动作、三视角、日夜、音频、镜头触摸/捏合、横竖屏、带框PNG下载、双语记忆及WebGL回退；暂停PNG精确一致，正常流程0 console/page/HTTP/request错误。未注入场景内部API，所以不将这一轮写作导航位置到达验证，该项由本地稳定快照及Android原生报告覆盖。60.14FPS为本机M1 Pro采样，不代表Android硬件。
+
+## 2026-10-04–05 · 全屏与持续移动引导
+
+- 最终`npm test`、TypeScript/Vite构建、Android Gradle构建/lint通过。普通/减少动态两组CPU检查覆盖持续光环、材质恢复、路径/受阻/到达、暂停、释放及取景Fog。323 meshes、60,182顶点，场景块630.61KB（gzip163.02KB），仍有500KB体积提示。
+- [最终六视口GPU验收](qa/immersive/browser-final/report.json)全部通过：1440×900、390×844、320×568、844×390、800×1280、1280×800。覆盖真实Fullscreen API、不可用/拒绝回退、菜单自动收起、五居民持续光环、路径/目标、实际移动到达、到达标记淡出、暂停PNG一致、夜景、照片与中英文退出。0页面/请求错误。
+- 竖屏全屏镜头拉远曾使岛屿进入雾区；Fog距离现随取景系数同步，标记`fog:false`。CPU核验岛屿最远深度低于Fog起点，最终真实GPU截图确认手机竖屏画面清晰。
+- [四视口原功能回归](qa/immersive/regression/browser-report.json)通过：模型点选、互动、三视角、日夜、音频、触摸/捏合、照片、双语与WebGL回退。该组在最后Fog/按钮禁选补丁前执行；随后六视口GPU及最终原生验收覆盖两项补丁的影响。
+- [独立UI复核](qa/immersive/ui-review/report.json)检查320×568、844×390、800×1280的中英布局、焦点和18张截图。修复菜单遮住底部提示、焦点滚动裁切后，无越界或小于44px操作目标。此组为布局证据，早于最后Fog修正。
+- Android按钮文字曾触发复制菜单；现仅禁用按钮文字选择，独立照片预览仍允许长按。最终原生重复菜单操作通过，未再触发该浮层。
+- 最终2.1.0-test APK为3,863,931字节，SHA-256 `cdfd4b1b945e12a6ed7cd35f48d9f379e05bb9ef53aa4cc5fd8c9e9e125c6b72`；签名验证通过且与2.0相同，13个资产与最终dist一致。见[安装包报告](qa/immersive/android/package-report.json)。
+- [Android手机](qa/immersive/android/phone-fullscreen/report.json)、[Android平板](qa/immersive/android/tablet-fullscreen/report.json)均为上述最终包且通过。Android15/API35隔离模拟器真实ADB点击验证原生系统栏隐藏/恢复、48px控件、菜单自动收起、相册保存、横竖屏和照片→菜单→全屏的返回顺序。手机WebView从393×778扩展至393×802，平板800×1174扩展至800×1206，退出均恢复。
+- 自动浏览器曾在滚动/稳定等待中超时，最后改为等待滚动定位、检查实际命中目标后发送真实鼠标/触摸，每步断言`isTrusted`点击。最终整组通过；未将超时归因于已确认的应用故障或负载，不使用强制/DOM点击。原生脚本也等待菜单与旋转状态后仅发送一次Back。
+- 实体手机/平板、Android10–14运行兼容性、长期温升和厂商相册全面表现仍待设备实测。模拟器与桌面触摸结果不能代替这些结论。
+- 发布记录见[HANDOFF.md](HANDOFF.md)，复现方法见[本轮说明](qa/immersive/README.md)。

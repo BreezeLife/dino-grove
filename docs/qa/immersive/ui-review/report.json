@@ -1,0 +1,1147 @@
+{
+  "date": "2026-10-04T14:50:11.984Z",
+  "url": "http://127.0.0.1:5177/",
+  "browser": "154.0.8037.97",
+  "checks": [
+    {
+      "viewport": "320x568",
+      "errors": [],
+      "states": {
+        "zh-normal": {
+          "mode": "off",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": null,
+          "phase": {
+            "x": 22,
+            "y": 82,
+            "right": 183,
+            "bottom": 142.1875,
+            "width": 161,
+            "height": 60.1875
+          },
+          "tools": {
+            "x": 199,
+            "y": 82,
+            "right": 299,
+            "bottom": 177,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 25,
+            "y": 152,
+            "right": 295,
+            "bottom": 152,
+            "width": 270,
+            "height": 0
+          },
+          "walk": {
+            "x": 19,
+            "y": 205.5,
+            "right": 256,
+            "bottom": 240.5,
+            "width": 237,
+            "height": 35
+          },
+          "panel": {
+            "x": 8,
+            "y": 322.5,
+            "right": 312,
+            "bottom": 558,
+            "width": 304,
+            "height": 235.5
+          },
+          "active": {
+            "text": "恐龙小丛林.DINO GROVEEN拍照一起探索今天，去哪里玩？白天自动昼夜太阳出来啦，一起散步吧全屏先选一位恐龙朋友，再点地面出发全景池畔俯瞰拖动旋转 · 滚轮缩放单指旋转 · 双指缩放选一位好朋友5 位丛林居民三角龙剑龙长颈龙霸王龙迅猛龙先选一位恐龙朋友，再点地面出发丛林的时光自动白天傍晚夜晚白天、晚霞与星夜，慢慢轮换自动旋转开启环绕观察背景音乐点一下，听听音乐单指旋转 · 双指缩放向下滑动，还有更多玩法\n",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "right": 320,
+              "bottom": 568
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": {
+            "x": 10,
+            "y": 12,
+            "right": 310,
+            "bottom": 60,
+            "width": 300,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 183,
+            "bottom": 135.1875,
+            "width": 169,
+            "height": 62.1875
+          },
+          "tools": null,
+          "toast": {
+            "x": 16,
+            "y": 157,
+            "right": 304,
+            "bottom": 157,
+            "width": 288,
+            "height": 0
+          },
+          "walk": {
+            "x": 36.796875,
+            "y": 513,
+            "right": 283.203125,
+            "bottom": 556,
+            "width": 246.40625,
+            "height": 43
+          },
+          "panel": null,
+          "active": {
+            "text": "退出全屏",
+            "rect": {
+              "x": 10,
+              "y": 12,
+              "right": 121,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-menu": {
+          "mode": "system",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": {
+            "x": 10,
+            "y": 12,
+            "right": 310,
+            "bottom": 60,
+            "width": 300,
+            "height": 48
+          },
+          "phase": null,
+          "tools": null,
+          "toast": {
+            "x": 16,
+            "y": 157,
+            "right": 304,
+            "bottom": 157,
+            "width": 288,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 10,
+            "y": 73,
+            "right": 310,
+            "bottom": 493.3125,
+            "width": 300,
+            "height": 420.3125
+          },
+          "active": {
+            "text": "三角龙",
+            "rect": {
+              "x": 24,
+              "y": 207,
+              "right": 155.5,
+              "bottom": 311
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-menu": {
+          "mode": "system",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": {
+            "x": 10,
+            "y": 12,
+            "right": 310,
+            "bottom": 60,
+            "width": 300,
+            "height": 48
+          },
+          "phase": null,
+          "tools": null,
+          "toast": {
+            "x": 16,
+            "y": 157,
+            "right": 304,
+            "bottom": 157,
+            "width": 288,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 10,
+            "y": 73,
+            "right": 310,
+            "bottom": 493.3125,
+            "width": 300,
+            "height": 420.3125
+          },
+          "active": {
+            "text": "Switch to Chinese",
+            "rect": {
+              "x": 244,
+              "y": 90,
+              "right": 296,
+              "bottom": 138
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": {
+            "x": 10,
+            "y": 12,
+            "right": 310,
+            "bottom": 60,
+            "width": 300,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 215,
+            "bottom": 152.375,
+            "width": 201,
+            "height": 79.375
+          },
+          "tools": null,
+          "toast": {
+            "x": 16,
+            "y": 157,
+            "right": 304,
+            "bottom": 157,
+            "width": 288,
+            "height": 0
+          },
+          "walk": {
+            "x": 12,
+            "y": 492,
+            "right": 308,
+            "bottom": 556,
+            "width": 296,
+            "height": 64
+          },
+          "panel": null,
+          "active": {
+            "text": "Open menu",
+            "rect": {
+              "x": 161.28125,
+              "y": 12,
+              "right": 255,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-normal": {
+          "mode": "off",
+          "viewport": [
+            320,
+            568
+          ],
+          "document": [
+            320,
+            568
+          ],
+          "hud": null,
+          "phase": {
+            "x": 22,
+            "y": 94.59375,
+            "right": 188,
+            "bottom": 171.96875,
+            "width": 166,
+            "height": 77.375
+          },
+          "tools": {
+            "x": 199,
+            "y": 94.59375,
+            "right": 299,
+            "bottom": 189.59375,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 25,
+            "y": 164.59375,
+            "right": 295,
+            "bottom": 164.59375,
+            "width": 270,
+            "height": 0
+          },
+          "walk": {
+            "x": 19,
+            "y": 211.796875,
+            "right": 282.75,
+            "bottom": 246.796875,
+            "width": 263.75,
+            "height": 35
+          },
+          "panel": {
+            "x": 8,
+            "y": 328.796875,
+            "right": 312,
+            "bottom": 558,
+            "width": 304,
+            "height": 229.203125
+          },
+          "active": {
+            "text": "Full screen",
+            "rect": {
+              "x": 199,
+              "y": 94.59375,
+              "right": 299,
+              "bottom": 138.59375
+            }
+          },
+          "outside": [],
+          "small": []
+        }
+      },
+      "photoReturnFocus": {
+        "text": "Take scene photo",
+        "rect": {
+          "x": 262,
+          "y": 12,
+          "right": 310,
+          "bottom": 60
+        }
+      }
+    },
+    {
+      "viewport": "844x390",
+      "errors": [],
+      "states": {
+        "zh-normal": {
+          "mode": "off",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": null,
+          "phase": {
+            "x": 24,
+            "y": 78,
+            "right": 227,
+            "bottom": 140.1875,
+            "width": 203,
+            "height": 62.1875
+          },
+          "tools": {
+            "x": 426,
+            "y": 78,
+            "right": 526,
+            "bottom": 173,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 63,
+            "y": 149,
+            "right": 487,
+            "bottom": 149,
+            "width": 424,
+            "height": 0
+          },
+          "walk": {
+            "x": 24,
+            "y": 272.5,
+            "right": 269,
+            "bottom": 308,
+            "width": 245,
+            "height": 35.5
+          },
+          "panel": {
+            "x": 548,
+            "y": 66,
+            "right": 832,
+            "bottom": 380,
+            "width": 284,
+            "height": 314
+          },
+          "active": {
+            "text": "恐龙小丛林.DINO GROVEEN拍照一起探索今天，去哪里玩？白天自动昼夜太阳出来啦，一起散步吧全屏先选一位恐龙朋友，再点地面出发全景池畔俯瞰拖动旋转 · 滚轮缩放单指旋转 · 双指缩放选一位好朋友5 位丛林居民三角龙剑龙长颈龙霸王龙迅猛龙先选一位恐龙朋友，再点地面出发丛林的时光自动白天傍晚夜晚白天、晚霞与星夜，慢慢轮换自动旋转开启环绕观察背景音乐点一下，听听音乐单指旋转 · 双指缩放向下滑动，还有更多玩法\n",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "right": 844,
+              "bottom": 390
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 830,
+            "bottom": 60,
+            "width": 816,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 166,
+            "bottom": 121,
+            "width": 152,
+            "height": 48
+          },
+          "tools": null,
+          "toast": {
+            "x": 187,
+            "y": 131,
+            "right": 657,
+            "bottom": 131,
+            "width": 470,
+            "height": 0
+          },
+          "walk": {
+            "x": 297.296875,
+            "y": 331.5,
+            "right": 546.703125,
+            "bottom": 374,
+            "width": 249.40625,
+            "height": 42.5
+          },
+          "panel": null,
+          "active": {
+            "text": "退出全屏",
+            "rect": {
+              "x": 14,
+              "y": 12,
+              "right": 139,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-menu": {
+          "mode": "system",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 830,
+            "bottom": 60,
+            "width": 816,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 166,
+            "bottom": 121,
+            "width": 152,
+            "height": 48
+          },
+          "tools": null,
+          "toast": {
+            "x": 187,
+            "y": 131,
+            "right": 657,
+            "bottom": 131,
+            "width": 470,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 510,
+            "y": 73,
+            "right": 830,
+            "bottom": 376,
+            "width": 320,
+            "height": 303
+          },
+          "active": {
+            "text": "三角龙",
+            "rect": {
+              "x": 523,
+              "y": 232,
+              "right": 665.5,
+              "bottom": 336
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-menu": {
+          "mode": "system",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 830,
+            "bottom": 60,
+            "width": 816,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 216.40625,
+            "bottom": 121,
+            "width": 202.40625,
+            "height": 48
+          },
+          "tools": null,
+          "toast": {
+            "x": 187,
+            "y": 131,
+            "right": 657,
+            "bottom": 131,
+            "width": 470,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 510,
+            "y": 73,
+            "right": 830,
+            "bottom": 376,
+            "width": 320,
+            "height": 303
+          },
+          "active": {
+            "text": "Switch to Chinese",
+            "rect": {
+              "x": 757,
+              "y": 88,
+              "right": 817,
+              "bottom": 136
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 830,
+            "bottom": 60,
+            "width": 816,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 216.40625,
+            "bottom": 121,
+            "width": 202.40625,
+            "height": 48
+          },
+          "tools": null,
+          "toast": {
+            "x": 187,
+            "y": 131,
+            "right": 657,
+            "bottom": 131,
+            "width": 470,
+            "height": 0
+          },
+          "walk": {
+            "x": 265.0625,
+            "y": 331.5,
+            "right": 578.921875,
+            "bottom": 374,
+            "width": 313.859375,
+            "height": 42.5
+          },
+          "panel": null,
+          "active": {
+            "text": "Open menu",
+            "rect": {
+              "x": 593.90625,
+              "y": 12,
+              "right": 700.40625,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-normal": {
+          "mode": "off",
+          "viewport": [
+            844,
+            390
+          ],
+          "document": [
+            844,
+            390
+          ],
+          "hud": null,
+          "phase": {
+            "x": 24,
+            "y": 78,
+            "right": 264.390625,
+            "bottom": 139.1875,
+            "width": 240.390625,
+            "height": 61.1875
+          },
+          "tools": {
+            "x": 426,
+            "y": 78,
+            "right": 526,
+            "bottom": 173,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 63,
+            "y": 149,
+            "right": 487,
+            "bottom": 149,
+            "width": 424,
+            "height": 0
+          },
+          "walk": {
+            "x": 24,
+            "y": 272.5,
+            "right": 295.75,
+            "bottom": 308,
+            "width": 271.75,
+            "height": 35.5
+          },
+          "panel": {
+            "x": 548,
+            "y": 66,
+            "right": 832,
+            "bottom": 380,
+            "width": 284,
+            "height": 314
+          },
+          "active": {
+            "text": "Full screen",
+            "rect": {
+              "x": 426,
+              "y": 78,
+              "right": 526,
+              "bottom": 122
+            }
+          },
+          "outside": [],
+          "small": []
+        }
+      },
+      "photoReturnFocus": {
+        "text": "Take scene photo",
+        "rect": {
+          "x": 709.40625,
+          "y": 12,
+          "right": 830,
+          "bottom": 60
+        }
+      }
+    },
+    {
+      "viewport": "800x1280",
+      "errors": [],
+      "states": {
+        "zh-normal": {
+          "mode": "off",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": null,
+          "phase": {
+            "x": 24,
+            "y": 87,
+            "right": 225,
+            "bottom": 147.1875,
+            "width": 201,
+            "height": 60.1875
+          },
+          "tools": {
+            "x": 677,
+            "y": 87,
+            "right": 777,
+            "bottom": 182,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 27,
+            "y": 157,
+            "right": 773,
+            "bottom": 157,
+            "width": 746,
+            "height": 0
+          },
+          "walk": {
+            "x": 21,
+            "y": 564,
+            "right": 258,
+            "bottom": 599,
+            "width": 237,
+            "height": 35
+          },
+          "panel": {
+            "x": 10,
+            "y": 684,
+            "right": 790,
+            "bottom": 1270,
+            "width": 780,
+            "height": 586
+          },
+          "active": {
+            "text": "恐龙小丛林.DINO GROVEEN拍照一起探索今天，去哪里玩？白天自动昼夜太阳出来啦，一起散步吧全屏先选一位恐龙朋友，再点地面出发全景池畔俯瞰拖动旋转 · 滚轮缩放单指旋转 · 双指缩放选一位好朋友5 位丛林居民三角龙剑龙长颈龙霸王龙迅猛龙先选一位恐龙朋友，再点地面出发丛林的时光自动白天傍晚夜晚白天、晚霞与星夜，慢慢轮换自动旋转开启环绕观察背景音乐点一下，听听音乐单指旋转 · 双指缩放向下滑动，还有更多玩法\n",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "right": 800,
+              "bottom": 1280
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 786,
+            "bottom": 60,
+            "width": 772,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 219,
+            "bottom": 135.1875,
+            "width": 205,
+            "height": 62.1875
+          },
+          "tools": null,
+          "toast": {
+            "x": 165,
+            "y": 157,
+            "right": 635,
+            "bottom": 157,
+            "width": 470,
+            "height": 0
+          },
+          "walk": {
+            "x": 266.40625,
+            "y": 1215.609375,
+            "right": 533.578125,
+            "bottom": 1264,
+            "width": 267.171875,
+            "height": 48.390625
+          },
+          "panel": null,
+          "active": {
+            "text": "退出全屏",
+            "rect": {
+              "x": 14,
+              "y": 12,
+              "right": 139,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "zh-menu": {
+          "mode": "system",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 786,
+            "bottom": 60,
+            "width": 772,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 219,
+            "bottom": 135.1875,
+            "width": 205,
+            "height": 62.1875
+          },
+          "tools": null,
+          "toast": {
+            "x": 165,
+            "y": 157,
+            "right": 635,
+            "bottom": 157,
+            "width": 470,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 426,
+            "y": 73,
+            "right": 786,
+            "bottom": 1266,
+            "width": 360,
+            "height": 1193
+          },
+          "active": {
+            "text": "三角龙",
+            "rect": {
+              "x": 442,
+              "y": 209,
+              "right": 601.5,
+              "bottom": 313
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-menu": {
+          "mode": "system",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 786,
+            "bottom": 60,
+            "width": 772,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 256.390625,
+            "bottom": 134.1875,
+            "width": 242.390625,
+            "height": 61.1875
+          },
+          "tools": null,
+          "toast": {
+            "x": 165,
+            "y": 157,
+            "right": 635,
+            "bottom": 157,
+            "width": 470,
+            "height": 0
+          },
+          "walk": null,
+          "panel": {
+            "x": 426,
+            "y": 73,
+            "right": 786,
+            "bottom": 1266,
+            "width": 360,
+            "height": 1193
+          },
+          "active": {
+            "text": "Switch to Chinese",
+            "rect": {
+              "x": 718,
+              "y": 92,
+              "right": 770,
+              "bottom": 140
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-fullscreen": {
+          "mode": "system",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": {
+            "x": 14,
+            "y": 12,
+            "right": 786,
+            "bottom": 60,
+            "width": 772,
+            "height": 48
+          },
+          "phase": {
+            "x": 14,
+            "y": 73,
+            "right": 256.390625,
+            "bottom": 134.1875,
+            "width": 242.390625,
+            "height": 61.1875
+          },
+          "tools": null,
+          "toast": {
+            "x": 165,
+            "y": 157,
+            "right": 635,
+            "bottom": 157,
+            "width": 470,
+            "height": 0
+          },
+          "walk": {
+            "x": 232.03125,
+            "y": 1215.609375,
+            "right": 567.953125,
+            "bottom": 1264,
+            "width": 335.921875,
+            "height": 48.390625
+          },
+          "panel": null,
+          "active": {
+            "text": "Open menu",
+            "rect": {
+              "x": 622.5,
+              "y": 12,
+              "right": 729,
+              "bottom": 60
+            }
+          },
+          "outside": [],
+          "small": []
+        },
+        "en-normal": {
+          "mode": "off",
+          "viewport": [
+            800,
+            1280
+          ],
+          "document": [
+            800,
+            1280
+          ],
+          "hud": null,
+          "phase": {
+            "x": 24,
+            "y": 87,
+            "right": 262.390625,
+            "bottom": 146.1875,
+            "width": 238.390625,
+            "height": 59.1875
+          },
+          "tools": {
+            "x": 677,
+            "y": 87,
+            "right": 777,
+            "bottom": 182,
+            "width": 100,
+            "height": 95
+          },
+          "toast": {
+            "x": 27,
+            "y": 157,
+            "right": 773,
+            "bottom": 157,
+            "width": 746,
+            "height": 0
+          },
+          "walk": {
+            "x": 21,
+            "y": 564,
+            "right": 284.75,
+            "bottom": 599,
+            "width": 263.75,
+            "height": 35
+          },
+          "panel": {
+            "x": 10,
+            "y": 684,
+            "right": 790,
+            "bottom": 1270,
+            "width": 780,
+            "height": 586
+          },
+          "active": {
+            "text": "Full screen",
+            "rect": {
+              "x": 677,
+              "y": 87,
+              "right": 777,
+              "bottom": 131
+            }
+          },
+          "outside": [],
+          "small": []
+        }
+      },
+      "photoReturnFocus": {
+        "text": "Take scene photo",
+        "rect": {
+          "x": 738,
+          "y": 12,
+          "right": 786,
+          "bottom": 60
+        }
+      }
+    }
+  ],
+  "fallback": {
+    "mode": "immersive",
+    "viewport": [
+      320,
+      568
+    ],
+    "document": [
+      320,
+      568
+    ],
+    "hud": {
+      "x": 10,
+      "y": 12,
+      "right": 310,
+      "bottom": 60,
+      "width": 300,
+      "height": 48
+    },
+    "phase": {
+      "x": 14,
+      "y": 73,
+      "right": 215,
+      "bottom": 152.375,
+      "width": 201,
+      "height": 79.375
+    },
+    "tools": null,
+    "toast": {
+      "x": 16,
+      "y": 157,
+      "right": 304,
+      "bottom": 216,
+      "width": 288,
+      "height": 59
+    },
+    "walk": {
+      "x": 12,
+      "y": 494,
+      "right": 308,
+      "bottom": 556,
+      "width": 296,
+      "height": 62
+    },
+    "panel": null,
+    "active": {
+      "text": "Exit full screen",
+      "rect": {
+        "x": 10,
+        "y": 12,
+        "right": 127.75,
+        "bottom": 60
+      }
+    },
+    "outside": [],
+    "small": []
+  },
+  "fallbackExited": true,
+  "passed": true,
+  "scope": "Real Chrome with emulated mobile viewports; visual screenshots and UI geometry/focus only, not physical-device performance. Fullscreen unavailable fallback is simulated."
+}

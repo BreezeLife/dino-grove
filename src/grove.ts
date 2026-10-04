@@ -205,16 +205,72 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
   const d={root,torso,head,tail,legs,neck,neckBridge,lastYaw:animals[id].yaw,turnDistance:0,id};dinos.push(d);return d;
  }
  for(let i=0;i<animals.length;i++)makeDino(i);
- const ringMat=new T.MeshBasicMaterial({color:"#ffe590",transparent:true,opacity:.88,depthWrite:false,side:T.DoubleSide});materials.add(ringMat);
- const ringGeo=new T.RingGeometry(1.12,1.22,64);geometries.add(ringGeo);const selectionRing=mesh(scene,ringGeo,ringMat,[0,.17,0],[1,1,1],false);selectionRing.rotation.x=-Math.PI/2;selectionRing.visible=false;
- // A luminous landing marker remains legible in both daylight and moonlight.
- const destination=new T.Group();destination.visible=false;scene.add(destination);
- const destinationMat=new T.MeshBasicMaterial({color:"#8beedf",transparent:true,opacity:.95,depthWrite:false,side:T.DoubleSide});materials.add(destinationMat);
- const destinationRing=mesh(destination,ringGeo,destinationMat,[0,.02,0],[.45,.45,.45],false);destinationRing.rotation.x=-Math.PI/2;
- const destinationCore=mesh(destination,cone,destinationMat,[0,.52,0],[.2,.42,.2],false);destinationCore.rotation.z=Math.PI;
- const routeGeo=new T.SphereGeometry(.055,6,4);geometries.add(routeGeo);
- const routeDots=Array.from({length:12},()=>{const dot=mesh(scene,routeGeo,destinationMat,[0,.2,0],[1,1,1],false);dot.visible=false;return dot;});
- let destinationId=-1;
+ // Unlit, non-raycast guide meshes stay readable at every time of day. Geometry
+ // is pooled once; all animation uses scene time so pause also freezes guidance.
+ function guideMaterial(color:string,opacity=1){const m=new T.MeshBasicMaterial({color,transparent:true,opacity,depthWrite:false,side:T.DoubleSide,toneMapped:false,fog:false});materials.add(m);return m;}
+ function guideMesh(parent:T.Object3D,geometry:T.BufferGeometry,material:T.Material,y=0){const o=mesh(parent,geometry,material,[0,y,0],[1,1,1],false);o.raycast=()=>{};o.receiveShadow=false;return o;}
+ function guideRing(parent:T.Object3D,inner:number,outer:number,material:T.Material,y=0){const geo=new T.RingGeometry(inner,outer,64);geometries.add(geo);const o=guideMesh(parent,geo,material,y);o.rotation.x=-Math.PI/2;return o;}
+ const selectionRing=new T.Group();selectionRing.name="selection-halo";selectionRing.visible=false;scene.add(selectionRing);
+ guideRing(selectionRing,.85,1.33,guideMaterial("#17364b",.62));
+ guideRing(selectionRing,.7,1.46,guideMaterial("#ffdb78",.12),.001);
+ guideRing(selectionRing,.94,1.04,guideMaterial("#fff9d6"),.003);
+ guideRing(selectionRing,1.17,1.29,guideMaterial("#ffd263"),.004);
+ const selectedMeshes=new Map<T.Mesh,T.MeshStandardMaterial>(),selectedMaterials=new Map<T.MeshStandardMaterial,T.MeshStandardMaterial>();
+ function restoreSelection(){for(const [o,material] of selectedMeshes)o.material=material;selectedMeshes.clear();}
+ function highlightResident(id:number){
+  restoreSelection();dinos[id].root.traverse(o=>{const body=o as T.Mesh;if(!body.isMesh||!(body.material instanceof T.MeshStandardMaterial))return;
+   const original=body.material;let highlighted=selectedMaterials.get(original);
+   if(!highlighted){highlighted=original.clone();highlighted.emissive.set("#ffe0a0");highlighted.emissiveIntensity=.16;selectedMaterials.set(original,highlighted);materials.add(highlighted);}
+   selectedMeshes.set(body,original);body.material=highlighted;
+  });
+ }
+ const destination=new T.Group();destination.name="movement-destination";destination.visible=false;scene.add(destination);
+ const destinationMat=guideMaterial("#80ffe4"),destinationWhite=guideMaterial("#f2fff7"),destinationShadow=guideMaterial("#123749",.68);
+ guideRing(destination,.4,.88,destinationShadow);
+ const destinationRing=guideRing(destination,.48,.61,destinationMat,.003);
+ const destinationOuter=guideRing(destination,.73,.82,destinationWhite,.005);
+ const destinationCore=guideMesh(destination,cone,destinationMat,.88);destinationCore.scale.set(.28,.48,.28);destinationCore.rotation.z=Math.PI;
+ const checkShape=new T.Shape();checkShape.moveTo(-.28,.02);checkShape.lineTo(-.12,-.13);checkShape.lineTo(.3,.28);checkShape.lineTo(.39,.18);checkShape.lineTo(-.12,-.31);checkShape.lineTo(-.38,-.07);checkShape.closePath();
+ const checkGeo=new T.ShapeGeometry(checkShape);geometries.add(checkGeo);const destinationCheck=guideMesh(destination,checkGeo,destinationWhite,.85);destinationCheck.visible=false;
+ const routeGroup=new T.Group();routeGroup.name="movement-route";routeGroup.visible=false;scene.add(routeGroup);
+ const routeMaterial=guideMaterial("#a6ffe7"),routeShadow=guideMaterial("#153648",.72);
+ const arrowShape=new T.Shape();arrowShape.moveTo(0,.23);arrowShape.lineTo(.19,-.1);arrowShape.lineTo(.085,-.1);arrowShape.lineTo(0,.055);arrowShape.lineTo(-.085,-.1);arrowShape.lineTo(-.19,-.1);arrowShape.closePath();
+ const routeGeo=new T.ShapeGeometry(arrowShape);geometries.add(routeGeo);
+ const routeArrows=Array.from({length:24},(_,index)=>{const group=new T.Group();group.name="movement-route-arrow-"+index;routeGroup.add(group);group.visible=false;
+  const shadow=guideMesh(group,routeGeo,routeShadow);shadow.rotation.x=Math.PI/2;shadow.scale.setScalar(1.4);
+  const arrow=guideMesh(group,routeGeo,routeMaterial,.004);arrow.rotation.x=Math.PI/2;return group;
+ });
+ let destinationId=-1,arrivalTime=-1,blockedTintUntil=0;
+ function hideGuidance(){destination.visible=false;routeGroup.visible=false;destinationId=-1;arrivalTime=-1;blockedTintUntil=0;destination.userData.status="idle";routeArrows.forEach(arrow=>arrow.visible=false);}
+ function showDestination(id:number,x:number,z:number){destinationId=id;arrivalTime=-1;blockedTintUntil=0;destination.position.set(x,.19,z);destination.visible=true;destination.userData.resident=id;updateGuidance();}
+ function updateSelection(){
+  if(selected<0)return;const a=animals[selected];selectionRing.position.set(a.x,.19,a.z);
+  selectionRing.scale.setScalar(a.r*.72*(reducedMotion?1:1+Math.sin(time*1.8)*.012));selectionRing.userData.resident=selected;
+ }
+ function updateGuidance(){
+  if(!destination.visible||destinationId<0)return;const a=animals[destinationId],arrived=arrivalTime>=0,age=arrived?time-arrivalTime:0;
+  if(arrived&&age>=1.5){hideGuidance();return;}
+  const blocked=!arrived&&(a.moveStatus==="blocked"||time<blockedTintUntil),fade=arrived?1-T.MathUtils.clamp((age-.6)/.9,0,1):1;
+  destination.userData.status=arrived?"arrived":blocked?"blocked":"moving";
+  const color=arrived?"#b7ff83":blocked?"#ffc766":"#80ffe4";destinationMat.color.set(color);routeMaterial.color.set(color);
+  destinationMat.opacity=fade;destinationWhite.opacity=fade;destinationShadow.opacity=fade*.68;
+  const pulse=reducedMotion?1:1+Math.sin(time*3)*.075;destinationRing.scale.setScalar(pulse);destinationOuter.scale.setScalar(reducedMotion?1:1+Math.sin(time*3+.7)*.04);
+  destinationCore.visible=!arrived;destinationCore.position.y=.88+(reducedMotion?0:Math.sin(time*3)*.065);destinationCheck.visible=arrived;destinationCheck.quaternion.copy(camera.quaternion);
+  routeGroup.visible=!arrived&&a.path.length>0;routeGroup.userData.resident=destinationId;
+  // Sample the remaining A* polyline, never a direct line to the destination.
+  // Re-use the 24 arrow meshes and walk segments without allocating per frame.
+  const path=a.path as {x:number;z:number}[];let length=0,from:{x:number;z:number}=a;for(const waypoint of path){length+=Math.hypot(waypoint.x-from.x,waypoint.z-from.z);from=waypoint;}
+  const count=Math.min(routeArrows.length,Math.max(0,Math.floor((length-.7)/.75))),spacing=length/(count+1);routeGroup.userData.remainingLength=length;
+  for(let i=0;i<routeArrows.length;i++){
+   const arrow=routeArrows[i];arrow.visible=routeGroup.visible&&i<count;if(!arrow.visible)continue;
+   let along=(i+1)*spacing;from=a;
+   for(let segment=0;segment<path.length;segment++){
+    const to=path[segment],distance=Math.hypot(to.x-from.x,to.z-from.z);
+    if(along<=distance||segment===path.length-1){const part=distance?along/distance:0;arrow.position.set(T.MathUtils.lerp(from.x,to.x,part),.205,T.MathUtils.lerp(from.z,to.z,part));arrow.rotation.y=Math.atan2(to.x-from.x,to.z-from.z);arrow.scale.setScalar(reducedMotion?1:.96+.04*Math.sin(time*3-i*.7));arrow.userData.segment=segment;break;}
+    along-=distance;from=to;
+   }
+  }
+ }
  const observedMoves=new Map<number,{notified:"moving"|"blocked";blockedFor:number;movingFor:number}>();
  // Procedural stars and fireflies add a readable sense of night without darkening the residents.
  const starPositions:number[]=[];
@@ -279,9 +335,12 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
  let snackAge=0;
  let cameraTransition:{start:T.Vector3;end:T.Vector3;startTarget:T.Vector3;endTarget:T.Vector3;p:number}|null=null;
  let framingBasis=1.06,minDistanceFactor=13*worldScale,framing=Math.max(1,1.06/(host.clientWidth/host.clientHeight));
+ // Portrait framing pulls the camera back; keep the atmospheric fog at the
+ // same relative distance instead of washing out the entire island.
+ function syncFramingFog(){const fog=scene.fog as T.Fog;fog.near=65*framing;fog.far=125*framing;}
  function setView(id:string,immediate=false){
   focused=-1;
-  const aspect=host.clientWidth/host.clientHeight,fit=Math.max(1,1.06/aspect);framingBasis=1.06;minDistanceFactor=13*worldScale;framing=fit;
+  const aspect=host.clientWidth/host.clientHeight,fit=Math.max(1,1.06/aspect);framingBasis=1.06;minDistanceFactor=13*worldScale;framing=fit;syncFramingFog();
   const p=id==="pond"?point(15,10,15):id==="overhead"?point(.01,27,.01):point(18,15,21);
   p.multiplyScalar(fit*worldScale);const target=id==="pond"?point(1.5,.6,-.2):point(0,1,0);
   controls.minDistance=13*fit*worldScale;controls.maxDistance=58*fit*worldScale;camera.far=controls.maxDistance+50;camera.updateProjectionMatrix();
@@ -291,13 +350,18 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
  setView("grove",true);
  const onResize=()=>{renderer.setPixelRatio(Math.min(devicePixelRatio,host.clientWidth<600?1.5:1.8));camera.aspect=host.clientWidth/host.clientHeight;camera.updateProjectionMatrix();renderer.setSize(host.clientWidth,host.clientHeight);const next=Math.max(1,framingBasis/camera.aspect);const ratio=next/framing;camera.position.sub(controls.target).multiplyScalar(ratio).add(controls.target);
   if(cameraTransition){cameraTransition.end.sub(cameraTransition.endTarget).multiplyScalar(ratio).add(cameraTransition.endTarget);cameraTransition.start.copy(camera.position);cameraTransition.startTarget.copy(controls.target);cameraTransition.p=0;}
-  framing=next;controls.minDistance=minDistanceFactor*next;controls.maxDistance=58*next*worldScale;camera.far=controls.maxDistance+50;camera.updateProjectionMatrix();};
+  framing=next;syncFramingFog();controls.minDistance=minDistanceFactor*next;controls.maxDistance=58*next*worldScale;camera.far=controls.maxDistance+50;camera.updateProjectionMatrix();};
  const resizeObserver=new ResizeObserver(onResize);resizeObserver.observe(host);
  const raycaster=new T.Raycaster(),pointer=new T.Vector2(),groundPlane=new T.Plane(point(0,1,0),-.13);
  const pointers=new Map<number,{x:number;y:number;time:number;moved:boolean}>();let multitouch=false;
  const pointerDown=(e:PointerEvent)=>{if(e.button!==0)return;stopAutoRotate();pointers.set(e.pointerId,{x:e.clientX,y:e.clientY,time:performance.now(),moved:false});if(pointers.size>1)multitouch=true;cameraTransition=null;};
  const pointerMove=(e:PointerEvent)=>{const p=pointers.get(e.pointerId);if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>7){p.moved=true;focused=-1;}};
- function select(id:number){if(!Number.isInteger(id)||id<0||id>=dinos.length)return;if(focused!==id)focused=-1;selected=id;if(animals[id].moveStatus!=="moving"){animals[id].greeting=2.6;animals[id].behavior="greet";}selectionRing.visible=true;onSelect(id);}
+ function select(id:number){
+  if(!Number.isInteger(id)||id<0||id>=dinos.length)return;if(focused!==id)focused=-1;
+  if(selected!==id){hideGuidance();highlightResident(id);}selected=id;
+  if(!animals[id].manualTarget){animals[id].greeting=2.6;animals[id].behavior="greet";}
+  selectionRing.visible=true;updateSelection();const target=animals[id].manualTarget as {x:number;z:number}|null;if(target)showDestination(id,target.x,target.z);onSelect(id);
+ }
  function focus(id:number){
   if(!dinos[id])return;stopAutoRotate();focused=id;
   const fit=Math.max(1,.8/camera.aspect),target=dinos[id].root.position.clone().add(point(0,id===2?1.35:1,0));
@@ -310,11 +374,11 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
    const blocked=clearRay.intersectObject(island,true)[0],score=blocked?blocked.distance/length:2-Math.abs(turn)*.02;
    if(score>bestScore){bestScore=score;offset.copy(candidate);}
   }
-  framingBasis=.8;minDistanceFactor=5;framing=fit;controls.minDistance=5*fit;
+  framingBasis=.8;minDistanceFactor=5;framing=fit;syncFramingFog();controls.minDistance=5*fit;
   cameraTransition={start:camera.position.clone(),end:target.clone().add(offset),startTarget:controls.target.clone(),endTarget:target,p:0};
  }
  function interact(id:number,action:"greet"|"feed"){
-  if(!dinos[id])return;cancelMove(animals[id]);observedMoves.delete(id);if(destinationId===id){destination.visible=false;routeDots.forEach(dot=>dot.visible=false);}select(id);paused=false;const a=animals[id];a.greeting=3;a.behavior=action==="feed"?"feed":"greet";
+  if(!dinos[id])return;cancelMove(animals[id]);observedMoves.delete(id);if(destinationId===id)hideGuidance();select(id);paused=false;const a=animals[id];a.greeting=3;a.behavior=action==="feed"?"feed":"greet";
   const origin=dinos[id].root.position.clone().add(point(0,2.4,0));
   if(!reducedMotion)particles.forEach((p,i)=>{p.age=-i*.085;p.origin.copy(origin);});
   if(action==="feed"){const reach=id===2?2.4:id===3?1.7:id===4?1.36:1.1;snacks.position.set(a.x+Math.sin(a.yaw)*reach,.22,a.z+Math.cos(a.yaw)*reach);snacks.visible=true;snackAge=3;}
@@ -328,10 +392,10 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
   const hit=raycaster.intersectObjects(dinos.map(d=>d.root),true)[0];if(hit){select(hit.object.userData.dinosaur);return;}
   if(selected<0)return;
   const landing=raycaster.ray.intersectPlane(groundPlane,new T.Vector3());
-  if(!landing||Math.hypot(landing.x,landing.z)>WORLD_RADIUS+.2){onEvent?.({type:"move",status:"blocked",id:selected});return;}
+  if(!landing||Math.hypot(landing.x,landing.z)>WORLD_RADIUS+.2){if(destinationId===selected){blockedTintUntil=time+1.3;updateGuidance();}onEvent?.({type:"move",status:"blocked",id:selected});return;}
   const move=commandMove(animals,selected,landing.x,landing.z);
-  if(!move.accepted){onEvent?.({type:"move",status:"blocked",id:selected});return;}
-  paused=false;focused=-1;cameraTransition=null;destinationId=selected;destination.position.set(move.x!,.18,move.z!);destination.visible=true;observedMoves.set(selected,{notified:"moving",blockedFor:0,movingFor:0});
+  if(!move.accepted){if(destinationId===selected){blockedTintUntil=time+1.3;updateGuidance();}onEvent?.({type:"move",status:"blocked",id:selected});return;}
+  paused=false;focused=-1;cameraTransition=null;showDestination(selected,move.x!,move.z!);observedMoves.clear();observedMoves.set(selected,{notified:"moving",blockedFor:0,movingFor:0});
   onEvent?.({type:"move",status:"started",id:selected,adjusted:move.adjusted});
  };
  const pointerCancel=(e:PointerEvent)=>{pointers.delete(e.pointerId);multitouch=pointers.size>0;};
@@ -346,8 +410,8 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
    updateWanderers(animals,dt,random);
    for(const [id,state] of observedMoves){
     const next=animals[id].moveStatus;
-    if(next==="idle"){observedMoves.delete(id);if(destinationId===id){destination.visible=false;routeDots.forEach(dot=>dot.visible=false);}continue;}
-    if(next==="arrived"){observedMoves.delete(id);onEvent?.({type:"move",status:"arrived",id});if(destinationId===id){destination.visible=false;routeDots.forEach(dot=>dot.visible=false);}continue;}
+    if(next==="idle"){observedMoves.delete(id);if(destinationId===id)hideGuidance();continue;}
+    if(next==="arrived"){observedMoves.delete(id);onEvent?.({type:"move",status:"arrived",id});if(destinationId===id)arrivalTime=time;continue;}
     if(next==="blocked"){state.blockedFor+=dt;state.movingFor=0;if(state.blockedFor>.9&&state.notified!=="blocked"){state.notified="blocked";onEvent?.({type:"move",status:"blocked",id});}}
     else if(next==="moving"){state.movingFor+=dt;state.blockedFor=0;if(state.movingFor>.6&&state.notified==="blocked"){state.notified="moving";onEvent?.({type:"move",status:"started",id});}}
    }
@@ -375,11 +439,9 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
    mists.forEach((o,i)=>{o.position.x=-5+i*2.5+Math.sin(time*.08+i)*.7;o.quaternion.copy(camera.quaternion);});
    for(let i=0;i<24;i++){const a=i*2.399+time*.045,r=3+(i%7)*1.1;fireflyPositions[i*3]=Math.sin(a)*r;fireflyPositions[i*3+1]=.65+Math.sin(time*.6+i)*.28+(i%4)*.28;fireflyPositions[i*3+2]=Math.cos(a)*r;}
    fireflyGeo.attributes.position.needsUpdate=true;
-   if(destination.visible){destinationCore.position.y=.52+Math.sin(time*3)*.1;destinationRing.scale.setScalar(.45+Math.sin(time*3)*.045);const a=animals[destinationId],path=[{x:a.x,z:a.z},...a.path];
-    const segments=path.slice(1).map((p,i)=>Math.hypot(p.x-path[i].x,p.z-path[i].z)),length=segments.reduce((sum,value)=>sum+value,0);
-    routeDots.forEach((dot,i)=>{dot.visible=length>.15;let along=length*(i+1)/13,index=0;while(index<segments.length-1&&along>segments[index])along-=segments[index++];const from=path[index],to=path[index+1];if(from&&to){const p=along/(segments[index]||1);dot.position.set(T.MathUtils.lerp(from.x,to.x,p),.21,T.MathUtils.lerp(from.z,to.z,p));}});}
+   updateGuidance();
   }
-  if(selected>=0){selectionRing.position.set(animals[selected].x,.17,animals[selected].z);selectionRing.scale.setScalar((selected===4?.8:selected===3?1.2:1.1)+Math.sin(time*2)*.03);}
+  updateSelection();
   if(cameraTransition){cameraTransition.p=reducedMotion?1:Math.min(1,cameraTransition.p+dt*1.3);const p=cameraTransition.p,e=p*p*(3-2*p);camera.position.lerpVectors(cameraTransition.start,cameraTransition.end,e);controls.target.lerpVectors(cameraTransition.startTarget,cameraTransition.endTarget,e);if(p===1)cameraTransition=null;}
   if(focused>=0&&!cameraTransition&&!paused){const target=dinos[focused].root.position.clone().add(point(0,focused===2?1.35:1,0)),shift=target.sub(controls.target).multiplyScalar(Math.min(1,dt*3));controls.target.add(shift);camera.position.add(shift);}
   const light=lighting[mood],blend=Math.min(1,dt*1.1);
@@ -395,7 +457,7 @@ export function createGrove(host:HTMLDivElement,onSelect:(id:number)=>void,onEve
   setDayCycle(value){dayCycle=value;if(value){cycleClock=mood==="day"?0:mood==="sunset"?42:62;}},
   setAutoRotate,
   capture(){renderer.render(scene,camera);return renderer.domElement.toDataURL("image/png");},
-  clear(){selected=-1;selectionRing.visible=false;focused=-1;},view:setView,pause(v){paused=v;if(v){cameraTransition=null;controls.autoRotate=false;const damping=controls.enableDamping;controls.enableDamping=false;controls.update(0);controls.enableDamping=damping;}},
+  clear(){selected=-1;selectionRing.visible=false;focused=-1;restoreSelection();hideGuidance();},view:setView,pause(v){paused=v;if(v){cameraTransition=null;controls.autoRotate=false;const damping=controls.enableDamping;controls.enableDamping=false;controls.update(0);controls.enableDamping=damping;}},
   dispose(){disposed=true;cancelAnimationFrame(frame);resizeObserver.disconnect();controls.dispose();renderer.domElement.removeEventListener("wheel",wheel);renderer.domElement.removeEventListener("pointerdown",pointerDown);renderer.domElement.removeEventListener("pointermove",pointerMove);renderer.domElement.removeEventListener("pointerup",pointerUp);renderer.domElement.removeEventListener("pointercancel",pointerCancel);renderer.domElement.removeEventListener("lostpointercapture",pointerCancel);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());sun.shadow.dispose();renderer.dispose();renderer.domElement.remove();}
  };
 }

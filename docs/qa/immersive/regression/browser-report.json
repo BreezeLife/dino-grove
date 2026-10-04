@@ -1,0 +1,2010 @@
+{
+  "url": "http://127.0.0.1:5177/",
+  "date": "2026-10-04T14:54:22.119Z",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "checks": [
+    {
+      "viewport": "1440x900",
+      "mobile": false,
+      "initial": {
+        "document": [
+          1440,
+          900
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 23,
+          "y": 89,
+          "width": 1040,
+          "height": 788
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "3D brand icon, relative manifest and home-screen PNG icons",
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Mouse click ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "developmentEvents": [
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:54:26.809Z"
+        },
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:55:34.707Z"
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 1,
+        "canvas": [
+          1040,
+          788
+        ]
+      },
+      "pauseVerification": {
+        "exactPngMatch": true,
+        "exactSceneStateMatch": true,
+        "developmentEvents": [
+          {
+            "type": "navigation",
+            "url": "http://127.0.0.1:5177/",
+            "at": "2026-10-04T14:54:26.809Z"
+          }
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.8148658154547561,
+        "ambient": 2.032536126608339
+      },
+      "movement": {
+        "requested": {
+          "x": 347.27572176606867,
+          "y": 466.77164359160525,
+          "worldX": -7.753470276345163,
+          "worldZ": 2.6218270613590016
+        },
+        "samples": [
+          {
+            "wall": 0.3376999999880791,
+            "scene": 0.33330000000000837,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.7549649968680185,
+                "z": 6.219274147627383,
+                "yaw": 4.683446338666926,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -2.8053835734997445,
+                    "z": 8.481835277450843
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 3.781691044238325,
+                "z": 7.447240857198824,
+                "yaw": 2.102063624371605,
+                "status": "idle",
+                "speed": 0.45000000000000334,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 5.729675687708719,
+                    "z": 6.302564878674552
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.7138179378945264,
+                "z": -5.378151240611202,
+                "yaw": -4.851367389544788,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.3391267121905097,
+                    "z": -2.2860234461789894
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": -0.03241067608645248,
+                "z": 0.8657184952682027,
+                "yaw": -2.636583860613862,
+                "status": "idle",
+                "speed": 0.5600000000000002,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.18697367219588712,
+                    "z": 0.5861304431929371
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -7.753470276345163,
+                "z": 0.021827061359001566,
+                "yaw": -1.3823482184129057,
+                "status": "moving",
+                "speed": 0,
+                "manualTarget": {
+                  "x": -7.753470579142284,
+                  "z": 2.621826563442877
+                },
+                "path": [
+                  {
+                    "x": -7.753470579142284,
+                    "z": 2.621826563442877
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 1.339899999976158,
+            "scene": 1.3499000000000692,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.7549649968680185,
+                "z": 6.219274147627383,
+                "yaw": 5.59838633866692,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -2.8053835734997445,
+                    "z": 8.481835277450843
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 4.176105994636673,
+                "z": 7.215474492507417,
+                "yaw": 2.102063624371608,
+                "status": "idle",
+                "speed": 0.45000000000000334,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 5.729675687708719,
+                    "z": 6.302564878674552
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.7138179378945264,
+                "z": -5.378151240611202,
+                "yaw": -5.046307389544785,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.3391267121905097,
+                    "z": -2.2860234461789894
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.016799999999995634
+              },
+              {
+                "id": 3,
+                "x": -0.1317630818313537,
+                "z": 0.686000540192196,
+                "yaw": -2.636583860613862,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.0871258288638437,
+                    "z": -1.1901685917691334
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -7.753470276345163,
+                "z": 0.021827061359001566,
+                "yaw": -0.4674082184129073,
+                "status": "moving",
+                "speed": 0,
+                "manualTarget": {
+                  "x": -7.753470579142284,
+                  "z": 2.621826563442877
+                },
+                "path": [
+                  {
+                    "x": -7.753470579142284,
+                    "z": 2.621826563442877
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 2.3563000000119207,
+            "scene": 2.366500000000137,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.753136428319497,
+                "z": 6.227078799641624,
+                "yaw": 6.513326338666928,
+                "status": "idle",
+                "speed": 0.48000000000001836,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -2.8053835734997445,
+                    "z": 8.481835277450843
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 4.570520945035022,
+                "z": 6.983708127816008,
+                "yaw": 2.1020636243716115,
+                "status": "idle",
+                "speed": 0.44999999999999873,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 5.729675687708719,
+                    "z": 6.302564878674552
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.7138179378945264,
+                "z": -5.378151240611202,
+                "yaw": -5.946217389544795,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.3391267121905097,
+                    "z": -2.2860234461789894
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.03349999999999272
+              },
+              {
+                "id": 3,
+                "x": -0.1317630818313537,
+                "z": 0.686000540192196,
+                "yaw": -2.636583860613862,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.0871258288638437,
+                    "z": -1.1901685917691334
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -7.766953948047275,
+                "z": 0.7263184981925878,
+                "yaw": 0.007113207135429044,
+                "status": "moving",
+                "speed": 1.0079999999999978,
+                "manualTarget": {
+                  "x": -7.753470579142284,
+                  "z": 2.621826563442877
+                },
+                "path": [
+                  {
+                    "x": -7.753470579142284,
+                    "z": 2.621826563442877
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 3.372099999964237,
+            "scene": 3.3832000000002225,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.5694022534111207,
+                "z": 6.678826641666956,
+                "yaw": 6.683993788035595,
+                "status": "idle",
+                "speed": 0.4799999999999815,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -2.8053835734997445,
+                    "z": 8.481835277450843
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 4.964974692890615,
+                "z": 6.751918964938029,
+                "yaw": 2.102063624371618,
+                "status": "idle",
+                "speed": 0.45000000000000334,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 5.729675687708719,
+                    "z": 6.302564878674552
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.6768839563837732,
+                "z": -5.308573194979066,
+                "yaw": -6.846217389544794,
+                "status": "idle",
+                "speed": 0.43000000000001104,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.3391267121905097,
+                    "z": -2.2860234461789894
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": -0.1317630818313537,
+                "z": 0.686000540192196,
+                "yaw": -2.756643860613856,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.0871258288638437,
+                    "z": -1.1901685917691334
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.016600000000005822
+              },
+              {
+                "id": 4,
+                "x": -7.759664155845956,
+                "z": 1.7511261711823143,
+                "yaw": 0.007113207135419645,
+                "status": "moving",
+                "speed": 1.0080000000000044,
+                "manualTarget": {
+                  "x": -7.753470579142284,
+                  "z": 2.621826563442877
+                },
+                "path": [
+                  {
+                    "x": -7.753470579142284,
+                    "z": 2.621826563442877
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          }
+        ],
+        "result": {
+          "x": -7.754287333605611,
+          "z": 2.5070062478765216,
+          "status": "arrived",
+          "wallSeconds": 4.229399999976158,
+          "sceneSeconds": 4.233200000000274
+        }
+      },
+      "performance": {
+        "seconds": 5.01539999996424,
+        "fps": 60.21453921963418,
+        "maxFrameMs": 16.80000000000291
+      },
+      "passed": true
+    },
+    {
+      "viewport": "390x844",
+      "mobile": true,
+      "initial": {
+        "document": [
+          390,
+          844
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 11,
+          "y": 75,
+          "width": 368,
+          "height": 378
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "developmentEvents": [
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:55:37.553Z"
+        },
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:57:03.147Z"
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          552,
+          567
+        ]
+      },
+      "pauseVerification": {
+        "exactPngMatch": true,
+        "exactSceneStateMatch": true,
+        "developmentEvents": [
+          {
+            "type": "navigation",
+            "url": "http://127.0.0.1:5177/",
+            "at": "2026-10-04T14:55:37.553Z"
+          }
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.8011280556907214,
+        "ambient": 2.0362347542371184
+      },
+      "movement": {
+        "requested": {
+          "x": 254.54295696734277,
+          "y": 258.5121293536931,
+          "worldX": 2.1719469102207456,
+          "worldZ": -5.437923768138726
+        },
+        "samples": [
+          {
+            "wall": 0.856,
+            "scene": 0.606700000000032,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -1.3640312731311817,
+                "z": 0.8284775092896596,
+                "yaw": -1.1095270755330722,
+                "status": "idle",
+                "speed": 0.4799999999999975,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.009850990888137,
+                    "z": 1.8936280849172196
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -4.143836037081347,
+                "z": 5.78287234967398,
+                "yaw": -2.0039083847737014,
+                "status": "idle",
+                "speed": 0.4499999999999813,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -5.532632589559504,
+                    "z": 5.140702480764894
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -1.5630919449770604,
+                "z": -5.43354886959279,
+                "yaw": -4.123871946209959,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 2.632436297718452,
+                "z": 1.7757611694709785,
+                "yaw": -2.0812498514209685,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 0.5328181505059558,
+                "z": -2.5928924149292345,
+                "yaw": -3.6726711600851423,
+                "status": "moving",
+                "speed": 0,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.19000000000000003
+              }
+            ]
+          },
+          {
+            "wall": 1.858300000011921,
+            "scene": 1.6233000000000928,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -1.774804320239545,
+                "z": 1.0916971951093604,
+                "yaw": -0.994904762299804,
+                "status": "idle",
+                "speed": 0.48000000000000664,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.009850990888137,
+                    "z": 1.8936280849172196
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -4.559065098159966,
+                "z": 5.590873319114538,
+                "yaw": -2.0039083847737,
+                "status": "idle",
+                "speed": 0.44999999999999096,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -5.532632589559504,
+                    "z": 5.140702480764894
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -1.5630919449770604,
+                "z": -5.43354886959279,
+                "yaw": -3.2089319462099555,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 2.632436297718452,
+                "z": 1.7757611694709785,
+                "yaw": -1.1663098514209638,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 0.5328181505059558,
+                "z": -2.5928924149292345,
+                "yaw": -3.664280470968118,
+                "status": "blocked",
+                "speed": 0,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 1.206600000000005
+              }
+            ]
+          },
+          {
+            "wall": 2.8748000000119207,
+            "scene": 2.6399000000001536,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -2.1840665489315807,
+                "z": 1.357436159489871,
+                "yaw": -0.9949047622998056,
+                "status": "idle",
+                "speed": 0.47999999999999104,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.009850990888137,
+                    "z": 1.8936280849172196
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -4.974294159238583,
+                "z": 5.398874288555099,
+                "yaw": -2.0039083847737014,
+                "status": "idle",
+                "speed": 0.450000000000023,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -5.532632589559504,
+                    "z": 5.140702480764894
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -1.5630919449770604,
+                "z": -5.43354886959279,
+                "yaw": -2.293991946209959,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 2.632436297718452,
+                "z": 1.7757611694709785,
+                "yaw": -0.2513698514209644,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 0.5328181505059558,
+                "z": -2.5928924149292345,
+                "yaw": -3.6642804709681176,
+                "status": "blocked",
+                "speed": 0,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 2.2232000000000025
+              }
+            ]
+          },
+          {
+            "wall": 3.877099999964237,
+            "scene": 3.6399000000002317,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -2.5866459594096796,
+                "z": 1.6188358883709546,
+                "yaw": -0.9949047622998096,
+                "status": "idle",
+                "speed": 0.47999999999999104,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.009850990888137,
+                    "z": 1.8936280849172196
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -5.382742970057607,
+                "z": 5.210010398569421,
+                "yaw": -2.0039083847737,
+                "status": "idle",
+                "speed": 0.45000000000000073,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -5.532632589559504,
+                    "z": 5.140702480764894
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -1.909811211725173,
+                "z": -5.6043516332849395,
+                "yaw": -2.006260202806922,
+                "status": "idle",
+                "speed": 0.43000000000000155,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 2.7290536810085793,
+                "z": 1.9979094525255356,
+                "yaw": 0.45683082906843997,
+                "status": "idle",
+                "speed": 0.5600000000000009,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 0.977248423837589,
+                "z": -3.3642902180695744,
+                "yaw": -3.664280470968118,
+                "status": "moving",
+                "speed": 1.0080000000000078,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 4.890300000011921,
+            "scene": 4.656500000000307,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -2.915392306006095,
+                "z": 1.832294906975244,
+                "yaw": -0.9949047622998134,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.376253900842644,
+                    "z": -1.8369792184653841
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -5.430408946280186,
+                "z": 5.1879699826080925,
+                "yaw": -2.0039083847737045,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.1504960779075133,
+                    "z": 8.274379561340272
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -2.306153072939443,
+                "z": -5.788750006632447,
+                "yaw": -2.0062602028069216,
+                "status": "idle",
+                "speed": 0.42999999999999716,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 2.9801736413824744,
+                "z": 2.5088269616381247,
+                "yaw": 0.45683082906843636,
+                "status": "idle",
+                "speed": 0.5600000000000027,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 1.4888061863703497,
+                "z": -4.252201231059225,
+                "yaw": -3.6642804709681167,
+                "status": "moving",
+                "speed": 1.007999999999986,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 5.892199999988079,
+            "scene": 5.656500000000364,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -2.915392306006095,
+                "z": 1.832294906975244,
+                "yaw": -0.9949047622998134,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.376253900842644,
+                    "z": -1.8369792184653841
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": -5.430408946280186,
+                "z": 5.1879699826080925,
+                "yaw": -2.0039083847737045,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.1504960779075133,
+                    "z": 8.274379561340272
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": -2.6960230918399635,
+                "z": -5.970137350078739,
+                "yaw": -2.0062602028069287,
+                "status": "idle",
+                "speed": 0.42999999999999716,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -3.3727939924741737,
+                    "z": -6.2850055621407765
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 3.2271930790904113,
+                "z": 3.0114017296025057,
+                "yaw": 0.45683082906843614,
+                "status": "idle",
+                "speed": 0.5600000000000027,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.5045101511804493,
+                    "z": 3.575618717753048
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 1.9920107530954705,
+                "z": -5.125613598745284,
+                "yaw": -3.6642804709681087,
+                "status": "moving",
+                "speed": 1.0079999999999796,
+                "manualTarget": {
+                  "x": 2.171945124591687,
+                  "z": -5.4379257593033685
+                },
+                "path": [
+                  {
+                    "x": 2.171945124591687,
+                    "z": -5.4379257593033685
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          }
+        ],
+        "result": {
+          "x": 2.117811894776749,
+          "z": -5.343966690666799,
+          "status": "arrived",
+          "wallSeconds": 6.484800000011921,
+          "sceneSeconds": 6.2398000000004075
+        }
+      },
+      "performance": {
+        "seconds": 5.002200000023848,
+        "fps": 60.173523649307306,
+        "maxFrameMs": 16.80000000000291
+      },
+      "passed": true
+    },
+    {
+      "viewport": "320x568",
+      "mobile": true,
+      "initial": {
+        "document": [
+          320,
+          568
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 9,
+          "y": 70,
+          "width": 302,
+          "height": 242.5
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "developmentEvents": [
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:57:13.706Z"
+        },
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:58:19.372Z"
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          453,
+          364
+        ]
+      },
+      "pauseVerification": {
+        "exactPngMatch": true,
+        "exactSceneStateMatch": true,
+        "developmentEvents": [
+          {
+            "type": "navigation",
+            "url": "http://127.0.0.1:5177/",
+            "at": "2026-10-04T14:57:13.706Z"
+          }
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.816079557507316,
+        "ambient": 2.0322093499018807
+      },
+      "movement": {
+        "requested": {
+          "x": 89.32004370474965,
+          "y": 205.91959645435395,
+          "worldX": -4.884636902147544,
+          "worldZ": 6.686428863299438
+        },
+        "samples": [
+          {
+            "wall": 0.17630000001192092,
+            "scene": 0.13340000000000884,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -1.5816730953127704,
+                "z": 5.588217903855842,
+                "yaw": 3.003626385291326,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.5,
+                    "z": 5
+                  },
+                  {
+                    "x": -1.113894650882569,
+                    "z": 4.562468515403875
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.6500999999999986
+              },
+              {
+                "id": 1,
+                "x": 1.9928767779023566,
+                "z": 8.386444713841943,
+                "yaw": 2.5671902420786235,
+                "status": "idle",
+                "speed": 0.449999999999958,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.0309138065729693,
+                    "z": 6.782548842133208
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.03919440884767212,
+                "z": -5.4744852321488535,
+                "yaw": -4.85380444127787,
+                "status": "idle",
+                "speed": 0.4300000000000012,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 0.8307736790883096,
+                    "z": -5.361791452116518
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.9822228585552912,
+                "z": 2.6059219164540344,
+                "yaw": -2.1394248110647824,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.045851722658306636,
+                    "z": -1.1248243283347912
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -4.884636902147544,
+                "z": 4.086428863299438,
+                "yaw": -0.5017718052809211,
+                "status": "moving",
+                "speed": 0,
+                "manualTarget": {
+                  "x": -4.8846358522077615,
+                  "z": 6.686429481408535
+                },
+                "path": [
+                  {
+                    "x": -4.8846358522077615,
+                    "z": 6.686429481408535
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 1.178399999976158,
+            "scene": 1.1500000000000838,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -1.5629845554046309,
+                "z": 5.453621146762283,
+                "yaw": 3.0036263852913265,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.5,
+                    "z": 5
+                  },
+                  {
+                    "x": -1.113894650882569,
+                    "z": 4.562468515403875
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.016600000000005822
+              },
+              {
+                "id": 1,
+                "x": 2.2414354177978257,
+                "z": 8.00239080690528,
+                "yaw": 2.5671902420786266,
+                "status": "idle",
+                "speed": 0.4500000000000059,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.0309138065729693,
+                    "z": 6.782548842133208
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.47196867285849975,
+                "z": -5.412872997536814,
+                "yaw": -4.853804441277866,
+                "status": "idle",
+                "speed": 0.429999999999996,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 0.8307736790883096,
+                    "z": -5.361791452116518
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.910431312596074,
+                "z": 2.3844013509390347,
+                "yaw": -2.875547105076209,
+                "status": "idle",
+                "speed": 0.5600000000000069,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.045851722658306636,
+                    "z": -1.1248243283347912
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -4.899067681229798,
+                "z": 4.7572765960069345,
+                "yaw": 0.00748077558750544,
+                "status": "moving",
+                "speed": 1.007999999999997,
+                "manualTarget": {
+                  "x": -4.8846358522077615,
+                  "z": 6.686429481408535
+                },
+                "path": [
+                  {
+                    "x": -4.8846358522077615,
+                    "z": 6.686429481408535
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 2.1785999999642374,
+            "scene": 2.150000000000148,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -1.5211581375812597,
+                "z": 5.152383049642985,
+                "yaw": 2.808596385291323,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -1.113894650882569,
+                    "z": 4.562468515403875
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0.016599999999998546
+              },
+              {
+                "id": 1,
+                "x": 2.4859353586747366,
+                "z": 7.624608093019128,
+                "yaw": 2.5671902420786306,
+                "status": "idle",
+                "speed": 0.45000000000002155,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 3.0309138065729693,
+                    "z": 6.782548842133208
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.7132171239847382,
+                "z": -5.378527479776987,
+                "yaw": -4.853804441277873,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -5.071281811174991,
+                    "z": 1.0818216414261574
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.7631971341259193,
+                "z": 1.8441031955745948,
+                "yaw": -2.8755471050762096,
+                "status": "idle",
+                "speed": 0.5600000000000034,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.045851722658306636,
+                    "z": -1.1248243283347912
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -4.89152712976878,
+                "z": 5.76524839128876,
+                "yaw": 0.007480775587504574,
+                "status": "moving",
+                "speed": 1.00799999999999,
+                "manualTarget": {
+                  "x": -4.8846358522077615,
+                  "z": 6.686429481408535
+                },
+                "path": [
+                  {
+                    "x": -4.8846358522077615,
+                    "z": 6.686429481408535
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          }
+        ],
+        "result": {
+          "x": -4.885494688599965,
+          "z": 6.571625827514221,
+          "status": "arrived",
+          "wallSeconds": 3.086,
+          "sceneSeconds": 3.049900000000193
+        }
+      },
+      "performance": {
+        "seconds": 5.009300000035764,
+        "fps": 60.08823588083185,
+        "maxFrameMs": 16.80000000000291
+      },
+      "passed": true
+    },
+    {
+      "viewport": "844x390",
+      "mobile": true,
+      "initial": {
+        "document": [
+          844,
+          390
+        ],
+        "small": [],
+        "outside": [],
+        "scene": {
+          "x": 13,
+          "y": 67,
+          "width": 524,
+          "height": 312
+        },
+        "panelOverflow": false,
+        "labelSizes": [
+          16,
+          16,
+          16,
+          16,
+          16
+        ]
+      },
+      "actions": [
+        "Pause freezes rendered scene",
+        "Real model selection through pointer and raycaster",
+        "三角龙: choose, close-up, greet, feed, close",
+        "剑龙: choose, close-up, greet, feed, close",
+        "长颈龙: choose, close-up, greet, feed, close",
+        "霸王龙: choose, close-up, greet, feed, close",
+        "迅猛龙: choose, close-up, greet, feed, close",
+        "Three camera presets",
+        "Day, sunset, readable night and automatic cycle control",
+        "Music starts on explicit tap and stops",
+        "Auto orbit, interrupted by manual mouse/touch",
+        "Touch tap ground -> movement -> actual arrival",
+        "Drag return does not issue movement",
+        "Rotate, zoom/pinch and orientation",
+        "Framed scene PNG preview/download, Escape and focus return",
+        "Bilingual five residents, new features and persisted language"
+      ],
+      "errors": [],
+      "failedRequests": [],
+      "httpErrors": [],
+      "developmentEvents": [
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:58:21.917Z"
+        },
+        {
+          "type": "navigation",
+          "url": "http://127.0.0.1:5177/",
+          "at": "2026-10-04T14:59:26.562Z"
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+        "devicePixelRatio": 2,
+        "canvas": [
+          786,
+          468
+        ]
+      },
+      "pauseVerification": {
+        "exactPngMatch": true,
+        "exactSceneStateMatch": true,
+        "developmentEvents": [
+          {
+            "type": "navigation",
+            "url": "http://127.0.0.1:5177/",
+            "at": "2026-10-04T14:58:21.917Z"
+          }
+        ]
+      },
+      "themes": {
+        "day": {
+          "page": "rgb(40, 94, 87)",
+          "panel": "rgb(30, 71, 67)",
+          "chrome": "#285e57"
+        },
+        "night": {
+          "page": "rgb(17, 26, 50)",
+          "panel": "rgb(29, 39, 73)",
+          "chrome": "#111a32"
+        }
+      },
+      "nightLights": {
+        "key": 1.807585575576906,
+        "ambient": 2.034496191190837
+      },
+      "movement": {
+        "requested": {
+          "x": 295.9034979500946,
+          "y": 232.70304785078352,
+          "worldX": 1.625581258340724,
+          "worldZ": -1.053774431784761
+        },
+        "samples": [
+          {
+            "wall": 0.2905,
+            "scene": 0.25660000000002015,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.753504712566221,
+                "z": 6.220623219353235,
+                "yaw": 3.948724136863001,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.8576053390640678,
+                    "z": 8.406374751974765
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 3.738221899969769,
+                "z": 7.787240757611726,
+                "yaw": 1.9671657977924324,
+                "status": "idle",
+                "speed": 0.4500000000000036,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 4.322842797913077,
+                    "z": 7.542565068669524
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.11827936961121918,
+                "z": -5.461414975582747,
+                "yaw": -4.620371914347869,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.471295581375907,
+                    "z": -6.934285346899222
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.9762511973906353,
+                "z": 2.654529336644834,
+                "yaw": -0.385371864239386,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 0.9447568714027827,
+                    "z": 4.654281348127901
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -0.974418741659276,
+                "z": -1.0537744317847613,
+                "yaw": 1.9720511197521167,
+                "status": "moving",
+                "speed": 0,
+                "manualTarget": {
+                  "x": 1.6255817420136687,
+                  "z": -1.0537746294335015
+                },
+                "path": [
+                  {
+                    "x": 1.6255817420136687,
+                    "z": -1.0537746294335015
+                  }
+                ],
+                "behavior": "look",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 1.306300000011921,
+            "scene": 1.2732000000000667,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.753504712566221,
+                "z": 6.220623219353235,
+                "yaw": 3.948724136863001,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.8576053390640678,
+                    "z": 8.406374751974765
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 4.160223663183889,
+                "z": 7.610624470865075,
+                "yaw": 1.9671657977924257,
+                "status": "idle",
+                "speed": 0.45000000000000595,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 4.322842797913077,
+                    "z": 7.542565068669524
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.23938663580344569,
+                "z": -5.58315837853804,
+                "yaw": -3.8808693221461263,
+                "status": "idle",
+                "speed": 0.430000000000004,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.471295581375907,
+                    "z": -6.934285346899222
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.960652417913195,
+                "z": 3.1110067916644195,
+                "yaw": -0.010299518237334798,
+                "status": "idle",
+                "speed": 0.5600000000000119,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 0.9447568714027827,
+                    "z": 4.654281348127901
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": -0.18602509351368954,
+                "z": -1.0680614274360194,
+                "yaw": 1.5629102327741,
+                "status": "moving",
+                "speed": 1.0079999999999993,
+                "manualTarget": {
+                  "x": 1.6255817420136687,
+                  "z": -1.0537746294335015
+                },
+                "path": [
+                  {
+                    "x": 1.6255817420136687,
+                    "z": -1.0537746294335015
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          },
+          {
+            "wall": 2.3065,
+            "scene": 2.2732000000001307,
+            "paused": false,
+            "animals": [
+              {
+                "id": 0,
+                "x": -3.753504712566221,
+                "z": 6.220623219353235,
+                "yaw": 3.948724136863001,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": -0.8576053390640678,
+                    "z": 8.406374751974765
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 1,
+                "x": 4.215557949074545,
+                "z": 7.587465951267075,
+                "yaw": 1.967165797792423,
+                "status": "idle",
+                "speed": 0,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 5.263591264710768,
+                    "z": 4.768463025972794
+                  }
+                ],
+                "behavior": "graze",
+                "blocked": 0
+              },
+              {
+                "id": 2,
+                "x": 0.529100674235731,
+                "z": -5.900909501172182,
+                "yaw": -3.880869322146128,
+                "status": "idle",
+                "speed": 0.42999999999999056,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 1.471295581375907,
+                    "z": -6.934285346899222
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 3,
+                "x": 0.9548847896732895,
+                "z": 3.6709770895057408,
+                "yaw": -0.010299518237334635,
+                "status": "idle",
+                "speed": 0.5600000000000074,
+                "manualTarget": null,
+                "path": [
+                  {
+                    "x": 0.9447568714027827,
+                    "z": 4.654281348127901
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              },
+              {
+                "id": 4,
+                "x": 0.8219435626473836,
+                "z": -1.0601123270567154,
+                "yaw": 1.5629102327740982,
+                "status": "moving",
+                "speed": 1.0080000000000013,
+                "manualTarget": {
+                  "x": 1.6255817420136687,
+                  "z": -1.0537746294335015
+                },
+                "path": [
+                  {
+                    "x": 1.6255817420136687,
+                    "z": -1.0537746294335015
+                  }
+                ],
+                "behavior": "walk",
+                "blocked": 0
+              }
+            ]
+          }
+        ],
+        "result": {
+          "x": 1.5107893422678633,
+          "z": -1.0546799118574968,
+          "status": "arrived",
+          "wallSeconds": 3.103600000023842,
+          "sceneSeconds": 3.0565000000001703
+        }
+      },
+      "performance": {
+        "seconds": 5.0047999999880775,
+        "fps": 60.14226342725325,
+        "maxFrameMs": 16.80000000000291
+      },
+      "passed": true
+    },
+    {
+      "name": "WebGL unavailable fallback",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

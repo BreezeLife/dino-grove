@@ -35,7 +35,7 @@
 :root { font-family: "Avenir Next", "Nunito", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; color: var(--text); background: var(--page-bg); color-scheme: dark; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
 html, body, #root { background: var(--page-bg); color: var(--text); margin: 0; width: 100%; min-width: 280px; height: 100%; overflow: hidden; }
-button { font: inherit; cursor: pointer; color: inherit; -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: background-color 1.5s ease, color 1.5s ease, border-color .7s ease, transform .18s ease; }
+button { font: inherit; cursor: pointer; color: inherit; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: background-color 1.5s ease, color 1.5s ease, border-color .7s ease, transform .18s ease; }
 button:disabled { opacity: .45; cursor: wait; }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--warm); outline-offset: 3px; }
 button:not(:disabled):active { transform: scale(.97); }
@@ -313,3 +313,74 @@ html, body, #root, .grove-app, .topbar, .scene-stage, .control-panel, .phase-bad
 
 /* Android uses the same adaptive layout with larger native touch targets. */
 .grove-app[data-platform="android"] button { min-height: 48px; min-width: 48px; }
+
+/* A small entry fits beside the phase card without covering the island. */
+.scene-tools { display: grid; grid-template-columns: repeat(2, minmax(44px, 1fr)); width: 100px; }
+.scene-tools .icon-button { width: 100%; }
+.fullscreen-enter { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 46px; padding: 0 9px; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--surface-deep); color: var(--text); font-size: 15px; font-weight: 700; }
+.fullscreen-enter:hover, .immersive-hud button:not(:disabled):hover { filter: brightness(1.13); }
+@media (max-width: 720px), (max-width: 1100px) and (orientation: portrait), (max-height: 540px) {
+  .phase-badge { max-width: calc(100% - 110px); }
+  .phase-badge strong { flex-wrap: wrap; gap: 2px 8px; white-space: normal; }
+  .fullscreen-enter { min-height: 44px; border-radius: 12px; }
+  .grove-app[data-locale="en"] .fullscreen-enter { font-size: 13px; gap: 5px; padding: 0 6px; }
+}
+
+/* One scene, with controls in a dismissible overlay during immersive viewing. */
+.grove-app.is-immersive { position: fixed; inset: 0; z-index: 10; width: 100%; height: 100%; height: 100dvh; max-width: none; display: block; }
+.grove-app.is-immersive:fullscreen { height: 100%; }
+.is-immersive .topbar, .is-immersive .scene-tools, .is-immersive .scene-note, .is-immersive .scene-bottom-row { display: none; }
+.is-immersive .workspace { display: block; position: relative; width: 100%; height: 100%; padding: 0; }
+.is-immersive .scene-stage { position: absolute; inset: 0; border: 0; border-radius: 0; }
+.immersive-hud { position: absolute; z-index: 7; top: max(12px, env(safe-area-inset-top)); left: max(14px, env(safe-area-inset-left)); right: max(14px, env(safe-area-inset-right)); display: flex; align-items: center; justify-content: space-between; gap: 9px; pointer-events: none; }
+.immersive-hud button { pointer-events: auto; }
+.immersive-exit, .immersive-menu { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; min-width: 48px; padding: 0 15px; border: 1px solid var(--line-strong); border-radius: 15px; background: var(--surface-deep); color: var(--text); font-size: 16px; font-weight: 700; box-shadow: 0 5px 20px var(--shadow); }
+.immersive-exit svg { color: var(--accent); }
+.immersive-menu svg { color: var(--warm); }
+.immersive-menu.is-open { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.immersive-menu.is-open svg { color: inherit; }
+.immersive-actions { display: flex; align-items: center; gap: 9px; }
+.immersive-hud .capture-button { min-width: 48px; min-height: 48px; }
+.is-immersive .scene-topline { top: calc(max(12px, env(safe-area-inset-top)) + 61px); left: max(14px, env(safe-area-inset-left)); right: max(14px, env(safe-area-inset-right)); }
+.is-immersive .phase-badge { max-width: min(340px, 100%); padding: 8px 12px; border-radius: 14px; }
+.is-immersive .phase-badge strong { flex-wrap: wrap; }
+.is-immersive .phase-description { font-size: 13px; }
+.is-immersive .scene-bottom { bottom: max(16px, env(safe-area-inset-bottom)); left: max(14px, env(safe-area-inset-left)); right: max(14px, env(safe-area-inset-right)); align-items: center; }
+.is-immersive .walk-hint { max-width: min(650px, 100%); padding: 11px 16px; font-size: 16px; border-color: var(--line-strong); box-shadow: 0 7px 22px var(--shadow); }
+.is-immersive[data-menu-open="true"] .walk-hint { visibility: hidden; }
+.is-immersive .walk-hint.selected { border: 2px solid var(--accent); }
+.is-immersive .walk-hint svg { width: 21px; height: 21px; }
+.is-immersive .paused-label { top: calc(max(12px, env(safe-area-inset-top)) + 142px); left: max(14px, env(safe-area-inset-left)); }
+.is-immersive .toast-container { top: calc(max(12px, env(safe-area-inset-top)) + 145px); width: min(470px, calc(100% - 32px)); }
+.is-immersive .control-panel { position: absolute; z-index: 6; top: calc(max(12px, env(safe-area-inset-top)) + 61px); right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); width: min(360px, calc(100% - max(14px, env(safe-area-inset-left)) - max(14px, env(safe-area-inset-right)))); padding: 18px 15px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line-strong); box-shadow: 0 15px 50px var(--shadow); }
+.is-immersive .control-panel[inert] { display: none; }
+.immersive-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.5; color: var(--muted); }
+.immersive-panel-heading .language-button { min-height: 48px; }
+.immersive-scene-controls { display: grid; gap: 9px; margin: 18px 0 22px; }
+.immersive-scene-controls .view-switch { width: 100%; }
+.immersive-scene-controls .view-switch button { flex: 1; min-width: 0; padding: 0 7px; }
+.immersive-playback { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.immersive-playback button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 48px; padding: 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-raised); font-size: 14px; font-weight: 650; }
+.immersive-playback button[aria-pressed="true"] { color: var(--warm-ink); background: var(--warm); }
+.is-immersive .resident-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; gap: 9px; padding: 0; margin: 0; }
+.is-immersive .species-chip { min-height: 104px; padding: 4px 5px 10px; }
+.is-immersive .species-chip:last-child { grid-column: 1 / -1; flex-direction: row; min-height: 67px; gap: 10px; }
+.is-immersive .portrait-wrap { width: 68px; height: 56px; }
+@media (max-width: 600px) {
+  .immersive-hud { left: max(10px, env(safe-area-inset-left)); right: max(10px, env(safe-area-inset-right)); gap: 6px; }
+  .immersive-exit, .immersive-menu { font-size: 15px; gap: 6px; padding: 0 11px; }
+  .immersive-actions { gap: 7px; }
+  .immersive-hud .capture-button { padding: 0 12px; }
+  .is-immersive .control-panel { top: calc(max(12px, env(safe-area-inset-top)) + 61px); right: max(10px, env(safe-area-inset-right)); bottom: max(10px, env(safe-area-inset-bottom)); width: calc(100% - max(10px, env(safe-area-inset-left)) - max(10px, env(safe-area-inset-right))); max-height: min(74dvh, 650px); padding: 16px 13px; }
+  .is-immersive .scene-bottom { bottom: max(12px, env(safe-area-inset-bottom)); left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); }
+  .is-immersive .walk-hint { font-size: 15px; padding: 9px 12px; }
+  .is-immersive[data-menu-open="true"] .scene-topline { visibility: hidden; }
+}
+@media (max-height: 540px) and (min-width: 601px) {
+  .is-immersive .phase-badge { padding: 7px 10px; }
+  .is-immersive .phase-description { display: none; }
+  .is-immersive .paused-label { top: calc(max(12px, env(safe-area-inset-top)) + 115px); }
+  .is-immersive .toast-container { top: calc(max(12px, env(safe-area-inset-top)) + 119px); }
+  .is-immersive .walk-hint { font-size: 15px; padding: 8px 12px; }
+  .is-immersive .control-panel { width: 320px; padding: 14px 12px; }
+}

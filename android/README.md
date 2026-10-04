@@ -13,11 +13,11 @@ npm ci
 node scripts/build-android.mjs
 ```
 
-The wrapper pins Gradle 8.14.3 and its official SHA-256 checksum; Android Gradle Plugin 8.12.0 and AndroidX WebKit 1.14.0 are pinned. The script snapshots source files into a local temporary directory, verifies every copy byte-for-byte, rebuilds web assets, builds and lints Android, then writes the successful APK to `releases/dino-grove-android-v2.0.0.apk`. This avoids OS copy operations that can stall inside cloud-synced folders. It rejects short reads and removes old output before building, so a failed build never publishes a stale APK. The temporary build path is printed and retained for asset verification. No SDK path or signing key belongs in Git.
+The wrapper pins Gradle 8.14.3 and its official SHA-256 checksum; Android Gradle Plugin 8.12.0 and AndroidX WebKit 1.14.0 are pinned. The script snapshots source files into a local temporary directory, verifies every copy byte-for-byte, rebuilds web assets, builds and lints Android, then writes the successful APK to `releases/dino-grove-android-v2.1.0.apk`. This avoids OS copy operations that can stall inside cloud-synced folders. It rejects short reads and removes old output before building, so a failed build never publishes a stale APK. The temporary build path is printed and retained for asset verification. No SDK path or signing key belongs in Git.
 
 For direct Gradle use after building the web app, `./gradlew -PwebDistDir=/absolute/path/to/dist :app:assembleDebug` accepts an explicit production asset directory. By default, Gradle uses the repository's `dist` directory.
 
-The output is **2.0.0-test**, application ID `com.breezelife.dinogrove`, signed by the local Android debug certificate. This is a directly installable testing package, not a Google Play release. Later packages need the same signing certificate to update an existing installation; a different machine's debug certificate will require uninstalling first. User-created gallery photos remain in shared media storage after uninstalling.
+The output is **2.1.0-test**, application ID `com.breezelife.dinogrove`, signed by the local Android debug certificate. This is a directly installable testing package, not a Google Play release. Later packages need the same signing certificate to update an existing installation; a different machine's debug certificate will require uninstalling first. User-created gallery photos remain in shared media storage after uninstalling.
 
 ## Offline and photo boundary
 
@@ -27,5 +27,6 @@ The output is **2.0.0-test**, application ID `com.breezelife.dinogrove`, signed 
 - `window.DinoGroveAndroid.savePhoto(base64Png, filename, requestId)` validates a PNG, safe name and bounded dimensions/bytes, then writes asynchronously to `Pictures/Dino Grove` through MediaStore. Android 10+ allows this app-owned write without a photo-library permission prompt.
 - Completion dispatches `dino-grove-photo-result` with `{ id, success, error? }`; the web application handles localized feedback. Failed writes remove incomplete media entries.
 - The launcher uses the same code-generated 3D icon as the website, with an adaptive mask and a monochrome themed-icon silhouette.
+- `setImmersive(boolean)` hides/restores Android system bars from the trusted local app. Edge swipes can reveal them temporarily. Back closes the photo, then the menu, then immersive mode, then the resident card. Reloads and renderer errors restore the bars. Android may show its own first-use fullscreen tutorial.
 
 Emulator tests do not establish physical device frame rate, thermal behavior, or compatibility with every manufacturer's Gallery application. See the project's QA and handoff records for actual evidence.

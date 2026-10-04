@@ -1,0 +1,34 @@
+{
+  "version": "2.1.0-test",
+  "versionCode": 20100,
+  "minSdk": 29,
+  "targetSdk": 36,
+  "applicationId": "com.breezelife.dinogrove",
+  "apkBytes": 3863931,
+  "sha256": "cdfd4b1b945e12a6ed7cd35f48d9f379e05bb9ef53aa4cc5fd8c9e9e125c6b72",
+  "permissions": [],
+  "packagedAssets": {
+    "app-icon-1024.png": "f127a4f706620fade28f91eedac6d7c0eed8f0a49fe0591a7c1a3d32c797b4f3",
+    "app-icon-180.png": "48f6d888e479a44b633b131e9dcb894ebc2cb2d2030f8650dd1c3ac191999917",
+    "app-icon-192.png": "d7763e81b937ce6f9acc4fbfd535f8cca5d327fd3d5907e4a83b87355ba38f7d",
+    "app-icon-32.png": "ff17c2ad6e651afeec5d0fffd4b5c0e94c2fa4875f79919c0cb5fd0ef567268f",
+    "app-icon-512.png": "989c8c1fa7da2ee82c8d2ac96f3c5a54f3a0bb21234c073498f2f86c665d2a72",
+    "app-icon-64.png": "50c49ed47473e8342409a6d2485ccc2bf9b62184c3cc6cd090d76066c6bec076",
+    "app-icon.svg": "b7169854756d1de3a695c235a258b47932f9d1d9067a48b9783f14334f6f813c",
+    "app.webmanifest": "78bb55ab218c76244e2d0a39c5f71296ee97d29e14a55df30e0c2dbd23be75ec",
+    "assets/grove-CIBEUc5d.js": "b03b36832d9db70147e566e4843dfeb33f33906a78827562f5243b1f4e724c68",
+    "assets/index-3fEWPavw.js": "7454e854d739c535a19cd307799dfdaa5a5469b0b801ab450f10f9f341730325",
+    "assets/index-DYMI6Enu.css": "203e7f543082a57d4a992c48c17bffa5a0c0653128b0180cf8ccb68e1636d846",
+    "favicon.svg": "b0f242a5e028954f36642f60353de19af0cc95422399587386092c241c35bd2c",
+    "index.html": "446f36da05b2bd34fe8645df534ab82459a9310de041ad5bcf3e32dc68a0450d"
+  },
+  "assetsMatchFinalDist": true,
+  "zipCrcValid": true,
+  "runtimeSourceMatchesSnapshot": true,
+  "signature": {
+    "verified": true,
+    "certificate": "Android Debug",
+    "certificateSha256": "ca5dd8a44f8f5e644ff61d44b522e79ecec4ab44d776ec6f94bc6e2e52ad9eee",
+    "sameAsPreviousRelease": true
+  }
+}

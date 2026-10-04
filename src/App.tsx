@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
-import { Camera, Check, ChevronDown, CircleHelp, Download, Focus, Hand, Leaf, MapPin, MoonStar, Mountain, MousePointer2, Music2, Orbit, Pause, Play, RotateCcw, ScanEye, Share2, Sparkles, Sprout, Sun, Sunrise, Volume2, Waves, X } from "lucide-react";
+import { Camera, Check, ChevronDown, CircleHelp, Download, Focus, Hand, Leaf, MapPin, Maximize2, Menu, Minimize2, MoonStar, Mountain, MousePointer2, Music2, Orbit, Pause, Play, RotateCcw, ScanEye, Share2, Sparkles, Sprout, Sun, Sunrise, Volume2, Waves, X } from "lucide-react";
 import type { GroveAPI, Mood } from "./grove";
 import DinoPortrait from "./DinoPortrait";
 import { createGroveMusic } from "./music";
@@ -18,7 +18,17 @@ type View = typeof views[number]["id"];
 type MoveStatus = { id: number; status: "started" | "arrived" | "blocked" };
 
 export default function App() {
+  const appRoot = useRef<HTMLElement>(null);
   const host = useRef<HTMLDivElement>(null);
+  const fullscreenButton = useRef<HTMLButtonElement>(null);
+  const exitFullscreenButton = useRef<HTMLButtonElement>(null);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const immersiveCaptureButton = useRef<HTMLButtonElement>(null);
+  const photoReturnFocus = useRef<HTMLElement | null>(null);
+  const immersiveWanted = useRef(false);
+  const [fullscreenMode, setFullscreenMode] = useState<"off" | "immersive" | "system">("off");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const immersive = fullscreenMode !== "off";
   const api = useRef<GroveAPI | null>(null);
   const controlsPanel = useRef<HTMLElement>(null);
   const residentButtons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -57,6 +67,56 @@ export default function App() {
     setToast({ key, dinosaur, id: Date.now() });
   }, []);
 
+  const collapseMenu = useCallback(() => {
+    if (!immersiveWanted.current) return;
+    if (controlsPanel.current?.contains(document.activeElement)) menuButton.current?.focus({ preventScroll: true });
+    setMenuOpen(false);
+  }, []);
+
+  const leaveFullscreen = useCallback(() => {
+    immersiveWanted.current = false;
+    setMenuOpen(false);
+    setFullscreenMode("off");
+    try { window.DinoGroveAndroid?.setImmersive?.(false); } catch { /* Older containers can still restore the page layout. */ }
+    if (document.fullscreenElement === appRoot.current) void document.exitFullscreen().catch(() => {});
+    requestAnimationFrame(() => fullscreenButton.current?.focus({ preventScroll: true }));
+  }, []);
+
+  async function enterFullscreen() {
+    immersiveWanted.current = true;
+    setMenuOpen(false);
+    setFullscreenMode("immersive");
+    requestAnimationFrame(() => exitFullscreenButton.current?.focus({ preventScroll: true }));
+    if (typeof window.DinoGroveAndroid?.setImmersive === "function") {
+      try { window.DinoGroveAndroid.setImmersive(true); setFullscreenMode("system"); return; }
+      catch { /* Keep the CSS immersive layout if the native bridge is unavailable. */ }
+    }
+    if (document.fullscreenEnabled && appRoot.current?.requestFullscreen) {
+      try {
+        await appRoot.current.requestFullscreen();
+        if (!immersiveWanted.current) {
+          if (document.fullscreenElement === appRoot.current) await document.exitFullscreen();
+        } else if (document.fullscreenElement === appRoot.current) setFullscreenMode("system");
+        return;
+      } catch { /* Fullscreen may be denied by the browser or embedding page. */ }
+    }
+    if (immersiveWanted.current) notify("immersiveFallback");
+  }
+
+  useEffect(() => {
+    const syncFullscreen = () => {
+      if (document.fullscreenElement === appRoot.current && immersiveWanted.current) setFullscreenMode("system");
+      else if (!document.fullscreenElement && immersiveWanted.current) leaveFullscreen();
+    };
+    document.addEventListener("fullscreenchange", syncFullscreen);
+    return () => {
+      document.removeEventListener("fullscreenchange", syncFullscreen);
+      if (immersiveWanted.current) {
+        try { window.DinoGroveAndroid?.setImmersive?.(false); } catch { /* The Activity may already be gone. */ }
+      }
+    };
+  }, [leaveFullscreen]);
+
   useEffect(() => {
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
     document.title = t.pageTitle;
@@ -90,6 +150,7 @@ export default function App() {
               api.current?.view("grove");
             }
             setSelected(id);
+            collapseMenu();
           }
         }, event => {
           if (!alive) return;
@@ -98,6 +159,7 @@ export default function App() {
           if (event.type === "move") {
             setMoveStatus({ id: event.id, status: event.status });
             if (event.status === "started") {
+              collapseMenu();
               setPaused(false);
               focusedId.current = null;
               setFocused(false);
@@ -120,7 +182,7 @@ export default function App() {
       music.current?.dispose();
       music.current = null;
     };
-  }, [notify]);
+  }, [notify, collapseMenu]);
 
   useEffect(() => {
     if (!toast) return;
@@ -131,14 +193,26 @@ export default function App() {
   useEffect(() => {
     if (!photo) return;
     photoDialog.current?.showModal();
-    return () => { URL.revokeObjectURL(photo.url); captureButton.current?.focus({ preventScroll: true }); };
+    return () => {
+      URL.revokeObjectURL(photo.url);
+      const target = photoReturnFocus.current;
+      const fallback = immersiveWanted.current ? immersiveCaptureButton.current : captureButton.current;
+      (target?.isConnected && target.getClientRects().length && !target.closest("[inert]") ? target : fallback)?.focus({ preventScroll: true });
+    };
   }, [photo]);
 
   useEffect(() => {
     const panel = controlsPanel.current;
     if (!panel) return;
     const frame = requestAnimationFrame(() => {
-      if (window.matchMedia("(max-width: 720px), (max-width: 1100px) and (orientation: portrait)").matches) {
+      if (immersive) {
+        panel.scrollTop = 0;
+        if (menuOpen) {
+          const firstResident = residentButtons.current[0];
+          firstResident?.focus({ preventScroll: true });
+          firstResident?.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+      } else if (window.matchMedia("(max-width: 720px), (max-width: 1100px) and (orientation: portrait)").matches) {
         const card = panel.querySelector<HTMLElement>(".dino-card");
         panel.scrollTop = card ? Math.max(0, card.offsetTop - 12) : 0;
       }
@@ -147,7 +221,7 @@ export default function App() {
     const observer = new ResizeObserver(() => setMoreControls(panel.scrollHeight - panel.clientHeight - panel.scrollTop > 12));
     observer.observe(panel);
     return () => { cancelAnimationFrame(frame); observer.disconnect(); };
-  }, [selected, ready]);
+  }, [selected, ready, immersive, menuOpen]);
 
   const choose = useCallback((id: number) => {
     if (!api.current || !Number.isInteger(id) || id < 0 || id >= residentArt.length) return;
@@ -161,7 +235,8 @@ export default function App() {
     setMoveStatus(null);
     api.current.clear();
     api.current.select(id);
-  }, []);
+    collapseMenu();
+  }, [collapseMenu]);
 
   const changeView = useCallback((id: View) => {
     if (!api.current) return;
@@ -260,6 +335,7 @@ export default function App() {
 
   async function capture() {
     if (!api.current || capturing) return;
+    photoReturnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     setCapturing(true);
     try {
       const source = api.current.capture();
@@ -304,8 +380,13 @@ export default function App() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if (photo) return; // Native dialog owns Escape and focus trapping while it is open.
-      if (event.key === "Escape" && selected !== null) { event.preventDefault(); closeCard(); return; }
+      if (event.key === "Escape") {
+        if (photo) { event.preventDefault(); setPhoto(null); return; }
+        if (immersive && menuOpen) { event.preventDefault(); collapseMenu(); menuButton.current?.focus({ preventScroll: true }); return; }
+        if (immersive) { event.preventDefault(); leaveFullscreen(); return; }
+        if (selected !== null) { event.preventDefault(); closeCard(); return; }
+      }
+      if (photo) return;
       if (!ready || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
       if (event.target instanceof HTMLElement && event.target.closest("button, input, textarea, select, a, [contenteditable='true']")) return;
       if (event.code === "Space") { event.preventDefault(); togglePause(); }
@@ -313,7 +394,7 @@ export default function App() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [ready, selected, photo, closeCard, togglePause, resetView]);
+  }, [ready, selected, photo, immersive, menuOpen, collapseMenu, leaveFullscreen, closeCard, togglePause, resetView]);
 
   useEffect(() => {
     type ModelContext = { registerTool: (tool: object, options?: { signal: AbortSignal }) => unknown; unregisterTool?: (name: string) => unknown };
@@ -338,8 +419,8 @@ export default function App() {
   }, [ready, choose, changeView, t, species]);
 
   return (
-    <main className={`grove-app${active ? " has-selection" : ""}${focused ? " is-focused" : ""}`} data-mood={mood} data-locale={locale} data-platform={nativeAndroid ? "android" : "web"}>
-      <header className="topbar">
+    <main ref={appRoot} className={`grove-app${active ? " has-selection" : ""}${focused ? " is-focused" : ""}${immersive ? " is-immersive" : ""}`} data-immersive={immersive} data-menu-open={menuOpen} data-fullscreen-mode={fullscreenMode} data-mood={mood} data-locale={locale} data-platform={nativeAndroid ? "android" : "web"}>
+      <header className="topbar" inert={immersive} aria-hidden={immersive || undefined}>
         <div className="brand"><div className="brand-mark"><img src={`${import.meta.env.BASE_URL}app-icon.svg`} alt="" width="50" height="50" /></div><div><h1>{t.brand}<span className="brand-period">.</span></h1><span className="brand-english">{t.brandSubtitle}</span></div></div>
         <div className="top-actions">
           <button className="language-button" onClick={() => setLocale(current => current === "zh" ? "en" : "zh")} aria-label={t.switchLanguage} title={t.switchLanguage}><span lang={locale === "zh" ? "en" : "zh-CN"}>{t.languageButton}</span></button>
@@ -349,12 +430,20 @@ export default function App() {
 
       <div className="workspace">
         <section className="scene-stage" aria-label={t.sceneControls}>
-          <div className="canvas-host" ref={host} onPointerDown={event => { pointerStart.current = { x: event.clientX, y: event.clientY }; }} onPointerMove={event => { if (pointerStart.current && Math.hypot(event.clientX - pointerStart.current.x, event.clientY - pointerStart.current.y) > 8) { handleCameraGesture(); pointerStart.current = null; } }} onPointerUp={() => { pointerStart.current = null; }} onPointerCancel={() => { pointerStart.current = null; }} onWheel={handleCameraGesture} role="img" aria-label={t.sceneLabel} />
+          <div className="canvas-host" ref={host} onPointerDown={event => { pointerStart.current = { x: event.clientX, y: event.clientY }; }} onPointerMove={event => { if (pointerStart.current && Math.hypot(event.clientX - pointerStart.current.x, event.clientY - pointerStart.current.y) > 8) { handleCameraGesture(); pointerStart.current = null; } }} onPointerUp={event => { if (pointerStart.current && Math.hypot(event.clientX - pointerStart.current.x, event.clientY - pointerStart.current.y) <= 8) collapseMenu(); pointerStart.current = null; }} onPointerCancel={() => { pointerStart.current = null; }} onWheel={handleCameraGesture} role="img" aria-label={t.sceneLabel} />
           <div className="scene-topline">
             <div className="scene-note"><span className="eyebrow"><Sparkles size={16} />{t.sceneEyebrow}</span><h2>{t.sceneHeadline}</h2></div>
             <div className="phase-badge" role="status" aria-live="polite"><span className={`phase-icon phase-${mood}`}><PhaseIcon size={23} /></span><span><strong>{t[mood]}<small>{dayCycle ? t.dayCycle : ""}</small></strong><span className="phase-description">{t.phaseDescription[mood]}</span></span></div>
           </div>
-          <div className="scene-tools">
+          {immersive && <nav className="immersive-hud" aria-label={t.immersiveControls}>
+            <button ref={exitFullscreenButton} className="immersive-exit" onClick={leaveFullscreen} aria-label={t.exitFullscreen} title={t.exitFullscreen}><Minimize2 size={21} /><span>{fullscreenMode === "system" ? t.exitFullscreenShort : t.exitImmersiveShort}</span></button>
+            <div className="immersive-actions">
+              <button ref={menuButton} className={`immersive-menu${menuOpen ? " is-open" : ""}`} aria-label={menuOpen ? t.closeMenu : t.openMenu} aria-expanded={menuOpen} aria-controls="grove-controls" onClick={() => menuOpen ? collapseMenu() : setMenuOpen(true)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}<span>{t.menuButton}</span></button>
+              <button ref={immersiveCaptureButton} className="capture-button" disabled={!ready || capturing} onClick={capture} aria-label={t.savePhoto} title={t.savePhoto} aria-haspopup="dialog"><Camera size={21} /><span>{t.photoButton}</span></button>
+            </div>
+          </nav>}
+          <div className="scene-tools" inert={immersive} aria-hidden={immersive || undefined}>
+            <button ref={fullscreenButton} className="fullscreen-enter" aria-label={t.enterFullscreen} title={t.enterFullscreen} onClick={enterFullscreen}><Maximize2 size={20} /><span>{t.fullscreenButton}</span></button>
             <button className="icon-button" aria-label={paused ? t.resume : t.pause} aria-pressed={paused} title={paused ? t.resumeTitle : t.pauseTitle} onClick={togglePause} disabled={!ready}>{paused ? <Play size={21} /> : <Pause size={21} />}</button>
             <button className="icon-button" aria-label={t.reset} title={t.resetTitle} onClick={resetView} disabled={!ready}><RotateCcw size={21} /></button>
           </div>
@@ -363,12 +452,13 @@ export default function App() {
           {error && <div className="error-message" role="alert"><Leaf size={29} /><h2>{t.errorHeading}</h2><p>{nativeAndroid && error === "webgl" ? t.androidWebGL : t[error]}</p><button onClick={() => location.reload()}><RotateCcw size={18} />{t.reload}</button></div>}
           <div className="scene-bottom">
             <div className={`walk-hint${active ? " selected" : ""}`} role="status" aria-live="polite">{active ? <MapPin size={19} /> : <MousePointer2 size={19} />}<span>{active ? moveStatus?.id === selected ? t.moveStatuses[moveStatus.status] : t.moveHint(active.name) : t.selectHint}</span></div>
-            <div className="scene-bottom-row"><nav className="view-switch" aria-label={t.viewLabel}>{views.map(preset => <button key={preset.id} disabled={!ready} aria-pressed={!focused && view === preset.id} onClick={() => changeView(preset.id)} className={!focused && view === preset.id ? "active" : ""}><preset.icon size={19} /><span>{t.views[preset.id]}</span></button>)}</nav><div className="gesture-hint"><span className="desktop-hint">{t.drag} · {t.wheel}</span><span className="mobile-hint">{t.touchDrag} · {t.pinch}</span></div></div>
+            <div className="scene-bottom-row" inert={immersive} aria-hidden={immersive || undefined}><nav className="view-switch" aria-label={t.viewLabel}>{views.map(preset => <button key={preset.id} disabled={!ready} aria-pressed={!focused && view === preset.id} onClick={() => changeView(preset.id)} className={!focused && view === preset.id ? "active" : ""}><preset.icon size={19} /><span>{t.views[preset.id]}</span></button>)}</nav><div className="gesture-hint"><span className="desktop-hint">{t.drag} · {t.wheel}</span><span className="mobile-hint">{t.touchDrag} · {t.pinch}</span></div></div>
           </div>
           <div className="toast-container" role="status" aria-live="polite" aria-atomic="true">{toast && !photo && <div className="toast" key={toast.id}><Check size={18} /><span>{toastText}</span></div>}</div>
         </section>
 
-        <aside ref={controlsPanel} className="control-panel" aria-label={t.explorePanel} onScroll={event => { const panel = event.currentTarget; setMoreControls(panel.scrollHeight - panel.clientHeight - panel.scrollTop > 12); }}>
+        <aside ref={controlsPanel} id="grove-controls" className="control-panel" inert={immersive && !menuOpen} aria-hidden={immersive && !menuOpen || undefined} aria-label={t.explorePanel} onScroll={event => { const panel = event.currentTarget; setMoreControls(panel.scrollHeight - panel.clientHeight - panel.scrollTop > 12); }}>
+          {immersive && <div className="immersive-panel-heading"><span>{t.explorePanel}</span><button className="language-button" onClick={() => setLocale(current => current === "zh" ? "en" : "zh")} aria-label={t.switchLanguage} title={t.switchLanguage}><span lang={locale === "zh" ? "en" : "zh-CN"}>{t.languageButton}</span></button></div>}
           <section className="species-rail" aria-label={t.selectDinosaur}>
             <div className="rail-heading"><h2>{t.residents}</h2><span>{t.residentsSubtitle}</span></div>
             <div className="resident-list">{species.map((resident, id) => <button ref={node => { residentButtons.current[id] = node; }} disabled={!ready} className={`species-chip${selected === id ? " active" : ""}`} key={id} onClick={() => choose(id)} aria-pressed={selected === id} aria-label={resident.name} aria-expanded={selected === id} aria-controls="selected-dinosaur">
@@ -384,6 +474,10 @@ export default function App() {
           </section>}
           {!active && <div className="welcome-hint"><MapPin size={23} /><p>{t.selectHint}</p></div>}
 
+          {immersive && <section className="immersive-scene-controls" aria-label={t.sceneControls}>
+            <nav className="view-switch" aria-label={t.viewLabel}>{views.map(preset => <button key={preset.id} disabled={!ready} aria-pressed={!focused && view === preset.id} onClick={() => changeView(preset.id)} className={!focused && view === preset.id ? "active" : ""}><preset.icon size={19} /><span>{t.views[preset.id]}</span></button>)}</nav>
+            <div className="immersive-playback"><button disabled={!ready} aria-pressed={paused} onClick={togglePause}>{paused ? <Play size={20} /> : <Pause size={20} />}<span>{paused ? t.resume : t.pause}</span></button><button disabled={!ready} onClick={resetView}><RotateCcw size={20} /><span>{t.reset}</span></button></div>
+          </section>}
           <section className="light-panel" aria-label={t.lightTitle}><h2><Sunrise size={20} />{t.lightTitle}</h2><div className="light-options"><button disabled={!ready} className={dayCycle ? "active" : ""} aria-label={t.dayCycle} aria-pressed={dayCycle} onClick={() => changeLight("auto")}><Orbit size={21} /><span>{t.cycle}</span></button>{phases.map(phase => <button key={phase.id} disabled={!ready} className={!dayCycle && mood === phase.id ? "active" : ""} aria-pressed={!dayCycle && mood === phase.id} onClick={() => changeLight(phase.id)}><phase.icon size={21} /><span>{t[phase.id]}</span></button>)}</div><p className="setting-note">{dayCycle ? t.cycleDescription : t.manualDescription}</p></section>
           <section className="atmosphere-panel" aria-label={t.atmosphere}>
             <button className="setting-toggle" aria-label={t.autoRotate} aria-pressed={autoRotate} disabled={!ready} onClick={toggleRotate}><span className="setting-icon rotation-icon"><Orbit size={24} /></span><span className="setting-copy"><strong>{t.autoRotate}</strong><small>{autoRotate ? t.rotateOn : t.rotateOff}</small></span><span className={`toggle-track${autoRotate ? " is-on" : ""}`} aria-hidden="true"><span /></span></button>
@@ -392,7 +486,7 @@ export default function App() {
           <p className="panel-footnote"><CircleHelp size={15} /><span>{t.touchDrag} · {t.pinch}</span></p>
         </aside>
       </div>
-      {moreControls && <div className="mobile-panel-label" aria-hidden="true"><ChevronDown size={14} />{t.panelScroll}</div>}
+      {moreControls && !immersive && <div className="mobile-panel-label" aria-hidden="true"><ChevronDown size={14} />{t.panelScroll}</div>}
 
       {photo && <dialog ref={photoDialog} className="photo-dialog" aria-labelledby="photo-title" aria-describedby="photo-description" onCancel={event => { event.preventDefault(); setPhoto(null); }}>
         <header className="photo-heading"><div><h2 id="photo-title">{t.photoTitle}</h2><p id="photo-description">{t.photoDescription}</p></div><button className="icon-button" aria-label={t.closePhoto} onClick={() => setPhoto(null)} autoFocus><X size={22} /></button></header>

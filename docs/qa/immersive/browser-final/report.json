@@ -1,0 +1,340 @@
+{
+  "date": "2026-10-04T16:25:51.662Z",
+  "url": "http://127.0.0.1:5177/",
+  "browser": "154.0.8037.97",
+  "mobileIsEmulated": true,
+  "inputMethod": "Hit-tested real mouse/touch coordinates",
+  "checks": [
+    {
+      "viewport": "1440x900",
+      "mode": "native",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          1440,
+          900
+        ],
+        "canvas": [
+          0,
+          0,
+          1440,
+          900
+        ],
+        "invalid": [],
+        "scroll": [
+          1440,
+          900
+        ]
+      },
+      "nativeFullscreen": true,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.3645584352845411,
+            0.19,
+            -3.302824394752615
+          ],
+          "resident": 4,
+          "scale": 0.9959053589986713
+        },
+        "animal": {
+          "x": -0.3645584352845411,
+          "z": -3.302824394752615
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 65,
+          "far": 125,
+          "islandDepth": 60.38854010929407
+        }
+      },
+      "passed": true
+    },
+    {
+      "viewport": "390x844",
+      "mode": "native",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          390,
+          844
+        ],
+        "canvas": [
+          0,
+          0,
+          390,
+          844
+        ],
+        "invalid": [],
+        "scroll": [
+          390,
+          844
+        ]
+      },
+      "nativeFullscreen": true,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.5496975334931712,
+            0.19,
+            -2.166975666322267
+          ],
+          "resident": 4,
+          "scale": 1.0194459796876072
+        },
+        "animal": {
+          "x": -0.5496975334931712,
+          "z": -2.166975666322267
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 149.10666666666668,
+          "far": 286.7435897435898,
+          "islandDepth": 117.31853993942953
+        }
+      },
+      "passed": true
+    },
+    {
+      "viewport": "320x568",
+      "mode": "unsupported",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          320,
+          568
+        ],
+        "canvas": [
+          0,
+          0,
+          320,
+          568
+        ],
+        "invalid": [],
+        "scroll": [
+          320,
+          568
+        ]
+      },
+      "nativeFullscreen": false,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.3162163405605454,
+            0.19,
+            -3.6418981885834705
+          ],
+          "resident": 4,
+          "scale": 1.0062332374334158
+        },
+        "animal": {
+          "x": -0.3162163405605454,
+          "z": -3.6418981885834705
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 122.2975,
+          "far": 235.1875,
+          "islandDepth": 99.11238945825913
+        }
+      },
+      "passed": true
+    },
+    {
+      "viewport": "844x390",
+      "mode": "denied",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          844,
+          390
+        ],
+        "canvas": [
+          0,
+          0,
+          844,
+          390
+        ],
+        "invalid": [],
+        "scroll": [
+          844,
+          390
+        ]
+      },
+      "nativeFullscreen": false,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.32491477533187085,
+            0.19,
+            -3.5825551935025155
+          ],
+          "resident": 4,
+          "scale": 1.0044655523845036
+        },
+        "animal": {
+          "x": -0.32491477533187085,
+          "z": -3.5825551935025155
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 65,
+          "far": 125,
+          "islandDepth": 60.38854010929407
+        }
+      },
+      "passed": true
+    },
+    {
+      "viewport": "800x1280",
+      "mode": "unsupported",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          800,
+          1280
+        ],
+        "canvas": [
+          0,
+          0,
+          800,
+          1280
+        ],
+        "invalid": [],
+        "scroll": [
+          800,
+          1280
+        ]
+      },
+      "nativeFullscreen": false,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.33709474744712886,
+            0.19,
+            -3.499418689311025
+          ],
+          "resident": 4,
+          "scale": 1.0024535591264634
+        },
+        "animal": {
+          "x": -0.33709474744712886,
+          "z": -3.499418689311025
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 110.24000000000001,
+          "far": 212.00000000000003,
+          "islandDepth": 90.96346823961701
+        }
+      },
+      "passed": true
+    },
+    {
+      "viewport": "1280x800",
+      "mode": "native",
+      "errors": [],
+      "failedRequests": [],
+      "layout": {
+        "immersive": "true",
+        "viewport": [
+          1280,
+          800
+        ],
+        "canvas": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "invalid": [],
+        "scroll": [
+          1280,
+          800
+        ]
+      },
+      "nativeFullscreen": true,
+      "guidance": {
+        "halo": {
+          "visible": true,
+          "position": [
+            -0.3353625433826231,
+            0.19,
+            -3.511244441616566
+          ],
+          "resident": 4,
+          "scale": 1.0021329856748897
+        },
+        "animal": {
+          "x": -0.3353625433826231,
+          "z": -3.511244441616566
+        },
+        "destination": {
+          "visible": true,
+          "status": "moving"
+        },
+        "route": {
+          "visible": true,
+          "arrows": 2
+        },
+        "fog": {
+          "near": 65,
+          "far": 125,
+          "islandDepth": 60.38854010929407
+        }
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

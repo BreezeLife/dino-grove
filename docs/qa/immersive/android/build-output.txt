@@ -1,0 +1,104 @@
+Verified local build snapshot: /var/folders/15/skjy53_93qj231nvd_6dcczc0000gn/T/dino-grove-android-E4uWcp
+
+> dino-grove@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.0.16 building client environment for production...
+[2K
+transforming...✓ 1806 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.96 kB │ gzip:   0.60 kB
+dist/assets/index-DYMI6Enu.css   31.78 kB │ gzip:   6.94 kB
+dist/assets/index-3fEWPavw.js   245.12 kB │ gzip:  79.54 kB
+dist/assets/grove-CIBEUc5d.js   630.61 kB │ gzip: 163.02 kB
+
+✓ built in 5.44s
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:validateWebAssets
+> Task :app:syncWebAssets
+> Task :app:preBuild
+> Task :app:preDebugBuild
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:mergeDebugResources
+> Task :app:processDebugManifest
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:processDebugManifestForPackage
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJniLibFolders
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeLibDexDebug
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues
+> Task :app:mergeDebugJavaResource
+> Task :app:extractProguardFiles
+> Task :app:preDebugUnitTestBuild
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
+
+> Task :app:compileDebugJavaWithJavac
+Note: /private/var/folders/15/skjy53_93qj231nvd_6dcczc0000gn/T/dino-grove-android-E4uWcp/android/app/src/main/java/com/breezelife/dinogrove/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:mergeProjectDexDebug
+> Task :app:generateDebugLintReportModel
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///private/var/folders/15/skjy53_93qj231nvd_6dcczc0000gn/T/dino-grove-android-E4uWcp/android/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+
+[Incubating] Problems report is available at: file:///private/var/folders/15/skjy53_93qj231nvd_6dcczc0000gn/T/dino-grove-android-E4uWcp/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 55s
+46 actionable tasks: 46 executed
+Build snapshot retained for asset verification: /var/folders/15/skjy53_93qj231nvd_6dcczc0000gn/T/dino-grove-android-E4uWcp
+
+Android 10+ phone/tablet test APK: /Users/weiqi/Library/Mobile Documents/com~apple~CloudDocs/Projects/02_Projects/Side/AI-System/Project-Visual-DinoGrove/releases/dino-grove-android-v2.1.0.apk
+SHA-256: cdfd4b1b945e12a6ed7cd35f48d9f379e05bb9ef53aa4cc5fd8c9e9e125c6b72
+Version 2.1.0-test; local Android debug certificate. Not a Google Play release.

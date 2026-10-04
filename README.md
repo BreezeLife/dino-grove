@@ -1,6 +1,6 @@
 # 恐龙小丛林 · Dino Grove
 
-[在线探索 · Explore the grove](https://breezelife.github.io/dino-grove/) · [Android APK 下载](https://github.com/BreezeLife/dino-grove/releases/download/v2.0.0-android-test/dino-grove-android-v2.0.0.apk) · [GitHub](https://github.com/BreezeLife/dino-grove)
+[在线探索 · Explore the grove](https://breezelife.github.io/dino-grove/) · [Android APK 下载](https://github.com/BreezeLife/dino-grove/releases/download/v2.1.0-android-test/dino-grove-android-v2.1.0.apk) · [GitHub](https://github.com/BreezeLife/dino-grove)
 
 用代码生成的一座 Three.js 恐龙箱庭。三角龙、剑龙、长颈龙、霸王龙和迅猛龙，在更大的岛屿上漫游、觅食和喝水。模型、植物、头像与音乐均由代码生成。
 
@@ -8,6 +8,7 @@
 - 中文 / English 切换，记住语言偏好。
 - 拖动或单指旋转，滚轮或双指缩放；全景、池畔、俯瞰预设。
 - 选择居民后点击 / 轻触地面，让它绕开障碍走到指定位置；靠近观察、打招呼、喂点心。
+- 全屏探索时菜单自动收起，选好恐龙即可出发；脚下持续双光环、沿路方向箭头和目的地标记让移动更清晰。退出全屏会恢复原布局。
 - 自动昼夜循环或手动白天 / 傍晚 / 夜晚，夜间保持明亮可操作；自动旋转和背景音乐开关。
 - 拍摄带「恐龙小丛林」相框和当地时间的 PNG，预览后下载或通过手机系统分享保存。浏览器不能直接写入相册，具体存储操作由设备提供。
 - 暂停恢复、重置镜头。空格暂停，R 重置，Escape 关闭介绍或照片。
@@ -68,12 +69,12 @@ bash ./deploy-github.sh
 
 Android 10 及以上可安装，手机和平板共用一个 APK，支持横竖屏、中文/English 和完全离线探索。内置 3D 启动图标，点击拍照后可直接「存入相册」，文件位于 `Pictures/Dino Grove`。不申请网络、相机、麦克风或存储权限。
 
-当前版本为 **2.0.0-test 测试安装包**，使用本机 Android 调试证书签名，未发布应用商店。下载后在 Android「文件」中打开 APK，按系统提示允许该下载来源安装。要求设备支持 WebGL 2，并使用较新的 Android System WebView。相同证书的后续包可覆盖更新；其他机器生成的调试签名通常需要先卸载。
+当前版本为 **2.1.0-test 测试安装包**，使用本机 Android 调试证书签名，未发布应用商店。下载后在 Android「文件」中打开 APK，按系统提示允许该下载来源安装。要求设备支持 WebGL 2，并使用较新的 Android System WebView。相同证书的后续包可覆盖更新；其他机器生成的调试签名通常需要先卸载。
 
-下载：[Android APK（3.7 MB）](https://github.com/BreezeLife/dino-grove/releases/download/v2.0.0-android-test/dino-grove-android-v2.0.0.apk) · [发行说明及校验值](https://github.com/BreezeLife/dino-grove/releases/tag/v2.0.0-android-test)。发布记录见 [交接文档](docs/HANDOFF.md)，本地构建步骤见 [Android README](android/README.md)。构建命令：
+下载：[Android APK（3.7 MB）](https://github.com/BreezeLife/dino-grove/releases/download/v2.1.0-android-test/dino-grove-android-v2.1.0.apk) · [发行说明及校验值](https://github.com/BreezeLife/dino-grove/releases/tag/v2.1.0-android-test)。发布记录见 [交接文档](docs/HANDOFF.md)，本地构建步骤见 [Android README](android/README.md)。构建命令：
 
 ```sh
 node scripts/build-android.mjs
 ```
 
-脚本将源码逐字节校验后复制到本机临时目录构建，输出 `releases/dino-grove-android-v2.0.0.apk`，避免云同步目录中的短读影响产物。Android 原生验证与桌面触摸模拟分别记录在 [QA](docs/QA.md)。
+脚本将源码逐字节校验后复制到本机临时目录构建，输出 `releases/dino-grove-android-v2.1.0.apk`，避免云同步目录中的短读影响产物。Android 原生验证与桌面触摸模拟分别记录在 [QA](docs/QA.md)。

@@ -1,0 +1,429 @@
+
+> dino-grove@1.0.0 test
+> node tests/navigation-check.mjs && node tests/scene-check.mjs
+
+{
+  "passed": true,
+  "checks": [
+    {
+      "case": "direct click and arrival pause",
+      "seconds": 8.2
+    },
+    {
+      "case": "route around pond",
+      "seconds": 10.25
+    },
+    {
+      "case": "route around tree",
+      "seconds": 6.1
+    },
+    {
+      "case": "safe adjustment: water",
+      "seconds": 14.416666666666666
+    },
+    {
+      "case": "safe adjustment: tree",
+      "seconds": 15.5
+    },
+    {
+      "case": "safe adjustment: island edge",
+      "seconds": 14.833333333333334
+    },
+    {
+      "case": "replace, cancel and feed commands"
+    },
+    {
+      "case": "switch resident without manual deadlock",
+      "seconds": 13.216666666666667
+    },
+    {
+      "case": "five rapid commands then autonomous recovery",
+      "seconds": 22.35,
+      "observationSeconds": 600
+    },
+    {
+      "case": "five-resident natural behavior",
+      "seed": 814,
+      "seconds": 600,
+      "minimumClearance": 0.060031004331187354,
+      "distances": [
+        143,
+        145,
+        134,
+        154,
+        197
+      ]
+    },
+    {
+      "case": "five-resident natural behavior",
+      "seed": 7,
+      "seconds": 600,
+      "minimumClearance": 0.06740090574774582,
+      "distances": [
+        156,
+        116,
+        128,
+        145,
+        183
+      ]
+    },
+    {
+      "case": "five-resident natural behavior",
+      "seed": 123456,
+      "seconds": 600,
+      "minimumClearance": 0.060017770018462535,
+      "distances": [
+        144,
+        150,
+        144,
+        136,
+        176
+      ]
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 814,
+      "id": 0,
+      "seconds": 8.966666666666667,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 814,
+      "id": 1,
+      "seconds": 17.166666666666668,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 814,
+      "id": 2,
+      "seconds": 43.53333333333333,
+      "adjusted": true
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 814,
+      "id": 3,
+      "seconds": 12.133333333333333,
+      "adjusted": true
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 814,
+      "id": 4,
+      "seconds": 36.083333333333336,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 7,
+      "id": 0,
+      "seconds": 8.966666666666667,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 7,
+      "id": 1,
+      "seconds": 17.166666666666668,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 7,
+      "id": 2,
+      "seconds": 24.35,
+      "adjusted": true
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 7,
+      "id": 3,
+      "seconds": 20.833333333333332,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 7,
+      "id": 4,
+      "seconds": 38.38333333333333,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 123456,
+      "id": 0,
+      "seconds": 8.966666666666667,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 123456,
+      "id": 1,
+      "seconds": 17.166666666666668,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 123456,
+      "id": 2,
+      "seconds": 22.366666666666667,
+      "adjusted": true
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 123456,
+      "id": 3,
+      "seconds": 20.133333333333333,
+      "adjusted": false
+    },
+    {
+      "case": "moving residents and replanning",
+      "seed": 123456,
+      "id": 4,
+      "seconds": 41.88333333333333,
+      "adjusted": false
+    }
+  ]
+}
+{
+  "passed": true,
+  "checks": [
+    {
+      "seed": 814,
+      "seconds": 600,
+      "minimumClearance": 0.060031004331187354,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 143,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 145,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 134,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 3,
+          "distance": 154,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 4,
+          "distance": 197,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "seconds": 600,
+      "minimumClearance": 0.06740090574774582,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 156,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 116,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 128,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 3,
+          "distance": 145,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 4,
+          "distance": 183,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 123456,
+      "seconds": 600,
+      "minimumClearance": 0.060017770018462535,
+      "residents": [
+        {
+          "id": 0,
+          "distance": 144,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 1,
+          "distance": 150,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 2,
+          "distance": 144,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        },
+        {
+          "id": 3,
+          "distance": 136,
+          "behaviors": [
+            "look",
+            "walk",
+            "drink",
+            "graze"
+          ]
+        },
+        {
+          "id": 4,
+          "distance": 176,
+          "behaviors": [
+            "look",
+            "walk",
+            "graze",
+            "drink"
+          ]
+        }
+      ]
+    },
+    {
+      "viewport": "1440x900",
+      "meshes": 323,
+      "vertices": 60182,
+      "bounds": {
+        "left": -0.5196743583349046,
+        "right": 0.5134209087510714,
+        "top": 0.5106618141241952,
+        "bottom": -0.6146515493728572
+      },
+      "initialIslandDepth": 54.861319165581186,
+      "initialFogNear": 65
+    },
+    {
+      "viewport": "390x844",
+      "meshes": 323,
+      "vertices": 60182,
+      "bounds": {
+        "left": -0.7592029378319594,
+        "right": 0.7640758774875833,
+        "top": 0.23989120576084821,
+        "bottom": -0.23404455878467537
+      },
+      "initialIslandDepth": 112.26382730133535,
+      "initialFogNear": 149.10666666666668
+    },
+    {
+      "viewport": "320x568",
+      "meshes": 323,
+      "vertices": 60182,
+      "bounds": {
+        "left": -0.7633338413104624,
+        "right": 0.765546383038223,
+        "top": 0.2887607753884085,
+        "bottom": -0.29148233970896975
+      },
+      "initialIslandDepth": 93.95993103509699,
+      "initialFogNear": 122.2975
+    },
+    {
+      "viewport": "844x390",
+      "meshes": 323,
+      "vertices": 60182,
+      "bounds": {
+        "left": -0.38421421753670665,
+        "right": 0.37959081405292483,
+        "top": 0.5106618141241952,
+        "bottom": -0.6146515493728572
+      },
+      "initialIslandDepth": 54.861319165581186,
+      "initialFogNear": 65
+    },
+    {
+      "guidance": true,
+      "reducedMotion": false,
+      "pathArrows": 24,
+      "checked": "Persistent selection, isolated highlight, A* arrows, blocked and arrival states, pause, cleanup"
+    },
+    {
+      "guidance": true,
+      "reducedMotion": true,
+      "pathArrows": 24,
+      "checked": "Persistent selection, isolated highlight, A* arrows, blocked and arrival states, pause, cleanup"
+    }
+  ]
+}

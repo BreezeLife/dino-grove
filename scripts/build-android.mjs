@@ -25,7 +25,7 @@ function run(command, args, cwd = root) {
   if (result.error) throw result.error;
   if (result.status !== 0) throw new Error(`${command} failed (${result.status ?? result.signal}). No APK published.`);
 }
-const destination = resolve(root, 'releases/dino-grove-android-v2.0.0.apk');
+const destination = resolve(root, 'releases/dino-grove-android-v2.1.0.apk');
 await rm(destination, { force: true });
 // Cloud-synced folders may return a short read or stall the OS copyFile syscall.
 // Build a byte-verified local snapshot; never silently publish empty cloud files.
@@ -61,7 +61,7 @@ run(process.platform === 'win32' ? 'gradlew.bat' : './gradlew', ['--no-daemon', 
 const apkStat = await stat(apk);
 if (apkStat.size < 100_000) throw new Error('Android build output is unexpectedly small.');
 const metadata = JSON.parse(await readFile(resolve(dirname(apk), 'output-metadata.json'), 'utf8'));
-if (metadata.applicationId !== 'com.breezelife.dinogrove' || metadata.elements?.[0]?.versionName !== '2.0.0-test') {
+if (metadata.applicationId !== 'com.breezelife.dinogrove' || metadata.elements?.[0]?.versionName !== '2.1.0-test') {
   throw new Error('Unexpected Android package identity.');
 }
 await mkdir(dirname(destination), { recursive: true });
@@ -69,4 +69,4 @@ await copyVerified(apk, destination);
 console.log(`Build snapshot retained for asset verification: ${staging}`);
 console.log(`\nAndroid 10+ phone/tablet test APK: ${destination}`);
 console.log(`SHA-256: ${createHash('sha256').update(await readFile(destination)).digest('hex')}`);
-console.log('Version 2.0.0-test; local Android debug certificate. Not a Google Play release.');
+console.log('Version 2.1.0-test; local Android debug certificate. Not a Google Play release.');

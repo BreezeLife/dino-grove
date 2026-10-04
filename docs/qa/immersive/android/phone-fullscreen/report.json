@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-04T15:44:53.763Z",
+  "serial": "emulator-5560",
+  "profile": "phone",
+  "emulator": true,
+  "physicalDevice": false,
+  "checks": [
+    "Native full screen hides Android system bars and auto-collapses menu",
+    "Native Back closes menu first; choosing resident collapses menu",
+    "Framed photo saves through MediaStore in immersive mode; Back closes photo before full screen",
+    "Rotation retains immersive mode; Back restores bars, then closes the resident card",
+    "English native fullscreen controls work"
+  ],
+  "errors": [],
+  "android": {
+    "version": "15",
+    "api": "35"
+  },
+  "apkSha256": "cdfd4b1b945e12a6ed7cd35f48d9f379e05bb9ef53aa4cc5fd8c9e9e125c6b72",
+  "normal": {
+    "viewport": [
+      393,
+      778
+    ],
+    "dpr": 2.75,
+    "document": [
+      393,
+      778
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        558,
+        519
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-3fEWPavw.js",
+      "https://appassets.androidplatform.net/assets/assets/index-DYMI6Enu.css"
+    ],
+    "online": true
+  },
+  "immersive": {
+    "viewport": [
+      393,
+      802
+    ],
+    "dpr": 2.75,
+    "document": [
+      393,
+      802
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        589,
+        1203
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-3fEWPavw.js",
+      "https://appassets.androidplatform.net/assets/assets/index-DYMI6Enu.css"
+    ],
+    "online": true
+  },
+  "landscape": {
+    "viewport": [
+      802,
+      393
+    ],
+    "dpr": 2.75,
+    "document": [
+      802,
+      393
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        1443,
+        707
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-3fEWPavw.js",
+      "https://appassets.androidplatform.net/assets/assets/index-DYMI6Enu.css"
+    ],
+    "online": true
+  },
+  "beforeExit": {
+    "immersive": "true",
+    "menuOpen": "false",
+    "fullscreenMode": "system",
+    "mood": "day",
+    "locale": "zh",
+    "platform": "android"
+  },
+  "restored": {
+    "viewport": [
+      393,
+      778
+    ],
+    "dpr": 2.75,
+    "document": [
+      393,
+      778
+    ],
+    "small": [],
+    "canvas": {
+      "size": [
+        558,
+        519
+      ],
+      "renderer": "Android Emulator OpenGL ES Translator (Apple M1 Pro)"
+    },
+    "platform": "android",
+    "source": "https://appassets.androidplatform.net/assets/index.html",
+    "assets": [
+      "https://appassets.androidplatform.net/assets/assets/index-3fEWPavw.js",
+      "https://appassets.androidplatform.net/assets/assets/index-DYMI6Enu.css"
+    ],
+    "online": true
+  },
+  "keyEvents": [
+    {
+      "key": "Escape",
+      "prevented": true,
+      "time": 15963.900000000373,
+      "state": {
+        "immersive": "true",
+        "menuOpen": "false",
+        "fullscreenMode": "system",
+        "mood": "day",
+        "locale": "zh",
+        "platform": "android"
+      }
+    },
+    {
+      "key": "Escape",
+      "prevented": true,
+      "time": 38611.60000000009,
+      "state": {
+        "immersive": "false",
+        "menuOpen": "false",
+        "fullscreenMode": "off",
+        "mood": "day",
+        "locale": "zh",
+        "platform": "android"
+      }
+    },
+    {
+      "key": "Escape",
+      "prevented": true,
+      "time": 39711.60000000009,
+      "state": {
+        "immersive": "false",
+        "menuOpen": "false",
+        "fullscreenMode": "off",
+        "mood": "day",
+        "locale": "zh",
+        "platform": "android"
+      }
+    }
+  ],
+  "passed": true
+}
